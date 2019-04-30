@@ -6,7 +6,7 @@ $rep=array();
 
 function ctlListerMembres() {
 	global $connexion, $rep;
-	$sql = "SELECT * FROM users";
+	$sql = "SELECT * FROM utilisateur";
 	// $rep="";
 	try{
 		 $stmt = $connexion->prepare($sql);
