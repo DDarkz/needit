@@ -10,7 +10,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link text-white" href="index.php">Annonces</a>
+            <a class="nav-link text-white" href="annonces.php">Annonces</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-white" href="annonceDetail.php">Annonces Détail</a>
@@ -23,10 +23,13 @@
           </li>
 
           <li class="nav-item">
+<<<<<<< HEAD
             <a class="nav-link text-white" href="admin.php">Admin</a>
           </li>
 
           <li class="nav-item">
+=======
+>>>>>>> a77dee4c0c94e9217663f74e38f04ddeb84132ee
             <?php include("header.php"); ?>
         </li>
 

@@ -8,7 +8,7 @@ try {
 	$options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
 	$connexion = new PDO($dns, USAGER, PASSE, $options);
 } catch (Exception $e) {
-	echo "Erreur de connexion à la base de donnée bdservice.";
+	echo "Erreur de connexion à la base de donnée.";
 	echo $e->getMessage();
 	exit();
 };
