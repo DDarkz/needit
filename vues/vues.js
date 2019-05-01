@@ -7,7 +7,7 @@ function vueListerMembres(dataMembres){
 		rep+="<li>"+(ligne.idUser)+ " " +(ligne.courriel)+ " " +(ligne.mdp)+"</li>";
 	}
 	rep+="</ul>";
-	rep+="<p>fin de la liste.</p>";
+	rep+="<p>fin de la liste .</p>";
 	$("#contenu").html(rep);
 }
 
