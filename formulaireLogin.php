@@ -77,11 +77,6 @@ if(isset($_POST["login"]))
        <h1>Formulaire login</h1>
 
 
-        <div id="contenu">
-          <!--?php lister(); ?-->
-        </div>
-
-
        <!-- debut formulaire -->
         <form method="post">
           <div class="form-group">
