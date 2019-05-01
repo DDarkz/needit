@@ -25,6 +25,7 @@ if(isset($_POST["login"]))
         if($count > 0)
         {
           // Transporter les sessions courriel et id.
+          $_SESSION["password"] = $_POST["password"];
           $_SESSION["courriel"] = $_POST["courriel"];
           $_SESSION["idUser"] = ($row->id);
           include("includes/headerMembre.php");
