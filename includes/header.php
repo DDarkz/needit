@@ -1,6 +1,6 @@
 <!-- Vérifie si connecté. -->
 <?php 
-    if (isset($_SESSION["username"])) {
+    if (isset($_SESSION["courriel"])) {
         include("headerMembre.php");
         
     }

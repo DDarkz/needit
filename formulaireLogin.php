@@ -6,16 +6,16 @@ if(isset($_POST["login"]))
 {
   try {
   
-      if (empty($_POST["username"])  || empty($_POST["password"]))
+      if (empty($_POST["courriel"])  || empty($_POST["password"]))
       {
         $message = '<label>Veuillez remplir tous les champs.</lable>';
       }
       else
       {
-        $sql = "SELECT * FROM users WHERE username = :username AND password = :password";
+        $sql = "SELECT * FROM connexion WHERE courriel = :courriel AND mdp = :password";
 
         $statement = $connexion->prepare($sql);
-        $statement->execute(array('username' => $_POST["username"],
+        $statement->execute(array('courriel' => $_POST["courriel"],
                  'password' => $_POST["password"]));
 
 
@@ -24,16 +24,17 @@ if(isset($_POST["login"]))
 
         if($count > 0)
         {
-          // Transporter les sessions username et id.
-          $_SESSION["username"] = $_POST["username"];
-          $_SESSION["id"] = ($row->id);
+          // Transporter les sessions courriel et id.
+          $_SESSION["courriel"] = $_POST["courriel"];
+          $_SESSION["idUser"] = ($row->id);
           include("includes/headerMembre.php");
+          header("location: annonces.php");
           //$message = 'Vous êtes connecté.';
           //header("location:login_success.php");
         }
         else
         {
-          $message = 'Username OU Password n\'est pas bon.';
+          $message = 'Courriel OU Password n\'est pas bon.';
         }
       }
         
@@ -84,10 +85,10 @@ if(isset($_POST["login"]))
        <!-- debut formulaire -->
         <form method="post">
           <div class="form-group">
-            <label for="username">Username</label> <input type="text" id="username" name="username" class="form-control">
+            <label for="courriel">courriel</label> <input type="text" id="courriel" name="courriel" class="form-control">
           </div>
           <div class="form-group">
-            <label for="password">Password</label> <input type="text" id="password" name="password" class="form-control">
+            <label for="password">Password</label> <input type="password" id="password" name="password" class="form-control">
           </div>
           <input type="submit" name="login" class="btn btn-primary" value="connexion" />
         </form>
