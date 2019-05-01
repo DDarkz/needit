@@ -19,8 +19,9 @@ function ajaxListerMembresAdmin(){
 		type:'POST',
 		data: {'action' : 'actCtlListerMAdmin'}, // action="actCtlListerM" au controleur.php
 		dataType: 'json',
-		success: function(dataMembres){
-			vue('actVueListerMAdmin',dataMembres); // action="actVueListerM" au fichier vues.js
+		success: function(dataMembresAdmin){
+			// alert("wow");
+			vue('actVueListerMAdmin',dataMembresAdmin); // action="actVueListerM" au fichier vues.js
 		},
 		fail:function(){
 			alert("Problème pour lister membres.");
@@ -52,6 +53,7 @@ var requetes = function(action,donnees){
 			ajaxListerMembres();
 		break;
 		case "actionListerMAdmin" :
+			// alert("coucou");
 			ajaxListerMembresAdmin();
 		break;
 		case "actionListerA" :

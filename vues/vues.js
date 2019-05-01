@@ -19,13 +19,13 @@ function vueListerMembres(dataMembres){
 	$("#contenu").html(rep);
 }
 
-function vueListerMembresAdmin(dataMembres){
+function vueListerMembresAdmin(dataMembresAdmin){
 	rep="<h2>Liste des membres</h2>";
 	rep+="<table class='table table-striped'>";
 	rep+='<tr><th scope="col">#</th><th scope="col">Nom</th><th scope="col">Prénom</th><th scope="col">Date Naissance</th><th scope="col">Ville</th><th scope="col">Code Postal</th><th scope="col">Téléphone</th></tr>';
-	var taille = dataMembres.length;
+	var taille = dataMembresAdmin.length;
 	for(i=0; i<taille; i++) {
-		ligne=dataMembres[i];
+		ligne=dataMembresAdmin[i];
 		rep+="<tr>";
 		rep+="<td>"+(ligne.idUser)+"</td>";
 		rep+="<td>"+(ligne.nom)+"</td>";

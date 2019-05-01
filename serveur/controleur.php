@@ -25,7 +25,7 @@ function ctlListerMembres() {
 
 function ctlListerMembresAdmin() {
 	global $connexion, $rep;
-	$sql = "SELECT * FROM utilisateurs";
+	$sql = "SELECT * FROM utilisateur";
 	// $rep="";
 	try{
 		 $stmt = $connexion->prepare($sql);
@@ -68,10 +68,10 @@ switch ($action) {
 		ctlListerMembres();
 		break;
 		case 'actCtlListerMAdmin':
+		// alert("hello");
 		ctlListerMembresAdmin();
 		break;
 	case 'actCtlListerA':
-		//echo "coucou!!!";
 		ctlListerAnnoncesAdmin();
 		break;
 }
