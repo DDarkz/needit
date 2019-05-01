@@ -18,7 +18,7 @@ session_start();
 
     <title>Formulaire Login</title>
   </head>
-  <body onload="requetes('actionListerM'), requetes('actionListerA');">
+  <body onload="requetes('actionListerMAdmin'), requetes('actionListerA');">
     <?php include("includes/menu.php"); ?>
     
     <!-- debut container -->

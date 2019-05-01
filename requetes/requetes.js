@@ -5,11 +5,22 @@ function ajaxListerMembres(){
 		data: {'action' : 'actCtlListerM'}, // action="actCtlListerM" au controleur.php
 		dataType: 'json',
 		success: function(dataMembres){
-<<<<<<< HEAD
-			// alert("hello");
-=======
->>>>>>> a77dee4c0c94e9217663f74e38f04ddeb84132ee
 			vue('actVueListerM',dataMembres); // action="actVueListerM" au fichier vues.js
+		},
+		fail:function(){
+			alert("Problème pour lister membres.");
+		}
+	});
+}
+
+function ajaxListerMembresAdmin(){
+	$.ajax({
+		url:'serveur/controleur.php',
+		type:'POST',
+		data: {'action' : 'actCtlListerMAdmin'}, // action="actCtlListerM" au controleur.php
+		dataType: 'json',
+		success: function(dataMembres){
+			vue('actVueListerMAdmin',dataMembres); // action="actVueListerM" au fichier vues.js
 		},
 		fail:function(){
 			alert("Problème pour lister membres.");
@@ -39,6 +50,9 @@ var requetes = function(action,donnees){
 	switch(action) {
 		case "actionListerM" :
 			ajaxListerMembres();
+		break;
+		case "actionListerMAdmin" :
+			ajaxListerMembresAdmin();
 		break;
 		case "actionListerA" :
 			//alert("coucou");
