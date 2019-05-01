@@ -10,7 +10,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link text-white" href="index.php">Annonces</a>
+            <a class="nav-link text-white" href="annonces.php">Annonces</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-white" href="annonceDetail.php">Annonces Détail</a>
