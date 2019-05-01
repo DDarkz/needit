@@ -23,13 +23,10 @@
           </li>
 
           <li class="nav-item">
-<<<<<<< HEAD
             <a class="nav-link text-white" href="admin.php">Admin</a>
           </li>
 
           <li class="nav-item">
-=======
->>>>>>> a77dee4c0c94e9217663f74e38f04ddeb84132ee
             <?php include("header.php"); ?>
         </li>
 
