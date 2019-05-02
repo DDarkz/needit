@@ -14,7 +14,7 @@ session_start();
     <script type="text/javascript" src="vues/vues.js"></script>
     <script type="text/javascript" src="requetes/requetes.js"></script>
 
-    <title>Formulaire livreur</title>
+    <title>Formulaire inscription</title>
   </head>
   <body>
 
