@@ -16,7 +16,7 @@ session_start();
     <script type="text/javascript" src="vues/vues.js"></script>
     <script type="text/javascript" src="requetes/requetes.js"></script>
 
-    <title>Formulaire Login</title>
+    <title>Admin</title>
   </head>
   <body onload="requetes('actionListerMAdmin'), requetes('actionListerA');">
     <?php include("includes/menu.php"); ?>

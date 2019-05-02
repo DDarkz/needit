@@ -60,6 +60,25 @@ function ctlListerAnnoncesAdmin() {
 	 }
 }
 
+function ctlDeleteMembres() {
+	global $connexion, $rep;
+	$sql = "DELETE * FROM utilisateur WHERE idUser='?'";
+	// $rep="";
+	try{
+		 $stmt = $connexion->prepare($sql);
+		 $stmt->execute();
+		 while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
+			$rep[]=$ligne;
+		 }
+	 }catch (Exception $e){
+		echo "Problème controleur pour lister membres.";
+	 }finally {
+		unset($connexion);
+		unset($stmt);
+		echo json_encode($rep);
+	 }
+}
+
 
 // controleur
 $action=$_POST["action"];
@@ -67,12 +86,15 @@ switch ($action) {
 	case 'actCtlListerM':
 		ctlListerMembres();
 		break;
-		case 'actCtlListerMAdmin':
+	case 'actCtlListerMAdmin':
 		// alert("hello");
 		ctlListerMembresAdmin();
 		break;
 	case 'actCtlListerA':
 		ctlListerAnnoncesAdmin();
+		break;
+	case 'actCtlDeleteMembre':
+		ctlDeleteMembres();
 		break;
 }
 

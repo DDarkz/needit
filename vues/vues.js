@@ -27,7 +27,7 @@ function vueListerMembresAdmin(dataMembresAdmin){
 	for(i=0; i<taille; i++) {
 		ligne=dataMembresAdmin[i];
 		rep+="<tr>";
-		rep+="<td>"+(ligne.idUser)+"</td>";
+		rep+="<td><button id='num"+(ligne.idUser)+"' onclick='requetes("+(ligne.idUser)+")'>"+(ligne.idUser)+"</button></td>";
 		rep+="<td>"+(ligne.nom)+"</td>";
 		rep+="<td>"+(ligne.prenom)+"</td>";
 		rep+="<td>"+(ligne.dateNaissance)+"</td>";
