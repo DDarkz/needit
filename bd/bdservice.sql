@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  mar. 30 avr. 2019 à 19:34
+-- Généré le :  jeu. 02 mai 2019 à 20:11
 -- Version du serveur :  5.7.17
 -- Version de PHP :  5.6.30
 
@@ -32,19 +32,29 @@ CREATE TABLE `annonce` (
   `idAnnonce` int(11) NOT NULL,
   `idDemandeur` int(11) NOT NULL,
   `idService` int(11) NOT NULL,
+  `Titre` varchar(100) NOT NULL,
   `listeAchat` text NOT NULL,
   `codePostale` varchar(50) NOT NULL,
   `statut` tinyint(1) NOT NULL,
-  `pochette` varchar(100) NOT NULL
+  `pochette` varchar(100) NOT NULL,
+  `date` date NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `annonce`
 --
 
-INSERT INTO `annonce` (`idAnnonce`, `idDemandeur`, `idService`, `listeAchat`, `codePostale`, `statut`, `pochette`) VALUES
-(1, 2, 1, 'lait\r\noeufs\r\npain au chocolat\r\n', 'h4ebd5', 0, ''),
-(2, 3, 2, 'couches bébé taille 3\r\nAdvil', 'h7n3u9', 0, '');
+INSERT INTO `annonce` (`idAnnonce`, `idDemandeur`, `idService`, `Titre`, `listeAchat`, `codePostale`, `statut`, `pochette`, `date`) VALUES
+(1, 2, 1, '', 'lait\r\noeufs\r\npain au chocolat\r\n', 'h4ebd5', 0, '', '0000-00-00'),
+(2, 3, 2, '', 'couches bébé taille 3\r\nAdvil', 'h7n3u9', 0, '', '0000-00-00'),
+(3, 1, 1, 'achat chez maxi', '-lait', 'h3h3l3', 0, 'achat.jpeg', '2019-05-02'),
+(4, 1, 1, 'achat chez maxi', '-Lait', 'h3h3l3', 0, 'avatar.jpeg', '2019-05-02'),
+(5, 1, 1, 'achat chez maxi', '-Lait', 'h3h3l3', 0, 'avatar.jpeg', '2019-05-02'),
+(6, 1, 1, 'Pharmaprix', '-Advil', 'h3h2j3', 0, 'avatar.jpeg', '2019-05-02'),
+(7, 1, 2, 'achat chez Pharmaprix', '-Advil', 'J4J 3L3', 0, 'avatar.jpeg', '2019-05-02'),
+(8, 1, 1, 'achat chez maxi', '-couches\r\n-lait\r\n-fromage', 'h3h3k3', 0, 'b19b23dfd370e4784237b037d1689df3cb64f8f4', '2019-05-02'),
+(9, 4, 1, 'achat chez Metro', 'vous trouverez la liste sur la photo', 'h0h2a5', 0, '5f3c07a562b0ab06079bda0999ead9a880b8ef2b', '2019-05-02'),
+(10, 1, 2, 'achat chez maxi', '- lait', 'h3h3l3', 0, 'b5f988605b39bf3339ea963d80f4251ec8b7c97a', '2019-05-02');
 
 -- --------------------------------------------------------
 
@@ -172,7 +182,7 @@ ALTER TABLE `utilisateur`
 -- AUTO_INCREMENT pour la table `annonce`
 --
 ALTER TABLE `annonce`
-  MODIFY `idAnnonce` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idAnnonce` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT pour la table `livraison`
 --
