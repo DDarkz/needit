@@ -15,6 +15,9 @@
           <li class="nav-item">
             <a class="nav-link text-white" href="annonceDetail.php">Annonces Détail</a>
           </li>
+          <?php
+            if(isset($_SESSION["courriel"])){
+          ?>  
           <li class="nav-item">
             <a class="nav-link text-white" href="formulaireDemandeur.php">Form Demandeur</a>
           </li>
@@ -22,8 +25,9 @@
             <a class="nav-link text-white" href="formulaireLivreur.php">Form Livreur</a>
           </li>
           <?php
+            }
           if(isset($_SESSION["courriel"])){
-            if($_SESSION["courriel"] == "admin@gmail.com" && $_SESSION["password"] == "123456"){
+            if($_SESSION["courriel"] == "admin@gmail.com" && $_SESSION["password"] == sha1("123456")){
               ?>
               <li class="nav-item">
                 <a class="nav-link text-white" href="admin.php">Admin</a>

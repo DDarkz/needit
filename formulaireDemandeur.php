@@ -1,6 +1,54 @@
 <?php
 include("bd/connexion.php");
 session_start();
+
+if(isset($_POST["submit"]))
+{
+
+  try {
+  
+      if (empty($_POST["titre"])  || empty($_POST["liste"]) || empty($_POST["codepostal"]))
+      {
+        $message = '<label>Veuillez remplir tous les champs.</lable>';
+      }
+      else
+      {
+        global $connexion, $rep;	
+	      $titre = htmlspecialchars(trim($_POST['titre']));
+        $liste = htmlspecialchars(trim($_POST['liste']));
+        $codepostal = htmlspecialchars(trim($_POST['codepostal']));
+	      $courriel = $_SESSION["courriel"];
+        $service = $_POST["service"];
+        $iddemandeur="SELECT idUser FROM connexion WHERE `courriel` = '$courriel'";
+        foreach($connexion->query($iddemandeur) as $row)
+        $idservice="SELECT idService FROM service WHERE `nomService` = '$service'";
+        foreach($connexion->query($idservice) as $rowS)
+        $statut = 0;
+        $dossier="images/";
+	      $nomPochette=sha1($titre.time());
+	      $pochette="avatar.jpg";
+	      if($_FILES['pochette']['tmp_name']!==""){
+		      //Upload de la photo
+		      $tmp = $_FILES['pochette']['tmp_name'];
+		      $fichier= $_FILES['pochette']['name'];
+		      $extension=strrchr($fichier,'.');
+		      @move_uploaded_file($tmp,$dossier.$nomPochette.$extension);
+		      // Enlever le fichier temporaire chargé
+		      @unlink($tmp); //effacer le fichier temporaire
+		      $pochette=$nomPochette.$extension;
+	}
+	      $requete="INSERT INTO annonce VALUES(0,?,?,?,?,?,?,?,NOW())";
+	      $stmt = $connexion->prepare($requete);
+	      $stmt->execute(array($row['idUser'],$rowS['idService'],$titre,$liste,$codepostal,$statut,$pochette));
+        header("location: annonces.php");
+      }
+        
+      }
+      catch(Exception $e) 
+      {
+          $message =$e->getMessage();
+      }
+  }    
 ?>
 <!doctype html>
 <html lang="fr">
@@ -12,7 +60,8 @@ session_start();
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script type="text/javascript" src="vues/vues.js"></script>
-    <script type="text/javascript" src="requetes/requetes.js"></script>  
+    <script type="text/javascript" src="requetes/requetes.js"></script>
+    <script type="text/javascript" src="js/general.js"></script>  
 
     <title>Formulaire demandeur</title>
   </head>
@@ -23,102 +72,57 @@ session_start();
 
     <!-- debut container -->
     <div class="container pt-5">
+    <?php
+        if (isset($message)) {
+          echo '<div class="alert alert-danger" role="alert">'.$message.'</div>';
+           }
+       ?>
        <h1>Formulaire demandeur</h1>
 
        <!-- debut formulaire -->
-        <form>
+        <form method="post">
           <div class="form-group row">
-            <label for="email" class="col-sm-2 col-form-label">Email</label>
+            <label for="titre" class="col-sm-2 col-form-label">Titre</label>
             <div class="col-sm-10">
-              <input type="email" class="form-control" id="email" placeholder="Email">
+              <input type="text" class="form-control" id="titre" name="titre" placeholder="Titre">
             </div>
           </div>
 
           <div class="form-group row">
-            <label for="password" class="col-sm-2 col-form-label">Password</label>
+            <label for="liste" class="col-sm-2 col-form-label">Liste d'achats</label>
             <div class="col-sm-10">
-              <input type="password" class="form-control" id="password" placeholder="Password">
+              <textarea class="form-control" id="liste" name="liste" placeholder="Liste d'achats"></textarea> 
             </div>
           </div>
 
-          <fieldset class="form-group">
-            <div class="row">
-              <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
-              <div class="col-sm-10">
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-                  <label class="form-check-label" for="gridRadios1">
-                    First radio
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                  <label class="form-check-label" for="gridRadios2">
-                    Second radio
-                  </label>
-                </div>
-              </div>
+          <div class="form-group row">
+            <label for="codepostal" class="col-sm-2 col-form-label">Code potal</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="codepostal" name="codepostal" placeholder="Code potal">
             </div>
-          </fieldset>
+          </div>
+          <div class="form-group row">
+            <label for="service" class="col-sm-2 col-form-label">Service</label>
+            <div class="col-sm-10">
+              <select class="form-select" name="service">
+                <option value="epicerie">epicerie</option>
+                <option value="pharmacie">pharmacie</option>
+                <option value="autre">autre</option>
+              </select>
+            </div>
+          </div>
 
           <div class="form-group row">
-            <div class="col-sm-2">Type de commerce</div>
+            <label for="photo" class="col-sm-2 col-form-label">Photo</label>
             <div class="col-sm-10">
-              
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" value="">
-                  Option one is this and that&mdash;be sure to include why it's great
-                </label>
-              </div>
+              <input type="file" class="form-file-input" id="photo" name="photo">
+            </div>
+          </div>
             
-              <div class="radio">
-                <label>
-                  <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                  Option one is this and that&mdash;be sure to include why it's great
-                </label>
-              </div>
-
-              <div class="radio">
-                <label>
-                  <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                  Option two can be something else and selecting it will deselect option one
-                </label>
-              </div>
-
-
-            
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <div class="col-sm-2">Type de commerce</div>
-            <div class="col-sm-10">
-              <label class="checkbox-inline">
-                <input type="checkbox" id="inlineCheckbox1" value="option1"> 1
-              </label>
-              <label class="checkbox-inline">
-                <input type="checkbox" id="inlineCheckbox2" value="option2"> 2
-              </label>
-              <label class="checkbox-inline">
-                <input type="checkbox" id="inlineCheckbox3" value="option3"> 3
-              </label>
-
-              <label class="radio-inline">
-                <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1
-              </label>
-              <label class="radio-inline">
-                <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 2
-              </label>
-              <label class="radio-inline">
-                <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 3
-              </label>
-           </div>
-          </div>
-          
           <div class="form-group row">
             <div class="col-sm-10">
-              <button type="submit" class="btn btn-primary">Sign in</button>
+              <input type="submit" name="submit" class="btn btn-primary" value="Créer l'annonce" />
+              <button type="rest" name="rest" class="btn btn-warning">Éffacer</button>
             </div>
           </div>
         </form>
