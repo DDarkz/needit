@@ -23,7 +23,7 @@ session_start();
 
     <!-- debut container -->
     <div class="container pt-5">
-       <h1>Formulaire inscription</h1>
+       <h1>Inscrivez-vous !</h1>
        
 
        <!-- debut formulaire -->
