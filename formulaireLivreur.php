@@ -24,6 +24,8 @@ session_start();
     <!-- debut container -->
     <div class="container pt-5">
        <h1>Formulaire inscription</h1>
+       <p>test mel</p>
+       <p>blab al</p>
 
        <!-- debut formulaire -->
         <form>
