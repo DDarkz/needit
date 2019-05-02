@@ -1,6 +1,38 @@
 <?php
 include("bd/connexion.php");
 session_start();
+if(isset($_POST["submit"]))
+{
+
+  try {
+  
+    
+        global $connexion, $rep;	
+	      $nom = htmlspecialchars(trim($_POST['nom']));
+        $prenom = htmlspecialchars(trim($_POST['prenom']));
+        $dateNaissance = htmlspecialchars(trim($_POST['dateNaissance']));
+        $ville = htmlspecialchars(trim($_POST['ville']));
+        $codePostale = htmlspecialchars(trim($_POST['codePostale']));
+        $telephone = htmlspecialchars(trim($_POST['telephone']));
+	      
+        //$iddemandeur="SELECT idUser FROM connexion WHERE `courriel` = '$courriel'";
+       // foreach($connexion->query($iddemandeur) as $row)
+       // $idservice="SELECT idService FROM service WHERE `nomService` = '$service'";
+        //foreach($connexion->query($idservice) as $rowS)
+        //$statut = 0;
+        
+	      $requete="INSERT INTO utilisateur VALUES(0,?,?,?,?,?,?)";
+	      $stmt = $connexion->prepare($requete);
+	      $stmt->execute(array($nom,$prenom,$dateNaissancet,$ville,$codePostale,$telephone));
+        header("location: annonces.php");
+      }
+        
+      //}
+      catch(Exception $e) 
+      {
+          $message =$e->getMessage();
+      }
+  }    
 ?>
 <!doctype html>
 <html lang="fr">
@@ -66,11 +98,17 @@ session_start();
               <input type="text" class="form-control" id="telephone" >
             </div>
           </div>
-          
-
+          <div class="form-group">
+            <label for="courriel">Courriel</label>
+              <input type="email" class="form-control" id="courriel" aria-describedby="emailHelp" placeholder="Entrer email">
+          </div>
+          <div class="form-group">
+            <label for="mdp">Mot de passe</label>
+              <input type="password" class="form-control" id="mdp" placeholder="mot de passe">
+          </div>
           <div class="form-group row">
             <div class="col-sm-10">
-              <button type="button" class="btn btn-primary" onClick="requetes('inscription');">S'inscrire</button>
+              <button type="submit" class="btn btn-primary">S'inscrire</button>
             </div>
           </div>
         </form>
