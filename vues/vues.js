@@ -73,5 +73,7 @@ var vue=function(action,donnees){
 		case "actVueListerA":
 			vueListerAnnoncesAdmin(donnees);
 		break;	
+
+		
 	}
 }
