@@ -21,10 +21,15 @@ if(isset($_POST["submit"]))
         //foreach($connexion->query($idservice) as $rowS)
         //$statut = 0;
         
-	      $requete="INSERT INTO utilisateur VALUES(0,?,?,?,?,?,?)";
-	      $stmt = $connexion->prepare($requete);
+	      $requete1="INSERT INTO utilisateur VALUES(0,?,?,?,?,?,?)";
+	      $stmt = $connexion->prepare($requete1);
 	      $stmt->execute(array($nom,$prenom,$dateNaissancet,$ville,$codePostale,$telephone));
-        header("location: annonces.php");
+        //header("location: annonces.php");
+        //$requete2="INSERT INTO connexion VALUES(?,?,?)";
+	      //$stmt = $connexion->prepare($requete2);
+	      //$stmt->execute(array($courriel,$mdp));
+        //header("location: annonces.php");
+
       }
         
       //}
