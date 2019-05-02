@@ -5,7 +5,7 @@ if(isset($_POST["submit"]))
 {
 
   try {
-  
+    //echo"post";
     
         global $connexion, $rep;	
 	      $nom = htmlspecialchars(trim($_POST['nom']));
@@ -23,16 +23,16 @@ if(isset($_POST["submit"]))
         
 	      $requete1="INSERT INTO utilisateur VALUES(0,?,?,?,?,?,?)";
 	      $stmt = $connexion->prepare($requete1);
-	      $stmt->execute(array($nom,$prenom,$dateNaissancet,$ville,$codePostale,$telephone));
+	      $stmt->execute(array($nom,$prenom,$dateNaissance,$ville,$codePostale,$telephone));
         //header("location: annonces.php");
         //$requete2="INSERT INTO connexion VALUES(?,?,?)";
 	      //$stmt = $connexion->prepare($requete2);
 	      //$stmt->execute(array($courriel,$mdp));
         //header("location: annonces.php");
 
-      }
-        
       //}
+        
+      }
       catch(Exception $e) 
       {
           $message =$e->getMessage();
@@ -64,43 +64,43 @@ if(isset($_POST["submit"]))
        
 
        <!-- debut formulaire -->
-       <form>
+       <form method="post" enctype= "multipart/form-data" action="formulaireInscription.php"> 
           <div class="form-group row">
             <label for="nom" class="col-sm-2 col-form-label">Nom</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="nom" placeholder="Nom">
+              <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom">
             </div>
           </div>
 
           <div class="form-group row">
             <label for="prenom" class="col-sm-2 col-form-label">Prénom</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="prenom" placeholder="Prénom">
+              <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prénom">
             </div>
           </div>
 
           <div class="form-group row">
             <label for="dateNaissance" class="col-sm-2 col-form-label">Date de naissance</label>
             <div class="col-sm-10">
-              <input type="date" class="form-control" id="datNaissance" placeholder="aaaa-mm-jj">
+              <input type="date" class="form-control" id="dateNaissance" name="dateNaissance" placeholder="aaaa-mm-jj">
             </div>
           </div>
           <div class="form-group row">
             <label for="ville" class="col-sm-2 col-form-label">Ville</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="ville" placeholder="ex : Montréal">
+              <input type="text" class="form-control" id="ville" name="ville" placeholder="ex : Montréal">
             </div>
           </div>
           <div class="form-group row">
             <label for="codePostale" class="col-sm-2 col-form-label">Code Postale</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="codePostale" >
+              <input type="text" class="form-control" name="codePostale" id="codePostale" >
             </div>
           </div>
           <div class="form-group row">
             <label for="telephone" class="col-sm-2 col-form-label">Téléphone</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="telephone" >
+              <input type="text" class="form-control" name="telephone" id="telephone" >
             </div>
           </div>
           <div class="form-group">
@@ -113,7 +113,8 @@ if(isset($_POST["submit"]))
           </div>
           <div class="form-group row">
             <div class="col-sm-10">
-              <button type="submit" class="btn btn-primary">S'inscrire</button>
+              <input type="submit" name="submit" class="btn btn-primary" value="S'inscrire" />
+              
             </div>
           </div>
         </form>
