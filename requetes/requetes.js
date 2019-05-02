@@ -45,6 +45,22 @@ function ajaxListerAnnoncesAdmin(){
 	});
 }
 
+function ajaxDeleteMembres(){
+	
+	$.ajax({
+		url:'serveur/controleur.php',
+		type:'POST',
+		data: {'action' : 'actCtlDeleteMembre'}, 
+		dataType: 'json',
+		success: function(dataAnnonces){
+			// alert("hello");
+			vue('actVueDeleteMembres',dataAnnonces); 
+		},
+		fail:function(){
+			alert("Problème pour supprimer.");
+		}
+	});
+}
 
 
 var requetes = function(action,donnees){
@@ -61,6 +77,8 @@ var requetes = function(action,donnees){
 			ajaxListerAnnoncesAdmin();
 			//alert("coucou2");
 		break;
+		case "actDeleteMembres" :
+			ajaxDeleteMembres();
 		default:
 	}
 }
