@@ -15,6 +15,9 @@
           <li class="nav-item">
             <a class="nav-link text-white" href="annonceDetail.php">Annonces Détail</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="formulaireInscription.php">Inscription</a>
+          </li>
           <?php
             if(isset($_SESSION["courriel"])){
           ?>  
@@ -22,7 +25,7 @@
             <a class="nav-link text-white" href="formulaireDemandeur.php">Form Demandeur</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="formulaireLivreur.php">Form Livreur</a>
+            <a class="nav-link text-white" href="formulaireInscription.php">Inscription</a>
           </li>
           <?php
             }
