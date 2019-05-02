@@ -25,12 +25,15 @@ if(isset($_POST["submit"]))
         foreach($connexion->query($idservice) as $rowS)
         $statut = 0;
         $dossier="images/";
+        if(!is_dir($dossier)){
+          mkdir($dossier);
+        }
 	      $nomPochette=sha1($titre.time());
 	      $pochette="avatar.jpg";
-	      if($_FILES['pochette']['tmp_name']!==""){
+	      if($_FILES["photo"]['tmp_name']!==""){
 		      //Upload de la photo
-		      $tmp = $_FILES['pochette']['tmp_name'];
-		      $fichier= $_FILES['pochette']['name'];
+		      $tmp = $_FILES["photo"]['tmp_name'];
+		      $fichier= $_FILES["photo"]['name'];
 		      $extension=strrchr($fichier,'.');
 		      @move_uploaded_file($tmp,$dossier.$nomPochette.$extension);
 		      // Enlever le fichier temporaire chargé
@@ -80,7 +83,7 @@ if(isset($_POST["submit"]))
        <h1>Formulaire demandeur</h1>
 
        <!-- debut formulaire -->
-        <form method="post">
+        <form method="post" enctype= "multipart/form-data">
           <div class="form-group row">
             <label for="titre" class="col-sm-2 col-form-label">Titre</label>
             <div class="col-sm-10">
