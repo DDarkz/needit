@@ -24,66 +24,53 @@ session_start();
     <!-- debut container -->
     <div class="container pt-5">
        <h1>Formulaire inscription</h1>
-       <p>test mel</p>
-       <p>blab al</p>
+       
 
        <!-- debut formulaire -->
-        <form>
+       <form>
           <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+            <label for="nom" class="col-sm-2 col-form-label">Nom</label>
             <div class="col-sm-10">
-              <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+              <input type="text" class="form-control" id="nom" placeholder="Nom">
             </div>
           </div>
 
           <div class="form-group row">
-            <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+            <label for="prenom" class="col-sm-2 col-form-label">Prénom</label>
             <div class="col-sm-10">
-              <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-            </div>
-          </div>
-
-          <fieldset class="form-group">
-            <div class="row">
-              <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
-              <div class="col-sm-10">
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-                  <label class="form-check-label" for="gridRadios1">
-                    First radio
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                  <label class="form-check-label" for="gridRadios2">
-                    Second radio
-                  </label>
-                </div>
-                <div class="form-check disabled">
-                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
-                  <label class="form-check-label" for="gridRadios3">
-                    Third disabled radio
-                  </label>
-                </div>
-              </div>
-            </div>
-          </fieldset>
-
-          <div class="form-group row">
-            <div class="col-sm-2">Checkbox</div>
-            <div class="col-sm-10">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck1">
-                <label class="form-check-label" for="gridCheck1">
-                  Example checkbox
-                </label>
-              </div>
+              <input type="text" class="form-control" id="prenom" placeholder="Prénom">
             </div>
           </div>
 
           <div class="form-group row">
+            <label for="dateNaissance" class="col-sm-2 col-form-label">Date de naissance</label>
             <div class="col-sm-10">
-              <button type="submit" class="btn btn-primary">Sign in</button>
+              <input type="date" class="form-control" id="datNaissance" placeholder="aaaa-mm-jj">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="ville" class="col-sm-2 col-form-label">Ville</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="ville" placeholder="ex : Montréal">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="codePostale" class="col-sm-2 col-form-label">Code Postale</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="codePostale" >
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="telephone" class="col-sm-2 col-form-label">Téléphone</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="telephone" >
+            </div>
+          </div>
+          
+
+          <div class="form-group row">
+            <div class="col-sm-10">
+              <button type="button" class="btn btn-primary" onClick="requetes('inscription');">S'inscrire</button>
             </div>
           </div>
         </form>
