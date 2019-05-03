@@ -14,6 +14,7 @@ if(isset($_POST["submit"]))
           $telephone = htmlspecialchars(trim($_POST['telephone']));
           $courriel = htmlspecialchars(trim($_POST['courriel']));
           $mdp = htmlspecialchars(trim($_POST['mdp']));
+          
         
           
           $requete="INSERT INTO utilisateur VALUES(0,?,?,?,?,?,?)";
