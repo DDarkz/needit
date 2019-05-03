@@ -24,9 +24,6 @@
           <li class="nav-item">
             <a class="nav-link text-white" href="formulaireDemandeur.php">Form Demandeur</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="formulaireInscription.php">Inscription</a>
-          </li>
           <?php
             }
           if(isset($_SESSION["courriel"])){
