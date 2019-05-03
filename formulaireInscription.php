@@ -4,7 +4,6 @@ echo"post";
 session_start();
 if(isset($_POST["submit"]))
 {
-<<<<<<< HEAD
   //echo"post";
   try {
     //echo"post";
@@ -18,9 +17,6 @@ if(isset($_POST["submit"]))
         $telephone = htmlspecialchars(trim($_POST['telephone']));
         $courriel = htmlspecialchars(trim($_POST['courriel']));
         $mdp = htmlspecialchars(trim($_POST['mdp']));
-      
-	      
-        
         
 	      $requete1="INSERT INTO utilisateur VALUES(0,?,?,?,?,?,?)";
 	      $stmt = $connexion->prepare($requete1);
@@ -37,44 +33,41 @@ if(isset($_POST["submit"]))
         //echo("$idUser");
         $requete2="INSERT INTO connexion VALUES(?,?,?)";
 	      $stmt2 = $connexion->prepare($requete2);
-	      $stmt2->execute(array($courriel,$mdp,$idUser));
+        $stmt2->execute(array($courriel,$mdp,$idUser));
+       /*
+        $destinataire = $courriel;
+       //echo "$destinataire";
+        $sujet = "Activer votre compte" ;
+        $entete = "From: 201897878@collegeahuntsic.qc.ca" ;
+ 
+        // Le lien d'activation est composé du login(log) et de la clé(cle)
+        $message = 'Bienvenue sur VotreSite,
+ 
+        Pour activer votre compte, veuillez cliquer sur le lien ci dessous
+        ou copier/coller dans votre navigateur internet.
+ 
+        
+        
+        ---------------
+        Ceci est un mail automatique, Merci de ne pas y répondre';
+        
+        mail($destinataire, $sujet, $message, $entete) ; // Envoi du mail*/
         //header("location: annonces.php");
         unset($connexion);
         unset($stmt2);
         //exit('fin');
       //}
-=======
-  try {
-    //echo"post";
-        global $connexion, $rep;
-          $nom = htmlspecialchars(trim($_POST['nom']));
-          $prenom = htmlspecialchars(trim($_POST['prenom']));
-          $dateNaissance = htmlspecialchars(trim($_POST['dateNaissance']));
-          $ville = htmlspecialchars(trim($_POST['ville']));
-          $codePostale = htmlspecialchars(trim($_POST['codePostale']));
-          $telephone = htmlspecialchars(trim($_POST['telephone']));
-          $courriel = htmlspecialchars(trim($_POST['courriel']));
-          $mdp = htmlspecialchars(trim($_POST['mdp']));
-          
-        
-          
-          $requete="INSERT INTO utilisateur VALUES(0,?,?,?,?,?,?)";
-          $stmt = $connexion->prepare($requete);
-          $stmt->execute(array($nom,$prenom,$dateNaissance,$ville,$codePostale,$telephone));
-          $idUser=$connexion->lastInsertId();
-          $requete1="INSERT INTO connexion VALUES(?,?,?)";
-          $stmt1 = $connexion->prepare($requete1);
-          $stmt1->execute(array($courriel,$mdp,$idUser));
-          header("location: annonces.php"); 	
->>>>>>> db2b41857482e64c8dcd36d32e32fea133012d57
         
       }
       catch(Exception $e) 
       {
           $message =$e->getMessage();
       }
-  }    
+      
+}
+
 ?>
+
 <!doctype html>
 <html lang="fr">
   <head>
@@ -105,56 +98,89 @@ if(isset($_POST["submit"]))
        
 
        <!-- debut formulaire -->
-       <form method="post" enctype= "multipart/form-data" action="formulaireInscription.php"> 
+       <form method="post" enctype= "multipart/form-data"  class="needs-validation" action="formulaireInscription.php" novalidate> 
           <div class="form-group row">
             <label for="nom" class="col-sm-2 col-form-label">Nom</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom">
+              <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom" Required>
+              <div class="invalid-feedback">
+                Veuillez choisir votre nom.
             </div>
+            </div>
+           
           </div>
 
           <div class="form-group row">
             <label for="prenom" class="col-sm-2 col-form-label">Prénom</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prénom">
+              <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prénom" Required >
+              <div class="invalid-feedback">
+                Veuillez choisir votre prénom.
             </div>
+            </div>
+           
           </div>
 
           <div class="form-group row">
             <label for="dateNaissance" class="col-sm-2 col-form-label">Date de naissance</label>
             <div class="col-sm-10">
-              <input type="date" class="form-control" id="dateNaissance" name="dateNaissance" placeholder="aaaa-mm-jj">
+              
+            <input type="date" class="form-control" id="dateNaissance" name="dateNaissance" placeholder="aaaa-mm-jj" Required>
+            <div class="invalid-feedback">
+                Veuillez choisir votre date de naissance.
             </div>
+            </div>
+            
           </div>
           <div class="form-group row">
             <label for="ville" class="col-sm-2 col-form-label">Ville</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="ville" name="ville" placeholder="ex : Montréal">
+              <input type="text" class="form-control" id="ville" name="ville" placeholder="ex : Montréal" Required>
+              <div class="invalid-feedback">
+                Veuillez choisir votre ville.
             </div>
+            </div>
+            
           </div>
           <div class="form-group row">
             <label for="codePostale" class="col-sm-2 col-form-label">Code Postale</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="codePostale" id="codePostale" >
+              <input type="text" class="form-control" name="codePostale" id="codePostale" Required >
+              <div class="invalid-feedback">
+                Veuillez choisir votre code postal.
             </div>
+            </div>
+            
           </div>
           <div class="form-group row">
             <label for="telephone" class="col-sm-2 col-form-label">Téléphone</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="telephone" id="telephone" >
+              <input type="text" class="form-control" name="telephone" id="telephone" Required >
+              <div class="invalid-feedback">
+                Veuillez choisir votre numéro de téléphone.
             </div>
+            </div>
+           
           </div>
           <div class="form-group row">
             <label for="courriel" class="col-sm-2 col-form-label">Courriel</label>
             <div class="col-sm-10">
-              <input type="email" class="form-control" id="courriel" name="courriel" aria-describedby="emailHelp" placeholder="Entrer email">
+              <input type="email" class="form-control" id="courriel" name="courriel" aria-describedby="emailHelp" placeholder="Entrer email" Required>
+              <div class="invalid-feedback">
+                Veuillez choisir votre courriel.
+            </div>
             </div> 
+            
           </div>
           <div class="form-group row">
             <label for="mdp" class="col-sm-2 col-form-label">Mot de passe</label>
             <div class="col-sm-10">
-              <input type="password" class="form-control" id="mdp" name="mdp" placeholder="mot de passe">
+              <input type="password" class="form-control" id="mdp" name="mdp" placeholder="mot de passe" Required>
+              <div class="invalid-feedback">
+                Veuillez choisir votre mot de passe.
             </div>
+            </div>
+            
           </div>
           <div class="form-group row">
             <div class="col-sm-10">
@@ -169,5 +195,29 @@ if(isset($_POST["submit"]))
 
     <?php include("includes/footer.php"); ?>
     <?php include("includes/footer-script.php"); ?>
+
+    
+    <script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>
+
+
   </body>
 </html>
