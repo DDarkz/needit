@@ -1,9 +1,10 @@
 <?php
 include("bd/connexion.php");
+echo"post";
 session_start();
 if(isset($_POST["submit"]))
 {
-
+  //echo"post";
   try {
     //echo"post";
     
@@ -18,28 +19,28 @@ if(isset($_POST["submit"]))
         $mdp = htmlspecialchars(trim($_POST['mdp']));
       
 	      
-        //$iddemandeur="SELECT idUser FROM connexion WHERE `courriel` = '$courriel'";
-       // foreach($connexion->query($iddemandeur) as $row)
-       // $idservice="SELECT idService FROM service WHERE `nomService` = '$service'";
-        //foreach($connexion->query($idservice) as $rowS)
-        //$statut = 0;
+        
         
 	      $requete1="INSERT INTO utilisateur VALUES(0,?,?,?,?,?,?)";
 	      $stmt = $connexion->prepare($requete1);
         $stmt->execute(array($nom,$prenom,$dateNaissance,$ville,$codePostale,$telephone));
-        unset($connexion);
+        $idUser=$connexion->lastInsertId(); 
+        //unset($connexion);
         unset($stmt);
         //header("location: annonces.php");
-        $idUser="SELECT idUser FROM utilisateur WHERE `courriel` = $courriel";
+        //$idUser="SELECT idUser FROM utilisateur WHERE `courriel` = ?";
         //Var_dump($mdp);
         //Var_dump($courriel);
-       // Var_dump($idUser);
-        $requete2="INSERT INTO connexion VALUES(?,?,$idUser)";
-	      //$stmt2 = $connexion->prepare($requete2);
-	      //$stmt2->execute(array($courriel,$mdp,$idUser));
+        //echo "allo";
+        //Var_dump($idUser);
+        //echo("$idUser");
+        $requete2="INSERT INTO connexion VALUES(?,?,?)";
+	      $stmt2 = $connexion->prepare($requete2);
+	      $stmt2->execute(array($courriel,$mdp,$idUser));
         //header("location: annonces.php");
-        //unset($connexion);
-        //unset($stmt2);
+        unset($connexion);
+        unset($stmt2);
+        //exit('fin');
       //}
         
       }
