@@ -14,6 +14,9 @@ if(isset($_POST["submit"]))
         $ville = htmlspecialchars(trim($_POST['ville']));
         $codePostale = htmlspecialchars(trim($_POST['codePostale']));
         $telephone = htmlspecialchars(trim($_POST['telephone']));
+        $courriel = htmlspecialchars(trim($_POST['courriel']));
+        $mdp = htmlspecialchars(trim($_POST['mdp']));
+      
 	      
         //$iddemandeur="SELECT idUser FROM connexion WHERE `courriel` = '$courriel'";
        // foreach($connexion->query($iddemandeur) as $row)
@@ -23,13 +26,20 @@ if(isset($_POST["submit"]))
         
 	      $requete1="INSERT INTO utilisateur VALUES(0,?,?,?,?,?,?)";
 	      $stmt = $connexion->prepare($requete1);
-	      $stmt->execute(array($nom,$prenom,$dateNaissance,$ville,$codePostale,$telephone));
+        $stmt->execute(array($nom,$prenom,$dateNaissance,$ville,$codePostale,$telephone));
+        unset($connexion);
+        unset($stmt);
         //header("location: annonces.php");
-        //$requete2="INSERT INTO connexion VALUES(?,?,?)";
-	      //$stmt = $connexion->prepare($requete2);
-	      //$stmt->execute(array($courriel,$mdp));
+        $idUser="SELECT idUser FROM utilisateur WHERE `courriel` = $courriel";
+        //Var_dump($mdp);
+        //Var_dump($courriel);
+       // Var_dump($idUser);
+        $requete2="INSERT INTO connexion VALUES(?,?,$idUser)";
+	      //$stmt2 = $connexion->prepare($requete2);
+	      //$stmt2->execute(array($courriel,$mdp,$idUser));
         //header("location: annonces.php");
-
+        //unset($connexion);
+        //unset($stmt2);
       //}
         
       }
@@ -105,11 +115,11 @@ if(isset($_POST["submit"]))
           </div>
           <div class="form-group">
             <label for="courriel">Courriel</label>
-              <input type="email" class="form-control" id="courriel" aria-describedby="emailHelp" placeholder="Entrer email">
+              <input type="email" class="form-control" id="courriel" name="courriel" aria-describedby="emailHelp" placeholder="Entrer email">
           </div>
           <div class="form-group">
             <label for="mdp">Mot de passe</label>
-              <input type="password" class="form-control" id="mdp" placeholder="mot de passe">
+              <input type="password" class="form-control" id="mdp" name="mdp" placeholder="mot de passe">
           </div>
           <div class="form-group row">
             <div class="col-sm-10">
