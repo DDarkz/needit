@@ -24,8 +24,13 @@
           <li class="nav-item">
             <a class="nav-link text-white" href="formulaireDemandeur.php">Form Demandeur</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="profilUtilisateur.php">Profil</a>
+          </li>
+          
           <?php
             }
+            
           if(isset($_SESSION["courriel"])){
             if($_SESSION["courriel"] == "admin@gmail.com" && $_SESSION["password"] == sha1("123456")){
               ?>
