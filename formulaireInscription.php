@@ -5,41 +5,25 @@ if(isset($_POST["submit"]))
 {
   try {
     //echo"post";
-    
-        global $connexion, $rep;	
-	      $nom = htmlspecialchars(trim($_POST['nom']));
-        $prenom = htmlspecialchars(trim($_POST['prenom']));
-        $dateNaissance = htmlspecialchars(trim($_POST['dateNaissance']));
-        $ville = htmlspecialchars(trim($_POST['ville']));
-        $codePostale = htmlspecialchars(trim($_POST['codePostale']));
-        $telephone = htmlspecialchars(trim($_POST['telephone']));
-        $courriel = htmlspecialchars(trim($_POST['courriel']));
-        $mdp = htmlspecialchars(trim($_POST['mdp']));
-      
-	      
-        //$iddemandeur="SELECT idUser FROM connexion WHERE `courriel` = '$courriel'";
-       // foreach($connexion->query($iddemandeur) as $row)
-       // $idservice="SELECT idService FROM service WHERE `nomService` = '$service'";
-        //foreach($connexion->query($idservice) as $rowS)
-        //$statut = 0;
+        global $connexion, $rep;
+          $nom = htmlspecialchars(trim($_POST['nom']));
+          $prenom = htmlspecialchars(trim($_POST['prenom']));
+          $dateNaissance = htmlspecialchars(trim($_POST['dateNaissance']));
+          $ville = htmlspecialchars(trim($_POST['ville']));
+          $codePostale = htmlspecialchars(trim($_POST['codePostale']));
+          $telephone = htmlspecialchars(trim($_POST['telephone']));
+          $courriel = htmlspecialchars(trim($_POST['courriel']));
+          $mdp = htmlspecialchars(trim($_POST['mdp']));
         
-	      $requete1="INSERT INTO utilisateur VALUES(0,?,?,?,?,?,?)";
-	      $stmt = $connexion->prepare($requete1);
-        $stmt->execute(array($nom,$prenom,$dateNaissance,$ville,$codePostale,$telephone));
-        unset($connexion);
-        unset($stmt);
-        //header("location: annonces.php");
-        $idUser="SELECT idUser FROM utilisateur WHERE `courriel` = $courriel";
-        //Var_dump($mdp);
-        //Var_dump($courriel);
-       // Var_dump($idUser);
-        $requete2="INSERT INTO connexion VALUES(?,?,$idUser)";
-	      //$stmt2 = $connexion->prepare($requete2);
-	      //$stmt2->execute(array($courriel,$mdp,$idUser));
-        //header("location: annonces.php");
-        //unset($connexion);
-        //unset($stmt2);
-      //}
+          
+          $requete="INSERT INTO utilisateur VALUES(0,?,?,?,?,?,?)";
+          $stmt = $connexion->prepare($requete);
+          $stmt->execute(array($nom,$prenom,$dateNaissance,$ville,$codePostale,$telephone));
+          $idUser=$connexion->lastInsertId();
+          $requete1="INSERT INTO connexion VALUES(?,?,?)";
+          $stmt1 = $connexion->prepare($requete1);
+          $stmt1->execute(array($courriel,$mdp,$idUser));
+          header("location: annonces.php"); 	
         
       }
       catch(Exception $e) 
@@ -69,6 +53,11 @@ if(isset($_POST["submit"]))
 
     <!-- debut container -->
     <div class="container pt-5">
+    <?php
+        if (isset($message)) {
+          echo '<div class="alert alert-danger" role="alert">'.$message.'</div>';
+         }
+    ?>
        <h1>Inscrivez-vous !</h1>
        
 
@@ -112,13 +101,17 @@ if(isset($_POST["submit"]))
               <input type="text" class="form-control" name="telephone" id="telephone" >
             </div>
           </div>
-          <div class="form-group">
-            <label for="courriel">Courriel</label>
+          <div class="form-group row">
+            <label for="courriel" class="col-sm-2 col-form-label">Courriel</label>
+            <div class="col-sm-10">
               <input type="email" class="form-control" id="courriel" name="courriel" aria-describedby="emailHelp" placeholder="Entrer email">
+            </div> 
           </div>
-          <div class="form-group">
-            <label for="mdp">Mot de passe</label>
+          <div class="form-group row">
+            <label for="mdp" class="col-sm-2 col-form-label">Mot de passe</label>
+            <div class="col-sm-10">
               <input type="password" class="form-control" id="mdp" name="mdp" placeholder="mot de passe">
+            </div>
           </div>
           <div class="form-group row">
             <div class="col-sm-10">
