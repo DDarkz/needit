@@ -18,6 +18,7 @@ session_start();
 
     <title>Admin</title>
   </head>
+  <!-- onload="requetes('actionListerMAdmin'), requetes('actionListerA');" -->
   <body onload="requetes('actionListerMAdmin'), requetes('actionListerA');">
     <?php include("includes/menu.php"); ?>
     
@@ -30,19 +31,50 @@ session_start();
        ?>
 
        <h1>Page Admin</h1>
-
-
+       <form>
         <div id="contenu">
-          <!--?php listerMembres(); ?-->
-         </div>
-        <div id="annonces">
-            <!--?php listerAnnoncesAdmin(); ?-->
+           <!--?php listerMembres(); ?-->
         </div>
+
+        <div id="annonces">
+           <!--?php listerAnnonces(); ?-->
+        </div>
+        <input type="hidden" id="idUser" name="idUser" value="">
+        <input type="hidden" id="idAnnonce" name="idAnnonce" value="">
+        </form>
+
+          
+            
 
     </div>
     <!-- fin container -->
 
-    <?php include("includes/footer.php"); ?>
+   
+    <script type="text/javascript">
+				function listerId(choixId) {
+					//alert("wow");
+					var idUser = document.getElementById("idUser").value = choixId;
+          alert("page admin.php "+idUser);
+					// fait la requetes listerId automatiquement
+					(function(){
+						requetes('actDeleteMembres');
+					})();
+        }
+        
+        function listerIdAnnonce(choixId) {
+					//alert("wow");
+					var idAnnonce = document.getElementById("idAnnonce").value = choixId;
+          alert("page admin.php "+idAnnonce);
+					// fait la requetes listerId automatiquement
+					(function(){
+						requetes('actDeleteAnnonce');
+					})();
+        }
+        
+      </script>
+      
+      <?php include("includes/footer.php"); ?>
     <?php include("includes/footer-script.php"); ?>
+
   </body>
 </html>

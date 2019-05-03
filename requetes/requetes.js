@@ -46,24 +46,42 @@ function ajaxListerAnnoncesAdmin(){
 }
 
 function ajaxDeleteMembres(){
-	
+	var idUser=$('#idUser').val();
 	$.ajax({
 		url:'serveur/controleur.php',
 		type:'POST',
-		data: {'action' : 'actCtlDeleteMembre'}, 
+		data:{"action":'actCtlDeleteMembre',"idUser":idUser},
 		dataType: 'json',
-		success: function(dataAnnonces){
-			// alert("hello");
-			vue('actVueDeleteMembres',dataAnnonces); 
+		success: function(){
+			 alert("hello");
 		},
-		fail:function(){
+		fail: function(){
 			alert("Problème pour supprimer.");
 		}
 	});
 }
 
+function ajaxDeleteAnnonce(){
+	var idAnnonce=$('#idAnnonce').val();
+	alert("ajax " + idAnnonce );
+	// e.preventDefault();
+	$.ajax({
+		// alert("hein");
+		url:'serveur/controleur.php',
+		type:'POST',
+		// async: false,
+		data:{"action":'actCtlDeleteAnnonce',"idAnnonce":idAnnonce},
+		dataType: 'json',
+		success: function(){
+			 alert("hello");
+		},
+		fail: function(){
+			alert("Problème pour supprimer.");
+		}
+	});
+}
 
-var requetes = function(action,donnees){
+var requetes = function(action){
 	switch(action) {
 		case "actionListerM" :
 			ajaxListerMembres();
@@ -73,12 +91,14 @@ var requetes = function(action,donnees){
 			ajaxListerMembresAdmin();
 		break;
 		case "actionListerA" :
-			//alert("coucou");
 			ajaxListerAnnoncesAdmin();
-			//alert("coucou2");
 		break;
 		case "actDeleteMembres" :
 			ajaxDeleteMembres();
+			break;
+		case "actDeleteAnnonce" :
+			ajaxDeleteAnnonce();
+			break;
 		default:
 	}
 }

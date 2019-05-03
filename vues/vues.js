@@ -27,7 +27,7 @@ function vueListerMembresAdmin(dataMembresAdmin){
 	for(i=0; i<taille; i++) {
 		ligne=dataMembresAdmin[i];
 		rep+="<tr>";
-		rep+="<td><button id='num"+(ligne.idUser)+"' onclick='requetes("+(ligne.idUser)+")'>"+(ligne.idUser)+"</button></td>";
+		rep+="<td><button type='button' id='"+(ligne.idUser)+"' name='"+(ligne.idUser)+"' onclick='listerId(this.id)'>"+(ligne.idUser)+"</button></td>";
 		rep+="<td>"+(ligne.nom)+"</td>";
 		rep+="<td>"+(ligne.prenom)+"</td>";
 		rep+="<td>"+(ligne.dateNaissance)+"</td>";
@@ -38,22 +38,24 @@ function vueListerMembresAdmin(dataMembresAdmin){
 	}
 	rep+="</table>";
 	$("#contenu").html(rep);
+	
 }
 
 function vueListerAnnoncesAdmin(dataAnnonces) {
 	rep="<h2>Liste des annonces</h2>";
 	rep+="<table class='table table-striped'>";
-	rep+='<tr><th scope="col">#</th><th scope="col">Description demande</th><th scope="col">Code Postale</th><th scope="col">statut</th><th scope="col">Fichier</th></tr>';
+	rep+='<tr><th scope="col">#</th><th scope="col">Titre</th><th scope="col">Description demande</th><th scope="col">Code Postale</th><th scope="col">Fichier</th></tr>';
 	var taille = dataAnnonces.length;
 	for(i=0; i<taille; i++) {
 		ligne=dataAnnonces[i];
 		rep+="<tr>";
+		rep+="<td><button type='button' id='"+(ligne.idAnnonce)+"' name='"+(ligne.idAnnonce)+"' onclick='listerIdAnnonce(this.id)'>"+(ligne.idAnnonce)+"</button></td>";
 		// rep+="<td>"+(ligne.idAnnonce)+"</td>";
 		// rep+="<td>"+(ligne.idDemandeur)+"</td>";
-		rep+="<td>"+(ligne.idService)+"</td>";
+		rep+="<td>"+(ligne.Titre)+"</td>";
 		rep+="<td>"+(ligne.listeAchat)+"</td>";
 		rep+="<td class='text-uppercase'>"+(ligne.codePostale)+"</td>";
-		rep+="<td>"+(ligne.statut)+"</td>";
+		// rep+="<td>"+(ligne.statut)+"</td>";
 		rep+="<td>"+(ligne.pochette)+"</td>";
 		rep+="</tr>";
 	}

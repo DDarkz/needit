@@ -62,21 +62,22 @@ function ctlListerAnnoncesAdmin() {
 
 function ctlDeleteMembres() {
 	global $connexion, $rep;
-	$sql = "DELETE * FROM utilisateur WHERE idUser='?'";
-	// $rep="";
-	try{
-		 $stmt = $connexion->prepare($sql);
-		 $stmt->execute();
-		 while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
-			$rep[]=$ligne;
-		 }
-	 }catch (Exception $e){
-		echo "Problème controleur pour lister membres.";
-	 }finally {
-		unset($connexion);
-		unset($stmt);
-		echo json_encode($rep);
-	 }
+	$idUser=$_POST['idUser'];
+	$sqlD = "DELETE FROM utilisateur WHERE idUser='$idUser'";
+	
+		 $stmtD = $connexion->prepare($sqlD);
+		 $stmtD->execute(array($idUser));
+		//  echo "Le membre $idUser à été enlevé.";
+}
+
+function ctlDeleteAnnonce() {
+	global $connexion, $rep;
+	$idAnnonce=$_POST['idAnnonce'];
+	$sqlD = "DELETE FROM annonce WHERE idAnnonce='$idAnnonce'";
+	
+		 $stmtD = $connexion->prepare($sqlD);
+		 $stmtD->execute(array($idUser));
+		//  echo "Le membre $idUser à été enlevé.";
 }
 
 
@@ -95,6 +96,9 @@ switch ($action) {
 		break;
 	case 'actCtlDeleteMembre':
 		ctlDeleteMembres();
+		break;
+	case 'actCtlDeleteAnnonce':
+		ctlDeleteAnnonce();
 		break;
 }
 
