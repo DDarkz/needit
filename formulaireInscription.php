@@ -1,21 +1,3 @@
-Skip to content
- 
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@DDarkz 
-0
-0 0 DDarkz/needit
- Code  Issues 0  Pull requests 0  Projects 1  Wiki  Insights  Settings
-needit/formulaireInscription.php
-@EmnaKhelifi EmnaKhelifi formulaire inscription test enregistrer ds cnx
-dd50b64 4 hours ago
-138 lines (121 sloc)  5.27 KB
-    
 <?php
 include("bd/connexion.php");
 session_start();
