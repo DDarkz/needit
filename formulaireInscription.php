@@ -52,7 +52,7 @@ if(isset($_POST["submit"]))
         Ceci est un mail automatique, Merci de ne pas y répondre';
         
         mail($destinataire, $sujet, $message, $entete) ; // Envoi du mail*/
-        header("location: inscriptionTermine.php");
+        header("location: BienvenueMembre.php");
         unset($connexion);
         unset($stmt2);
         //exit('fin');
