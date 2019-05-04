@@ -1,6 +1,28 @@
 <?php
 include("bd/connexion.php");
 session_start();
+ 
+    $idUser=$_POST['idUser'];
+    global $connexion, $rep;
+	$requete = "SELECT * FROM utilisateur WHERE idUser='$idUser'";
+	$rep="";
+	try{
+		 $stmt = $connexion->prepare($requete);
+		 $stmt->execute(array($idUser));
+		 while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
+			$rep[]=$ligne;
+		 }
+   }
+   catch (Exception $e){
+		echo "Problème controleur pour lister infos.";
+   }
+   finally {
+		unset($connexion);
+		unset($stmt);
+		//echo ($rep);
+	 }
+
+
 ?>
 <!doctype html>
 <html lang="fr">
@@ -20,7 +42,9 @@ session_start();
   <div class="container pt-5">
        <h1>Bonjour Bienvenue chez Need IT NOW !!</h1>
        <h2>Votre profil</h2>
-
+       <?php
+       echo ($rep);
+       ?>
     <?php include("includes/menu.php"); ?>
    
 
