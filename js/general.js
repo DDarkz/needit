@@ -1,8 +1,8 @@
 // valide un code postal canadien
 // input: code postal
 // output: vrai ou faux
-function CodePostalValide(id) {
-    entry=document.getElementById(id).value;
+function CodePostalValide() {
+    entry=document.getElementById('codepostal').value;
     strlen=entry.length;
     if(strlen!==6) {
       return false;
@@ -36,4 +36,13 @@ function CodePostalValide(id) {
   
   // le code postal est valide !
   return true;
+  }
+  function validation(){
+    var resultat = CodePostalValide();
+    if(resultat== false){
+      document.getElementById('message').style.display ='block';
+      return false;
+    }else{
+      document.getElementById('message').style.display ='none';
+    }
   }

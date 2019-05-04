@@ -45,6 +45,22 @@ function ajaxListerAnnoncesAdmin(){
 	});
 }
 
+function ajaxListerAnnonces(){
+	$.ajax({
+		url:'serveur/controleur.php',
+		type:'POST',
+		data: {'action' : 'actCtlLister'}, 
+		dataType: 'json',
+		success: function(Annonces){
+			// alert("hello");
+			vue('actVueLister',Annonces); 
+		},
+		fail:function(){
+			alert("Problème pour lister annonces.");
+		}
+	});
+}
+
 function ajaxDeleteMembres(){
 	var idUser=$('#idUser').val();
 	$.ajax({
@@ -92,6 +108,9 @@ var requetes = function(action){
 		break;
 		case "actionListerA" :
 			ajaxListerAnnoncesAdmin();
+		break;
+		case "actionLister" :
+			ajaxListerAnnonces();
 		break;
 		case "actDeleteMembres" :
 			ajaxDeleteMembres();

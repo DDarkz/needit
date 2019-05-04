@@ -16,17 +16,16 @@ session_start();
 
     <title>Toutes les annonces</title>
   </head>
-  <body>
+  <body onload="requetes('actionLister');">
 
     <?php include("includes/menu.php"); ?>
    
 
     <!-- debut container -->
-    <div class="container pt-5">
-       <h1>Toutes les annonces</h1>
+    <div class="container pt-5" id="annoncesAccueil">
 
        <!-- debut card-columns -->
-        <div class="card-columns">
+        <!-- <div class="card-columns">
 
           <div class="card m-3">
             <a class="text-dark" href="annonceDetail.php"><img class="card-img-top" src="images/beetle-400.jpg" alt="Card image cap">
@@ -98,7 +97,7 @@ session_start();
             </div>
           </div>
 
-      </div>
+      </div> -->
       <!-- debut card-columns -->
     </div>
     <!-- fin container -->
