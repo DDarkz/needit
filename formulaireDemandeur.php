@@ -1,7 +1,6 @@
 <?php
 include("bd/connexion.php");
 session_start();
-
 if(isset($_POST["submit"]))
 {
 
@@ -9,7 +8,7 @@ if(isset($_POST["submit"]))
   
       if (empty($_POST["titre"])  || empty($_POST["liste"]) || empty($_POST["codepostal"]))
       {
-        $message = '<label>Veuillez remplir tous les champs.</lable>';
+        $message = '<label id = "message">Veuillez remplir tous les champs.</lable>';
       }
       else
       {
@@ -80,10 +79,13 @@ if(isset($_POST["submit"]))
           echo '<div class="alert alert-danger" role="alert">'.$message.'</div>';
            }
        ?>
+       <div class="alert alert-danger" id = "message" role="alert" style="display: none;">
+          <label>Le code postal n'est pas valide</label>
+       </div>
        <h1>Formulaire demandeur</h1>
 
        <!-- debut formulaire -->
-        <form method="post" enctype= "multipart/form-data">
+        <form method="post" enctype= "multipart/form-data" onsbmit=" return CodePostalValide();">
           <div class="form-group row">
             <label for="titre" class="col-sm-2 col-form-label">Titre</label>
             <div class="col-sm-10">
@@ -94,14 +96,14 @@ if(isset($_POST["submit"]))
           <div class="form-group row">
             <label for="liste" class="col-sm-2 col-form-label">Liste d'achats</label>
             <div class="col-sm-10">
-              <textarea class="form-control" id="liste" name="liste" placeholder="Liste d'achats"></textarea> 
+              <textarea class="form-control" id="liste" name="liste" placeholder="Liste d'achats"></textarea>
             </div>
           </div>
 
           <div class="form-group row">
             <label for="codepostal" class="col-sm-2 col-form-label">Code potal</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="codepostal" name="codepostal" placeholder="Code potal">
+              <input type="text" class="form-control" id="codepostal" name="codepostal" placeholder="Code potal" onChange="validation()">
             </div>
           </div>
           <div class="form-group row">
