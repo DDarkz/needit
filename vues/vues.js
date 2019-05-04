@@ -64,6 +64,29 @@ function vueListerAnnoncesAdmin(dataAnnonces) {
 
 }
 
+function vueListerAnnonces(Annonces) {
+	rep='<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>';
+	rep+="<h1>Toutes les annonces</h1>";
+	var taille = Annonces.length;
+	for(i=0; i<taille; i++) {
+		ligne=Annonces[i];
+		rep+='<div class="card-columns">';
+		rep+='<div class="card m-3">';
+		rep+='<a class="text-dark" href="annonceDetail.php"><img class="card-img-top" src="images/'+(ligne.pochette)+'" alt="Card image cap">';
+		rep+='<div class="card-body">';
+		rep+='<p class="card-date">'+(ligne.date)+'</p>';
+		rep+='<h5 class="card-title">'+(ligne.Titre)+'</h5>';
+		rep+='<p class="card-text">'+(ligne.listeAchat)+'</p>';
+		rep+='<p class="card-text"><small class="text-muted">Poste il y'+(ligne.date)+'</small></p>';
+		rep+='</div>';
+		rep+='</a>';
+		rep+="</div>";
+		rep+="</div>";
+	}
+	$("#annoncesAccueil").html(rep);
+
+}
+
 var vue=function(action,donnees){
 	switch(action){
 		case "actVueListerM":
@@ -74,6 +97,9 @@ var vue=function(action,donnees){
 		break;
 		case "actVueListerA":
 			vueListerAnnoncesAdmin(donnees);
+		break;
+		case "actVueLister":
+			vueListerAnnonces(donnees);
 		break;	
 
 		

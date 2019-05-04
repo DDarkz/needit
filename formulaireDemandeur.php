@@ -112,7 +112,7 @@ if(isset($_POST["submit"]))
               <select class="form-select" name="service">
                 <option value="epicerie">epicerie</option>
                 <option value="pharmacie">pharmacie</option>
-                <option value="autre">autre</option>
+                <option value="autres">autres</option>
               </select>
             </div>
           </div>
