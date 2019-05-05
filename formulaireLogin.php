@@ -27,7 +27,7 @@ if(isset($_POST["login"]))
           // Transporter les sessions courriel et id.
           $_SESSION["password"] = sha1($_POST["password"]);
           $_SESSION["courriel"] = $_POST["courriel"];
-          $_SESSION["idUser"] = ($row->id);
+          $_SESSION["idUser"] = ($row->idUser);
           include("includes/headerMembre.php");
           header("location: annonces.php");
           //$message = 'Vous êtes connecté.';
