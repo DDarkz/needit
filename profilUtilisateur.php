@@ -42,14 +42,16 @@ session_start();
   <div class="container pt-5">
        <h1>Bonjour Bienvenue chez Need IT NOW !!</h1>
        <h2>Votre profil</h2>
-       <?php
-       echo ($rep);
-       ?>
+     
     <?php include("includes/menu.php"); ?>
    
 
     <!-- debut container -->
 </div>
+<p>   <?php
+       echo ($rep);
+       ?>
+       </p>
 <!-- fin container -->
 
 <?php include("includes/footer.php"); ?>
