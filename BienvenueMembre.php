@@ -1,6 +1,8 @@
 <?php
 include("bd/connexion.php");
 session_start();
+$user = $_SESSION["courriel"];
+$nom= strtok($user,"@")
 ?>
 <!doctype html>
 <html lang="fr">
@@ -18,12 +20,13 @@ session_start();
   <body>
   <!-- debut container -->
   <div class="container pt-5">
-       <h1>Bonjour Bienvenue chez Need IT NOW !!</h1>
+       
 
     <?php include("includes/menu.php"); ?>
    
-
-    <!-- debut container -->
+    <h1>    votre inscription est terminé avec succés</h1>
+    <p> si vous Need IT NOW !! veuillez vous connectez !! </p>
+    <!-- debut container --> <?php echo $nom?>
 </div>
 <!-- fin container -->
 

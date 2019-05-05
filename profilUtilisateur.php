@@ -1,14 +1,18 @@
 <?php
 include("bd/connexion.php");
 session_start();
- 
-    $idUser=$_POST['idUser'];
+
+   // $idUser=$_SESSION['idUser'];
+    $user = $_SESSION['idUser'];
+   
+    //echo "pseudo de session: ".$idUser;
+     echo $user;
     global $connexion, $rep;
-	$requete = "SELECT * FROM utilisateur WHERE idUser='$idUser'";
+	$requete = "SELECT * FROM utilisateur WHERE idUser=?";
 	$rep="";
 	try{
 		 $stmt = $connexion->prepare($requete);
-		 $stmt->execute(array($idUser));
+		 $stmt->execute([$idUser]);
 		 while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
 			$rep[]=$ligne;
 		 }
