@@ -67,9 +67,10 @@ function ajaxDeleteMembres(){
 		url:'serveur/controleur.php',
 		type:'POST',
 		data:{"action":'actCtlDeleteMembre',"idUser":idUser},
-		dataType: 'json',
+		dataType: 'text', // si en txt je peux utiliser alert
 		success: function(){
-			 alert("hello");
+			 //alert("hello");
+			 $(window).load();
 		},
 		fail: function(){
 			alert("Problème pour supprimer.");
@@ -79,18 +80,16 @@ function ajaxDeleteMembres(){
 
 function ajaxDeleteAnnonce(){
 	var idAnnonce=$('#idAnnonce').val();
-	alert("ajax " + idAnnonce );
-	// e.preventDefault();
 	$.ajax({
-		// alert("hein");
 		url:'serveur/controleur.php',
 		type:'POST',
-		// async: false,
 		data:{"action":'actCtlDeleteAnnonce',"idAnnonce":idAnnonce},
-		dataType: 'json',
-		success: function(){
-			 alert("hello");
-		},
+		dataType: 'html', // si en txt je peux utiliser jquery #loading
+		 success: function(data){
+			alert(data);
+			$("#loading").append("<h2>you are here</h2>");
+			$(window).load();
+		 },
 		fail: function(){
 			alert("Problème pour supprimer.");
 		}
@@ -103,7 +102,6 @@ var requetes = function(action){
 			ajaxListerMembres();
 		break;
 		case "actionListerMAdmin" :
-			// alert("coucou");
 			ajaxListerMembresAdmin();
 		break;
 		case "actionListerA" :

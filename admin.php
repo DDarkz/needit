@@ -32,6 +32,7 @@ session_start();
 
        <h1>Page Admin</h1>
        <form>
+       <div id="loading"></div>
         <div id="contenu">
            <!--?php listerMembres(); ?-->
         </div>
@@ -52,29 +53,27 @@ session_start();
    
     <script type="text/javascript">
 				function listerId(choixId) {
-					//alert("wow");
 					var idUser = document.getElementById("idUser").value = choixId;
-          alert("page admin.php "+idUser);
-					// fait la requetes listerId automatiquement
 					(function(){
 						requetes('actDeleteMembres');
 					})();
         }
         
         function listerIdAnnonce(choixId) {
-					//alert("wow");
 					var idAnnonce = document.getElementById("idAnnonce").value = choixId;
-          alert("page admin.php "+idAnnonce);
-					// fait la requetes listerId automatiquement
 					(function(){
 						requetes('actDeleteAnnonce');
 					})();
         }
-        
+      
       </script>
       
       <?php include("includes/footer.php"); ?>
     <?php include("includes/footer-script.php"); ?>
+<script>
+    
+
+</script>
 
   </body>
 </html>
