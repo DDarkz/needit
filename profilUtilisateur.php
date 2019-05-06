@@ -2,31 +2,6 @@
 include("bd/connexion.php");
 session_start();
 
-   // $idUser=$_SESSION['idUser'];
-    $user = $_SESSION['idUser'];
-   
-    //echo "pseudo de session: ".$idUser;
-     echo $user;
-    global $connexion, $rep;
-	$requete = "SELECT * FROM utilisateur WHERE idUser=?";
-	$rep="";
-	try{
-		 $stmt = $connexion->prepare($requete);
-		 $stmt->execute([$idUser]);
-		 while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
-			$rep[]=$ligne;
-		 }
-   }
-   catch (Exception $e){
-		echo "Problème controleur pour lister infos.";
-   }
-   finally {
-		unset($connexion);
-		unset($stmt);
-		//echo ($rep);
-	 }
-
-
 ?>
 <!doctype html>
 <html lang="fr">
@@ -52,8 +27,31 @@ session_start();
 
     <!-- debut container -->
 </div>
-<p>   <?php
-       echo ($rep);
+<p>   
+<?php
+global $connexion, $rep, $idSession;
+
+$requete = "SELECT * FROM utilisateur WHERE idUser='$idSession'";
+$rep="";
+try{
+   $stmt = $connexion->prepare($requete);
+   $stmt->execute(array($idSession));
+   while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
+    //echo "coucou";
+    //$rep[]=$ligne;
+    $rep.="<tr><td>".($ligne->idUser)."</td><td>".($ligne->nom)."</td><td>".($ligne->prenom)."</td></tr>";
+   }
+ }
+ catch (Exception $e){
+  echo "Problème controleur pour lister infos.";
+ }
+ finally {
+  unset($connexion);
+  unset($stmt);
+  echo ($rep);
+ }
+
+       
        ?>
        </p>
 <!-- fin container -->
