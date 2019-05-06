@@ -19,7 +19,7 @@ session_start();
     <title>Admin</title>
   </head>
   <!-- onload="requetes('actionListerMAdmin'), requetes('actionListerA');" -->
-  <body onload="requetes('actionListerMAdmin'), requetes('actionListerA');">
+  <body>
     <?php include("includes/menu.php"); ?>
     
     <!-- debut container -->
@@ -31,13 +31,18 @@ session_start();
        ?>
 
        <h1>Page Admin</h1>
+       <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a class="nav-link" href="#" onclick="requetes('actionListerMAdmin')">Membres</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" onclick="requetes('actionListerA');">Annonces</a>
+        </li>
+      </ul>
        <form>
        <div id="loading"></div>
         <div id="contenu">
            <!--?php listerMembres(); ?-->
-        </div>
-
-        <div id="annonces">
            <!--?php listerAnnonces(); ?-->
         </div>
         <input type="hidden" id="idUser" name="idUser" value="">
@@ -68,10 +73,17 @@ session_start();
       
       </script>
       
-      <?php include("includes/footer.php"); ?>
+    <?php include("includes/footer.php"); ?>
     <?php include("includes/footer-script.php"); ?>
 <script>
-    
+    $(document).ready(function(){
+      $('.nav-link').click(function(){
+        //alert("coucou");
+        $('.nav-link').removeClass('active');
+        $(this).addClass('active');
+        // $(this).
+      })
+    })
 
 </script>
 

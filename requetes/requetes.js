@@ -86,7 +86,7 @@ function ajaxDeleteAnnonce(){
 		data:{"action":'actCtlDeleteAnnonce',"idAnnonce":idAnnonce},
 		dataType: 'html', // si en txt je peux utiliser jquery #loading
 		 success: function(data){
-			alert(data);
+			//alert(data);
 			$("#loading").append("<h2>you are here</h2>");
 			$(window).load();
 		 },

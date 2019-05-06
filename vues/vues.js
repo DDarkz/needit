@@ -59,7 +59,7 @@ function vueListerAnnoncesAdmin(dataAnnonces) {
 		rep+="</tr>";
 	}
 	rep+="</table>";
-	$("#annonces").html(rep);
+	$("#contenu").html(rep);
 
 }
 
