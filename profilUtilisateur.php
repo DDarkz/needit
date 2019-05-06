@@ -27,7 +27,7 @@ session_start();
 
     <!-- debut container -->
 </div>
-<p>   
+ 
 <?php
 global $connexion, $rep, $idSession;
 
@@ -53,7 +53,7 @@ try{
 
        
        ?>
-       </p>
+       
 <!-- fin container -->
 
 <?php include("includes/footer.php"); ?>
