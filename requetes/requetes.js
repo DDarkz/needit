@@ -1,18 +1,3 @@
-function ajaxListerMembres(){
-	$.ajax({
-		url:'serveur/controleur.php',
-		type:'POST',
-		data: {'action' : 'actCtlListerM'}, // action="actCtlListerM" au controleur.php
-		dataType: 'json',
-		success: function(dataMembres){
-			vue('actVueListerM',dataMembres); // action="actVueListerM" au fichier vues.js
-		},
-		fail:function(){
-			alert("Problème pour lister membres.");
-		}
-	});
-}
-
 function ajaxListerMembresAdmin(){
 	$.ajax({
 		url:'serveur/controleur.php',
@@ -98,9 +83,6 @@ function ajaxDeleteAnnonce(){
 
 var requetes = function(action){
 	switch(action) {
-		case "actionListerM" :
-			ajaxListerMembres();
-		break;
 		case "actionListerMAdmin" :
 			ajaxListerMembresAdmin();
 		break;

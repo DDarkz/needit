@@ -1,24 +1,3 @@
-function vueListerMembres(dataMembres){
-	rep="<h2>Liste des membres</h2>";
-	rep+="<table class='table table-striped'>";
-	rep+='<tr><th scope="col">#</th><th scope="col">Nom</th><th scope="col">Prénom</th><th scope="col">Date Naissance</th><th scope="col">Ville</th><th scope="col">Code Postal</th><th scope="col">Téléphone</th></tr>';
-	var taille = dataMembres.length;
-	for(i=0; i<taille; i++) {
-		ligne=dataMembres[i];
-		rep+="<tr>";
-		rep+="<td>"+(ligne.idUser)+"</td>";
-		rep+="<td>"+(ligne.nom)+"</td>";
-		rep+="<td>"+(ligne.prenom)+"</td>";
-		rep+="<td>"+(ligne.dateNaissance)+"</td>";
-		rep+="<td>"+(ligne.ville)+"</td>";
-		rep+="<td>"+(ligne.codePostale)+"</td>";
-		rep+="<td>"+(ligne.telephone)+"</td>";
-		rep+="</tr>";
-	}
-	rep+="</table>";
-	$("#contenu").html(rep);
-}
-
 function vueListerMembresAdmin(dataMembresAdmin){
 	rep="<h2>Liste des membres</h2>";
 	rep+="<table class='table table-striped'>";
@@ -88,9 +67,6 @@ function vueListerAnnonces(Annonces) {
 
 var vue=function(action,donnees){
 	switch(action){
-		case "actVueListerM":
-			vueListerMembres(donnees);
-		break;	
 		case "actVueListerMAdmin":
 			vueListerMembresAdmin(donnees);
 		break;
