@@ -39,7 +39,7 @@ try{
    while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
     //echo "coucou";
     //$rep[]=$ligne;
-    $rep.="<tr><td>".($ligne->idUser)."</td><td>".($ligne->nom)."</td><td>".($ligne->prenom)."</td></tr>";
+    $rep.="<p>".($ligne->idUser)."</p><p>".($ligne->nom)."</p><p>".($ligne->prenom)."</p>";
    }
  }
  catch (Exception $e){
