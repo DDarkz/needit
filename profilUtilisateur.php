@@ -34,7 +34,7 @@ global $connexion, $rep, $idSession;
 
 $requete = "SELECT * FROM utilisateur WHERE idUser='$idSession'";
 
-$rep="<div class='col-6'><img src='images/avatarfemme.png'></div>";
+$rep="<div class='col-6'><img class='img-fluid' src='images/avatarfemme.png'></div>";
 $rep.="<div class='col-6'>";
 
 try{
@@ -44,9 +44,9 @@ try{
     //echo "coucou";
     //$rep[]=$ligne;
     $rep.="<h2>".($ligne->nom)." ".($ligne->prenom)."</h2>";
-    $rep.="<p> Ville : ".($ligne->ville)."</p>";
+    $rep.="<p> Ville : <span class='text-capitalize'> ".($ligne->ville)."</span></p>";
     $rep.="<p> Date de naissance : ".($ligne->dateNaissance)."</p>";
-    $rep.="<p> Code Postal : ".($ligne->codePostale)."</p>";
+    $rep.="<p> Code Postal <span class='text-uppercase'>: ".($ligne->codePostale)."</span></p>";
     $rep.="<p> Téléphone : ".($ligne->telephone)."</p>";
     $rep.="<button type='button' class='btn btn-warning'>Modifier</button>";
 
