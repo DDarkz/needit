@@ -2,17 +2,17 @@
 include("bd/connexion.php");
 session_start();
 
-   // $idUser=$_SESSION['idUser'];
-    $user = $_SESSION['idUser'];
+   $idUser=$_SESSION['idUser'];
+    //$user = $_SESSION['idUser'];
    
     //echo "pseudo de session: ".$idUser;
-     echo $user;
+     echo "le id de l'utilisateur est".$idUser;
     global $connexion, $rep;
-	$requete = "SELECT * FROM utilisateur WHERE idUser=?";
+	$requete = "SELECT * FROM utilisateur WHERE idUser='$idUser' ";
 	$rep="";
 	try{
 		 $stmt = $connexion->prepare($requete);
-		 $stmt->execute([$idUser]);
+		 $stmt->execute(array($idUser));
 		 while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
 			$rep[]=$ligne;
 		 }
