@@ -19,28 +19,40 @@ session_start();
   <body>
   <!-- debut container -->
   <div class="container pt-5">
-       <h1>Bonjour Bienvenue chez Need IT NOW !!</h1>
-       <h2>Votre profil</h2>
-     
+    
+      
+  
     <?php include("includes/menu.php"); ?>
-   
-
-    <!-- debut container -->
-</div>
- 
-<?php
+    <div class="container pt-5">
+      <div class="row">
+      <div class='col-12'>
+      <h1>Mon profil</h1>
+      </div>
+        
+      <?php
 global $connexion, $rep, $idSession;
 
 $requete = "SELECT * FROM utilisateur WHERE idUser='$idSession'";
-$rep="";
+
+$rep="<div class='col-6'><img src='images/avatarfemme.png'></div>";
+$rep.="<div class='col-6'>";
+
 try{
    $stmt = $connexion->prepare($requete);
    $stmt->execute(array($idSession));
    while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
     //echo "coucou";
     //$rep[]=$ligne;
-    $rep.="<p>".($ligne->idUser)."</p><p>".($ligne->nom)."</p><p>".($ligne->prenom)."</p>";
-   }
+    $rep.="<h2>".($ligne->nom)." ".($ligne->prenom)."</h2>";
+    $rep.="<p> Ville : ".($ligne->ville)."</p>";
+    $rep.="<p> Date de naissance : ".($ligne->dateNaissance)."</p>";
+    $rep.="<p> Code Postal : ".($ligne->codePostale)."</p>";
+    $rep.="<p> Téléphone : ".($ligne->telephone)."</p>";
+    $rep.="<button type='button' class='btn btn-warning'>Modifier</button>";
+
+  
+  }
+  $rep.="</div>";
  }
  catch (Exception $e){
   echo "Problème controleur pour lister infos.";
@@ -53,6 +65,17 @@ try{
 
        
        ?>
+        
+        
+      </div>
+    </div>
+    <!-- fin container -->
+
+    
+</div>
+
+ 
+
        
 <!-- fin container -->
 
