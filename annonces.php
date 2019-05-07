@@ -16,7 +16,7 @@ session_start();
 
     <title>Toutes les annonces</title>
   </head>
-  <body onload="requetes('actionLister');">
+  <body onload="requetes(null,'actionLister');">
 
     <?php include("includes/menu.php"); ?>
    
