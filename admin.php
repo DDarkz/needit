@@ -33,10 +33,10 @@ session_start();
        <h1>Page Admin</h1>
        <ul class="nav nav-pills">
         <li class="nav-item">
-          <a class="nav-link" href="#" onclick="requetes('actionListerMAdmin')">Membres</a>
+          <a class="nav-link" id="lienMembres" href="#" onclick="requetes(null,'actionListerMAdmin')">Membres</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" onclick="requetes('actionListerA');">Annonces</a>
+          <a class="nav-link" id="lienAnnonces" href="#" onclick="requetes(null,'actionListerA');">Annonces</a>
         </li>
       </ul>
        <form>
@@ -57,17 +57,17 @@ session_start();
 
    
     <script type="text/javascript">
-				function listerId(choixId) {
+				function listerId(elem,choixId) {
 					var idUser = document.getElementById("idUser").value = choixId;
 					(function(){
-						requetes('actDeleteMembres');
+						requetes(elem,'actDeleteMembres');
 					})();
         }
         
-        function listerIdAnnonce(choixId) {
+        function listerIdAnnonce(elem,choixId) {
 					var idAnnonce = document.getElementById("idAnnonce").value = choixId;
 					(function(){
-						requetes('actDeleteAnnonce');
+						requetes(elem,'actDeleteAnnonce');
 					})();
         }
       
@@ -75,17 +75,15 @@ session_start();
       
     <?php include("includes/footer.php"); ?>
     <?php include("includes/footer-script.php"); ?>
-<script>
+
+    <script>
     $(document).ready(function(){
       $('.nav-link').click(function(){
-        //alert("coucou");
         $('.nav-link').removeClass('active');
         $(this).addClass('active');
-        // $(this).
       })
     })
 
 </script>
-
   </body>
 </html>

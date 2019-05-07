@@ -46,16 +46,16 @@ function ajaxListerAnnonces(){
 	});
 }
 
-function ajaxDeleteMembres(){
+function ajaxDeleteMembres(elem){
 	var idUser=$('#idUser').val();
 	$.ajax({
 		url:'serveur/controleur.php',
 		type:'POST',
 		data:{"action":'actCtlDeleteMembre',"idUser":idUser},
-		dataType: 'text', // si en txt je peux utiliser alert
-		success: function(){
-			 //alert("hello");
-			 $(window).load();
+		dataType: 'html', // si en txt je peux utiliser alert
+		success: function(data){
+			//  alert(elem);
+			 $(elem.parentNode.parentNode).remove();
 		},
 		fail: function(){
 			alert("Problème pour supprimer.");
@@ -63,7 +63,7 @@ function ajaxDeleteMembres(){
 	});
 }
 
-function ajaxDeleteAnnonce(){
+function ajaxDeleteAnnonce(elem){
 	var idAnnonce=$('#idAnnonce').val();
 	$.ajax({
 		url:'serveur/controleur.php',
@@ -71,9 +71,9 @@ function ajaxDeleteAnnonce(){
 		data:{"action":'actCtlDeleteAnnonce',"idAnnonce":idAnnonce},
 		dataType: 'html', // si en txt je peux utiliser jquery #loading
 		 success: function(data){
-			//alert(data);
-			$("#loading").append("<h2>you are here</h2>");
-			$(window).load();
+			// alert(elem);
+			$(elem.parentNode.parentNode).remove();
+			// $("#loading").append("<h2>you are here</h2>");
 		 },
 		fail: function(){
 			alert("Problème pour supprimer.");
@@ -81,7 +81,8 @@ function ajaxDeleteAnnonce(){
 	});
 }
 
-var requetes = function(action){
+var requetes = function(elem,action){
+	// alert(action);
 	switch(action) {
 		case "actionListerMAdmin" :
 			ajaxListerMembresAdmin();
@@ -93,10 +94,10 @@ var requetes = function(action){
 			ajaxListerAnnonces();
 		break;
 		case "actDeleteMembres" :
-			ajaxDeleteMembres();
+			ajaxDeleteMembres(elem);
 			break;
 		case "actDeleteAnnonce" :
-			ajaxDeleteAnnonce();
+			ajaxDeleteAnnonce(elem);
 			break;
 		default:
 	}

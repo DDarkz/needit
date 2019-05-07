@@ -6,7 +6,7 @@ function vueListerMembresAdmin(dataMembresAdmin){
 	for(i=0; i<taille; i++) {
 		ligne=dataMembresAdmin[i];
 		rep+="<tr>";
-		rep+="<td><button type='button' class='btn btn-danger' id='"+(ligne.idUser)+"' name='"+(ligne.idUser)+"' onclick='listerId(this.id)'>Supprimer "+(ligne.idUser)+"</button></td>";
+		rep+="<td><button type='button' class='btn btn-danger' id='"+(ligne.idUser)+"' name='"+(ligne.idUser)+"' onclick='listerId(this,this.id)'>Supprimer "+(ligne.idUser)+"</button></td>";
 		rep+="<td>"+(ligne.nom)+"</td>";
 		rep+="<td>"+(ligne.prenom)+"</td>";
 		rep+="<td>"+(ligne.dateNaissance)+"</td>";
@@ -27,7 +27,7 @@ function vueListerAnnoncesAdmin(dataAnnonces) {
 	for(i=0; i<taille; i++) {
 		ligne=dataAnnonces[i];
 		rep+="<tr>";
-		rep+="<td><button type='button' class='btn btn-danger' id='"+(ligne.idAnnonce)+"' name='"+(ligne.idAnnonce)+"' onclick='listerIdAnnonce(this.id)'>Supprimer  "+(ligne.idAnnonce)+"</button></td>";
+		rep+="<td><button type='button' class='btn btn-danger' id='"+(ligne.idAnnonce)+"' name='"+(ligne.idAnnonce)+"' onclick='listerIdAnnonce(this,this.id)'>Supprimer  "+(ligne.idAnnonce)+"</button></td>";
 		// rep+="<td>"+(ligne.idAnnonce)+"</td>";
 		// rep+="<td>"+(ligne.idDemandeur)+"</td>";
 		rep+="<td>"+(ligne.Titre)+"</td>";
