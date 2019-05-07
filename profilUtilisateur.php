@@ -2,6 +2,7 @@
 include("bd/connexion.php");
 session_start();
 
+<<<<<<< HEAD
    $idUser=$_SESSION['idUser'];
     //$user = $_SESSION['idUser'];
    
@@ -27,6 +28,8 @@ session_start();
 	 }
 
 
+=======
+>>>>>>> 703cea308be4d2cc07e0bdc9bb790431e5fdcf69
 ?>
 <!doctype html>
 <html lang="fr">
@@ -52,10 +55,33 @@ session_start();
 
     <!-- debut container -->
 </div>
-<p>   <?php
-       echo ($rep);
+ 
+<?php
+global $connexion, $rep, $idSession;
+
+$requete = "SELECT * FROM utilisateur WHERE idUser='$idSession'";
+$rep="";
+try{
+   $stmt = $connexion->prepare($requete);
+   $stmt->execute(array($idSession));
+   while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
+    //echo "coucou";
+    //$rep[]=$ligne;
+    $rep.="<p>".($ligne->idUser)."</p><p>".($ligne->nom)."</p><p>".($ligne->prenom)."</p>";
+   }
+ }
+ catch (Exception $e){
+  echo "Problème controleur pour lister infos.";
+ }
+ finally {
+  unset($connexion);
+  unset($stmt);
+  echo ($rep);
+ }
+
+       
        ?>
-       </p>
+       
 <!-- fin container -->
 
 <?php include("includes/footer.php"); ?>
