@@ -1,7 +1,7 @@
 <?php 
     $user = $_SESSION["courriel"];
-    $idUser = $_SESSION["idUser"];
+    $idSession = $_SESSION["idUser"];
     $nom= strtok($user,"@");
 ?>
-<a class="nav-link text-white" href="logout.php">Bonjour <?php echo $nom, $idUser ?> Logout</a>
+<a class="nav-link text-white" href="logout.php">Bonjour <?php echo $nom, $idSession ?> Logout</a>
           

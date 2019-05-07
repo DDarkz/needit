@@ -22,12 +22,12 @@ session_start();
    
 
     <!-- debut container -->
-    <div class="container pt-5" id="annoncesAccueil">
-
+    <div class="container pt-5">
+    <h1>Toutes les annonces</h1>
        <!-- debut card-columns -->
-        <!-- <div class="card-columns">
+        <div class="card-columns" id="annoncesAccueil">
 
-          <div class="card m-3">
+          <!-- <div class="card m-3">
             <a class="text-dark" href="annonceDetail.php"><img class="card-img-top" src="images/beetle-400.jpg" alt="Card image cap">
             <div class="card-body">
               <p class="card-date">24 avril 2019</p>
@@ -95,9 +95,9 @@ session_start();
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
               <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>
-          </div>
+          </div> -->
 
-      </div> -->
+      </div>
       <!-- debut card-columns -->
     </div>
     <!-- fin container -->

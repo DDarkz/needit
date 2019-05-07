@@ -2,34 +2,6 @@
 include("bd/connexion.php");
 session_start();
 
-<<<<<<< HEAD
-   $idUser=$_SESSION['idUser'];
-    //$user = $_SESSION['idUser'];
-   
-    //echo "pseudo de session: ".$idUser;
-     echo "le id de l'utilisateur est".$idUser;
-    global $connexion, $rep;
-	$requete = "SELECT * FROM utilisateur WHERE idUser='$idUser' ";
-	$rep="";
-	try{
-		 $stmt = $connexion->prepare($requete);
-		 $stmt->execute(array($idUser));
-		 while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
-			$rep[]=$ligne;
-		 }
-   }
-   catch (Exception $e){
-		echo "Problème controleur pour lister infos.";
-   }
-   finally {
-		unset($connexion);
-		unset($stmt);
-		//echo ($rep);
-	 }
-
-
-=======
->>>>>>> 703cea308be4d2cc07e0bdc9bb790431e5fdcf69
 ?>
 <!doctype html>
 <html lang="fr">
