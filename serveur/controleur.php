@@ -66,7 +66,11 @@ function ctlDeleteMembres() {
 	
 		 $stmtD = $connexion->prepare($sqlD);
 		 $stmtD->execute(array($idUser));
-		//  echo "Le membre $idUser à été enlevé.";
+
+	$sqlC = "DELETE FROM connexion WHERE idUser='$idUser'";
+	
+		 $stmtC = $connexion->prepare($sqlC);
+		 $stmtC->execute(array($idUser));
 }
 
 function ctlDeleteAnnonce() {
