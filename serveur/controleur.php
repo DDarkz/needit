@@ -33,7 +33,7 @@ function ctlListerAnnoncesAdmin() {
 			$rep[]=$ligne;
 		 }
 	 } catch (Exception $e){
-		echo "Problème controleur pour lister membres.";
+		echo "Problème controleur pour lister annonces.";
 	 }finally {
 		unset($connexion);
 		unset($stmt);
@@ -51,7 +51,7 @@ function ctlListerAnnonces() {
 			$rep[]=$ligne;
 		 }
 	 } catch (Exception $e){
-		echo "Problème controleur pour lister membres.";
+		echo "Problème controleur pour lister annonces.";
 	 }finally {
 		unset($connexion);
 		unset($stmt);
