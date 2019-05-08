@@ -62,7 +62,7 @@ try{
     $rep.="<p> Code Postal <span class='text-uppercase'>: ".($ligne->codePostale)."</span></p>";
     $rep.="<p> Téléphone : ".($ligne->telephone)."</p>";
     $rep.="<form method='post' enctype= 'multipart/form-data' action='profilUtilisateur.php'>";
-    $rep.="<button type='buttom' name='modifier' href='profilUtilisateur.php' class='btn btn-warning'>Modifier</button>";
+    $rep.="<button type='buttom' name='modifier' href='profilUtilisateurModifier.php' class='btn btn-warning'>Modifier</button>";
 
   
   }
