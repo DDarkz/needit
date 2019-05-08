@@ -1,0 +1,21 @@
+#annoncesAccueil .card a.text-dark,
+#annoncesAccueil .card a.text-dark:hover {
+    text-decoration:none !important;
+}
+
+#annoncesAccueil .card {
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+    background-color: #fff; 
+}
+
+#annoncesAccueil .card *:hover {
+    color: #fff !important;
+}
+
+#annoncesAccueil .card:hover {   
+    background-color:#343a40;
+}
+
