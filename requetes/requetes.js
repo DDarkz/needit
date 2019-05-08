@@ -30,6 +30,23 @@ function ajaxListerAnnoncesAdmin(){
 	});
 }
 
+function ajaxListerAnnoncesMembres(){
+	var idDemandeur=$('#idDemandeur').val();
+	$.ajax({
+		url:'serveur/controleur.php',
+		type:'POST',
+		data: {'action' : 'actCtlListerAnnoncesMembres', 'idDemandeur':idDemandeur}, 
+		dataType: 'json',
+		success: function(dataAnnonces){
+			// alert("hello");
+			vue('actVueListerAnnoncesMembres',dataAnnonces); 
+		},
+		fail:function(){
+			alert("Problème pour lister les annonces de ce membre.");
+		}
+	});
+}
+
 function ajaxListerAnnonces(){
 	$.ajax({
 		url:'serveur/controleur.php',
@@ -98,6 +115,9 @@ var requetes = function(elem,action){
 			break;
 		case "actDeleteAnnonce" :
 			ajaxDeleteAnnonce(elem);
+			break;
+		case "actionListerAnnoncesMembres" :
+			ajaxListerAnnoncesMembres();
 			break;
 		default:
 	}

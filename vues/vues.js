@@ -39,7 +39,28 @@ function vueListerAnnoncesAdmin(dataAnnonces) {
 	}
 	rep+="</table>";
 	$("#contenu").html(rep);
+}
 
+function vueListerAnnoncesMembres(dataAnnonces) {
+	rep="<h2>Liste des annonces de ce membre</h2>";
+	rep+="<table class='table table-striped'>";
+	rep+='<tr><th scope="col">#</th><th scope="col">Titre</th><th scope="col">Description demande</th><th scope="col">Code Postale</th><th scope="col">Fichier</th></tr>';
+	var taille = dataAnnonces.length;
+	for(i=0; i<taille; i++) {
+		ligne=dataAnnonces[i];
+		rep+="<tr>";
+		rep+="<td><button type='button' class='btn btn-danger' id='"+(ligne.idAnnonce)+"' name='"+(ligne.idAnnonce)+"' onclick='listerIdAnnonce(this,this.id)'>Supprimer  "+(ligne.idAnnonce)+"</button></td>";
+		// rep+="<td>"+(ligne.idAnnonce)+"</td>";
+		// rep+="<td>"+(ligne.idDemandeur)+"</td>";
+		rep+="<td>"+(ligne.Titre)+"</td>";
+		rep+="<td>"+(ligne.listeAchat)+"</td>";
+		rep+="<td class='text-uppercase'>"+(ligne.codePostale)+"</td>";
+		// rep+="<td>"+(ligne.statut)+"</td>";
+		rep+="<td>"+(ligne.pochette)+"</td>";
+		rep+="</tr>";
+	}
+	rep+="</table>";
+	$("#contenu").html(rep);
 }
 
 function vueListerAnnonces(Annonces) {
@@ -75,6 +96,10 @@ var vue=function(action,donnees){
 		case "actVueLister":
 			vueListerAnnonces(donnees);
 		break;	
+		case "actVueListerAnnoncesMembres":
+			vueListerAnnoncesMembres(donnees);
+		break;	
+		
 
 		
 	}

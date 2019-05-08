@@ -41,6 +41,25 @@ function ctlListerAnnoncesAdmin() {
 	 }
 }
 
+function ctlListerAnnoncesMembres() {
+	global $connexion, $rep, $idSession;
+	$idDemandeur = $_POST['idDemandeur'];
+	$sql = "SELECT * FROM annonce WHERE idDemandeur='$idDemandeur'";
+	try{
+		 $stmt = $connexion->prepare($sql);
+		 $stmt->execute(array($idDemandeur));
+		 while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
+			$rep[]=$ligne;
+		 }
+	 } catch (Exception $e){
+		echo "Problème controleur pour lister annonces de ce membre.";
+	 }finally {
+		unset($connexion);
+		unset($stmt);
+		echo json_encode($rep);
+	 }
+}
+
 function ctlListerAnnonces() {
 	global $connexion, $rep;
 	$sql = "SELECT * FROM annonce";
@@ -102,6 +121,11 @@ switch ($action) {
 	case 'actCtlDeleteAnnonce':
 		ctlDeleteAnnonce();
 		break;
+	case 'actCtlListerAnnoncesMembres':
+		ctlListerAnnoncesMembres();
+		break;
+
+		
 }
 
 
