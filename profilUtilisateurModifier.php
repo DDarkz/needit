@@ -4,10 +4,10 @@ session_start();
 echo "POST";
 global $connexion, $rep, $idSession;
 if(isset($_SESSION['idUser'])) {
-    $requser="SELECT * FROM utilisateur WHERE idUser = '$idSession'";
+    $requser="SELECT * FROM utilisateur WHERE idUser = ?";
     $stmt=$connexion->prepare($requser);
     $stmt->execute(array($_SESSION['idUser']));
-    $stmt->fetch(PDO::FETCH_OBJ);
+    $user->fetch();
     if(isset($_POST['nvnom']) AND !empty($_POST['nvnom']) AND $_POST['nvnom'] != $user['nom']) {
        $nvnom = htmlspecialchars($_POST['nvnom']);
        $insertnom = $connexion->prepare("UPDATE utilisateur SET nom = ? WHERE idUser = ?");
