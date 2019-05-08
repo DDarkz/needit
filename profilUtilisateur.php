@@ -61,8 +61,9 @@ try{
     $rep.="<p> Date de naissance : ".($ligne->dateNaissance)."</p>";
     $rep.="<p> Code Postal <span class='text-uppercase'>: ".($ligne->codePostale)."</span></p>";
     $rep.="<p> Téléphone : ".($ligne->telephone)."</p>";
-    $rep.="<form method='post' enctype= 'multipart/form-data' action='profilUtilisateur.php'>";
-    $rep.="<button type='buttom' name='modifier' href='profilUtilisateurModifier.php' class='btn btn-warning'>Modifier</button>";
+    //$rep.="<form method='post' enctype= 'multipart/form-data' action='profilUtilisateur.php'>";
+    //$rep.="<button type='buttom'  onclick='profilUtilisateurModifier.php' class='btn btn-warning'>Modifier</button>";
+    $rep.="<a class='btn btn-primary' href='profilUtilisateurModifier.php' role='button'>Modifier</a>";
 
   
   }
