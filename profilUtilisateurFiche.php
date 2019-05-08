@@ -1,8 +1,24 @@
 <?php
 include("bd/connexion.php");
 session_start();
-echo "POST";
-//requete update
+//echo "POST";
+global $connexion,$idSession;
+	
+	$requete="SELECT * FROM utilisateur WHERE idUser=?";
+	$stmt=$connexion->prepare($requete);
+	$stmt->execute(array($idUser));
+	$ligne=$stmt->fetch(PDO::FETCH_OBJ);
+	
+	unset($connexion);
+	unset($stmt);
+	exit;
+	
+	$nvnom=$ligne->nom;
+	$nvprenom=$ligne->prenom;
+	unset($connexion);
+	unset($stmt);
+	//envoyerFiche($num,$titre,$res);
+
 ?>
 <!doctype html>
 <html lang="fr">
@@ -29,9 +45,9 @@ echo "POST";
       <div class='col-12'>
       <h1>Modifier mon profil</h1>
       </div>
-        modifié
-      <!-- debut formulaire 
-      <form method="post" enctype= "multipart/form-data"> 
+        
+      <!-- debut formulaire -->
+      <form method="post" enctype= "multipart/form-data"action='profilUtilisateurModifier.php'> 
           <div class="form-group row">
             <label for="nvnom" class="col-sm-2 col-form-label">Nom</label>
             <div class="col-sm-10">
@@ -101,7 +117,7 @@ echo "POST";
           </div>
           
         </form>
-         fin formulaire -->
+        <!-- fin formulaire -->
     </div>
  
 </div>

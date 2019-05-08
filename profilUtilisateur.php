@@ -63,7 +63,7 @@ try{
     $rep.="<p> Téléphone : ".($ligne->telephone)."</p>";
     //$rep.="<form method='post' enctype= 'multipart/form-data' action='profilUtilisateur.php'>";
     //$rep.="<button type='buttom'  onclick='profilUtilisateurModifier.php' class='btn btn-warning'>Modifier</button>";
-    $rep.="<a class='btn btn-primary' href='profilUtilisateurModifier.php' role='button'>Modifier</a>";
+    $rep.="<a class='btn btn-primary' href='profilUtilisateurFiche.php' role='button'>Modifier</a>";
 
   
   }
