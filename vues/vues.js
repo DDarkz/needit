@@ -85,6 +85,29 @@ function vueListerAnnonces(Annonces) {
 
 }
 
+function vueListerAnnoncesIndex(Annonces) {
+	rep="";
+	var taille = Annonces.length;
+	for(i=0; i<taille; i++) {
+		ligne=Annonces[i];
+		rep+='<div class="row align-items-center no-gutters mb-4 mb-lg-5">';
+		rep+='<div class="col-xl-8 col-lg-7">';
+		rep+='<a href="annonces.php">';
+          rep+='<img class="img-fluid mb-3 mb-lg-0" src="images/'+(ligne.pochette)+'" alt="">';
+        rep+='</div>';
+        rep+='<div class="col-xl-4 col-lg-5">';
+          rep+='<div class="featured-text text-center text-lg-left">';
+            rep+='<h4>'+(ligne.Titre)+'</h4>';
+            rep+='<p class="text-black-50 mb-0">'+(ligne.listeAchat)+'</p>';
+		  rep+='</div>';
+		  rep+='</a>';
+        rep+='</div>';
+	  rep+='</div>';
+	}
+	$("#annoncesIndex").html(rep);
+
+}
+
 var vue=function(action,donnees){
 	switch(action){
 		case "actVueListerMAdmin":
@@ -95,6 +118,9 @@ var vue=function(action,donnees){
 		break;
 		case "actVueLister":
 			vueListerAnnonces(donnees);
+		break;
+		case "actVueListerIndex":
+			vueListerAnnoncesIndex(donnees);
 		break;	
 		case "actVueListerAnnoncesMembres":
 			vueListerAnnoncesMembres(donnees);
