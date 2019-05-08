@@ -16,7 +16,7 @@ session_start();
     <script type="text/javascript" src="vues/vues.js"></script>
     <script type="text/javascript" src="requetes/requetes.js"></script>
 
-    <title>Admin</title>
+    <title>Profil Utilisateur - Gérer mes annonces.</title>
   </head>
   <!-- onload="requetes('actionListerMAdmin'), requetes('actionListerA');" -->
   <body>
@@ -35,9 +35,6 @@ session_start();
         <li class="nav-item">
           <a class="nav-link" id="lienAnnonces" href="#" onclick="requetes(null,'actionListerAnnoncesMembres')">Lister mes annonces</a>
         </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link" id="lienAnnonces" href="#" onclick="requetes(null,'actionListerA');">Annonces</a>
-        </li> -->
       </ul>
        <form>
        <div id="loading"></div>
@@ -46,6 +43,7 @@ session_start();
            <!--?php actionListerAnnoncesMembres(); ?-->
         </div>
         <input type="hidden" id="idDemandeur" name="idDemandeur" value="<?php echo $idSession ?>">
+        <input type="hidden" id="idAnnonce" name="idAnnonce" value="">
         </form>
 
           
@@ -56,19 +54,12 @@ session_start();
 
    
     <script type="text/javascript">
-		// 		function listerId(elem,choixId) {
-		// 			var idUser = document.getElementById("idUser").value = choixId;
-		// 			(function(){
-		// 				requetes(elem,'actDeleteMembres');
-		// 			})();
-        // }
-        
-        // function listerAnnonceMembre(elem,choixId) {
-				// 	var idAnnonce = document.getElementById("idDemandeur").value = choixId;
-				// 	(function(){
-				// 		requetes(elem,'actDeleteAnnonce');
-				// 	})();
-        // }
+         function listerIdAnnonce(elem,choixId) {
+					var idAnnonce = document.getElementById("idAnnonce").value = choixId;
+					(function(){
+						requetes(elem,'actDeleteAnnonce');
+					})();
+        }
       
       </script>
       
