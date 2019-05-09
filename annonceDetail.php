@@ -17,16 +17,16 @@ session_start();
 
     <title>Formulaire livreur</title>
   </head>
-  <body>
+  <body onload="requetes(null,'actionListerDetail');">
 
     <?php include("includes/menu.php"); ?>
    
 
     <!-- debut container -->
     <div class="container pt-5">
-      <div class="row">
+      <div class="row" id="annoncesDetail">
 
-        <div class="col-6">
+        <!-- <div class="col-6">
           <img src="images/wheel-500.jpg">
         </div>
 
@@ -42,7 +42,7 @@ session_start();
             <li>pain</li>
             <li>Yogout</li>
           </ul>
-        </div>
+        </div> -->
         
       </div>
     </div>

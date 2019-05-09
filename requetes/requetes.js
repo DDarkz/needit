@@ -70,8 +70,21 @@ function ajaxListerAnnoncesIndex(){
 		data: {'action' : 'actCtlListerIndex'}, 
 		dataType: 'json',
 		success: function(Annonces){
-			// alert("hello");
 			vue('actVueListerIndex',Annonces); 
+		},
+		fail:function(){
+			alert("Problème pour lister annonces.");
+		}
+	});
+}
+function ajaxListerAnnoncesDetail(){
+	$.ajax({
+		url:'serveur/controleur.php',
+		type:'POST',
+		data: {'action' : 'actCtlListerDetail'}, 
+		dataType: 'json',
+		success: function(Annonces){
+			vue('actVueListerDetail',Annonces); 
 		},
 		fail:function(){
 			alert("Problème pour lister annonces.");
@@ -124,6 +137,9 @@ var requetes = function(elem,action){
 		break;
 		case "actionLister" :
 			ajaxListerAnnonces();
+		break;
+		case "actionListerDetail" :
+			ajaxListerAnnoncesDetail();
 		break;
 		case "actionListerIndex" :
 			ajaxListerAnnoncesIndex();

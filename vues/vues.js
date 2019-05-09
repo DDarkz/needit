@@ -78,6 +78,10 @@ function vueListerAnnonces(Annonces) {
 		rep+='<p class="card-text"><small class="text-muted">Poste il y'+(ligne.date)+'</small></p>';
 		rep+='</div>';
 		rep+='</a>';
+		rep+='<form method="post" action="annonceDetail.php">';
+		rep+='<input type="hidden" id="idAnnonce" name="idAnnonce" value="'+(ligne.idAnnonce)+'">';
+		rep+='<input type="submit" class="btn btn-primary" id="submit" name="submit" value="Detail">';
+		rep+='</form>';
 		rep+="</div>";
 		//rep+="</div>";
 	}
@@ -108,6 +112,24 @@ function vueListerAnnoncesIndex(Annonces) {
 
 }
 
+function vueListerAnnoncesDetail(Annonces) {
+	rep="";
+	var taille = Annonces.length;
+	for(i=0; i<taille; i++) {
+		ligne=Annonces[i];
+		rep+='<div class="col-6">';
+		rep+='<img class="img-fluid mb-3 mb-lg-0" src="images/'+(ligne.pochette)+'" alt="">';
+        rep+='</div>';
+        rep+='<div class="col-6">';
+        rep+='<h1>'+(ligne.Titre)+'</h1>';
+		rep+='<p class="card-date">'+(ligne.date)+'</p>';
+		rep+='<p class="text-black-50 mb-0">'+(ligne.listeAchat)+'</p>';
+        rep+='</div>';
+	}
+	$("#annoncesDetail").html(rep);
+
+}
+
 var vue=function(action,donnees){
 	switch(action){
 		case "actVueListerMAdmin":
@@ -118,6 +140,9 @@ var vue=function(action,donnees){
 		break;
 		case "actVueLister":
 			vueListerAnnonces(donnees);
+		break;
+		case "actVueListerDetail":
+			vueListerAnnoncesDetail(donnees);
 		break;
 		case "actVueListerIndex":
 			vueListerAnnoncesIndex(donnees);
