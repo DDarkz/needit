@@ -1,3 +1,7 @@
+<?php
+include("bd/connexion.php");
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -12,6 +16,8 @@
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <script type="text/javascript" src="vues/vues.js"></script>
+  <script type="text/javascript" src="requetes/requetes.js"></script>  
 
   <!-- Custom fonts for this template -->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
@@ -23,7 +29,7 @@
 
 </head>
 
-<body id="page-top">
+<body id="page-top" onload="requetes(null,'actionListerIndex');">
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
@@ -77,10 +83,10 @@
 
   <!-- Projects Section -->
   <section id="projects" class="projects-section bg-light">
-    <div class="container">
+    <div class="container" id="annoncesIndex">
 
       <!-- Featured Project Row -->
-      <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+      <!-- <div class="row align-items-center no-gutters mb-4 mb-lg-5">
         <div class="col-xl-8 col-lg-7">
           <img class="img-fluid mb-3 mb-lg-0" src="img/bg-masthead.jpg" alt="">
         </div>
@@ -90,10 +96,10 @@
             <p class="text-black-50 mb-0">Grayscale is open source and MIT licensed. This means you can use it for any project - even commercial projects! Download it, customize it, and publish your website!</p>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- Project One Row -->
-      <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+      <!-- <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
         <div class="col-lg-6">
           <img class="img-fluid" src="img/demo-image-01.jpg" alt="">
         </div>
@@ -108,10 +114,10 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- Project Two Row -->
-      <div class="row justify-content-center no-gutters">
+      <!-- <div class="row justify-content-center no-gutters">
         <div class="col-lg-6">
           <img class="img-fluid" src="img/demo-image-02.jpg" alt="">
         </div>
@@ -126,7 +132,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
     </div>
   </section>

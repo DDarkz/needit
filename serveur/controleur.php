@@ -78,6 +78,24 @@ function ctlListerAnnonces() {
 	 }
 }
 
+function ctlListerAnnoncesIndex() {
+	global $connexion, $rep;
+	$sql = "SELECT * FROM annonce ORDER BY idAnnonce DESC LIMIT 3";
+	try{
+		 $stmt = $connexion->prepare($sql);
+		 $stmt->execute();
+		 while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
+			$rep[]=$ligne;
+		 }
+	 } catch (Exception $e){
+		echo "Problème controleur pour lister annonces.";
+	 }finally {
+		unset($connexion);
+		unset($stmt);
+		echo json_encode($rep);
+	 }
+}
+
 function ctlDeleteMembres() {
 	global $connexion, $rep;
 	$idUser=$_POST['idUser'];
@@ -129,6 +147,9 @@ switch ($action) {
 		break;
 	case 'actCtlLister':
 		ctlListerAnnonces();
+		break;
+	case 'actCtlListerIndex':
+		ctlListerAnnoncesIndex();
 		break;
 	case 'actCtlDeleteMembre':
 		ctlDeleteMembres();
