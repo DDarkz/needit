@@ -107,7 +107,7 @@ function ctlListerAnnoncesDetail() {
 			$rep[]=$ligne;
 		 }
 	 } catch (Exception $e){
-		echo "Problème controleur pour lister annonces.";
+		echo "Problème controleur pour lister annonces détail.";
 	 }finally {
 		unset($connexion);
 		unset($stmt);

@@ -79,10 +79,11 @@ function vueListerAnnonces(Annonces) {
 		rep+='<p class="card-text"><small class="text-muted">Poste il y'+(ligne.date)+'</small></p>';
 		rep+='</div>';
 		rep+='</a>';
-		rep+='<form method="post" action="annonceDetail.php">';
-		rep+='<input type="hidden" id="idAnnonce" name="idAnnonce" value="'+(ligne.idAnnonce)+'">';
-		rep+='<input type="submit" class="btn btn-primary" id="submit" name="submit" value="Detail">';
-		rep+='</form>';
+		//rep+='<form method="post" action="annonceDetail.php">';
+		// rep+='<input type="hidden" id="idAnnonce" name="idAnnonce" value="'+(ligne.idAnnonce)+'">';
+		// rep+='<input type="submit" class="btn btn-primary" id="submit" name="submit" value="Detail">';
+		rep+="<button type='button' class='btn btn-info mr-1' id='"+(ligne.idAnnonce)+"' name='"+(ligne.idAnnonce)+"' onclick='listerIdAnnonce(this,this.id)'>Détail"+(ligne.idAnnonce)+"</button>";
+		//rep+='</form>';
 		rep+="</div>";
 		//rep+="</div>";
 	}

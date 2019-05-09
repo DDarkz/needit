@@ -77,11 +77,13 @@ function ajaxListerAnnoncesIndex(){
 		}
 	});
 }
-function ajaxListerAnnoncesDetail(){
+function ajaxListerAnnoncesDetail(elem){
+	var idAnnonce=$('#idAnnonce').val();
+	alert(idAnnonce);
 	$.ajax({
 		url:'serveur/controleur.php',
 		type:'POST',
-		data: {'action' : 'actCtlListerDetail'}, 
+		data: {'action' : 'actCtlListerDetail',"idAnnonce":idAnnonce}, 
 		dataType: 'json',
 		success: function(Annonces){
 			vue('actVueListerDetail',Annonces); 
