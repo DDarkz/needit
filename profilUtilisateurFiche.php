@@ -20,12 +20,21 @@ echo"$idSession";
     
 
     function envoyerFiche($idSession,$nom,$prenom){
-        $rep= "			<form id=\"enregModifier\" enctype=\"multipart/form-data\" action=\"profilUtilisateurModifier.php\" method=\"POST\">\n"; 
-        $rep.= "				Nom :<input type=\"text\" id=\"nom\" name=\"nom\" value='".$nom."'><br><br>\n"; 
-        $rep.= "				Prénom :<input type=\"text\" id=\"prenom\" name=\"prenom\" value='".$prenom."'><br><br>\n"; 
-        $rep.= "				<input type=\"submit\" value=\"Envoyer\">\n"; 
-        $rep.= "			</form>\n"; 
-        $rep.= "		</div>\n";
+        $rep= "<form id=\"enregModifier\" enctype=\"multipart/form-data\" action=\"profilUtilisateurModifier.php\" method=\"POST\">\n"; 
+        $rep.= "<div class='form-group row'>";
+        $rep.="<label for='nom' class='col-sm-2 col-form-label'>Nom</label>";
+        $rep.="<div class='col-sm-10'>";
+        $rep.= "<input type=\'text\' id=\'nom\' class=\'form-control\' name=\'nom\' value='".$nom."'><br><br>\n"; 
+        $rep.="</div>";
+        $rep.="</div>";
+        $rep.= "<div class='form-group row'>";
+        $rep.="<label for='prenom' class='col-sm-2 col-form-label'>Prénom</label>";
+        $rep.= "<input type=\"text\" id=\"prenom\" class=\'form-control\' name=\"prenom\" value='".$prenom."'><br><br>"; 
+        $rep.="</div>";
+        $rep.="</div>";
+        $rep.= "<input type=\"submit\" value=\"Envoyer\">"; 
+        $rep.= "</form>\n"; 
+        $rep.= "</div>\n";
         echo $rep;
     }
     
