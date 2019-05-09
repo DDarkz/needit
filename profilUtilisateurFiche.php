@@ -4,20 +4,49 @@ session_start();
 //echo "POST";
 global $connexion,$idSession;
 	
-	$requete="SELECT * FROM utilisateur WHERE idUser=?";
+	// $requete="SELECT * FROM utilisateur WHERE idUser='$idSession'";
+	// $stmt=$connexion->prepare($requete);
+	// $stmt->execute(array($idSession));
+	// $ligne=$stmt->fetch(PDO::FETCH_OBJ);
+	
+	// unset($connexion);
+	// unset($stmt);
+	// $nvnom=$ligne->nom;
+	// $nvprenom=$ligne->prenom;
+	// unset($connexion);
+	// unset($stmt);
+    // //envoyerFiche($num,$titre,$res);
+    
+
+    function envoyerFiche($idUser,$nom,$prenom){
+        $rep.= "			<form id=\"enregModifier\" enctype=\"multipart/form-data\" action=\"profilUtilisateurModifier.php\" method=\"POST\">\n"; 
+        $rep.= "				Nom :<input type=\"text\" id=\"nom\" name=\"nom\" value='".$nom."'><br><br>\n"; 
+        $rep.= "				Prénom :<input type=\"text\" id=\"prenom\" name=\"prenom\" value='".$prenom."'><br><br>\n"; 
+        $rep.= "				<input type=\"submit\" value=\"Envoyer\">\n"; 
+        $rep.= "			</form>\n"; 
+        $rep.= "		</div>\n";
+        echo $rep;
+    }
+    }
+function obtenirFiche(){
+	global $connexion,$idSession;
+	
+	$requete="SELECT * FROM utilisateur WHERE idUser='$idSession'";
 	$stmt=$connexion->prepare($requete);
-	$stmt->execute(array($idUser));
+	$stmt->execute(array($idSession));
 	$ligne=$stmt->fetch(PDO::FETCH_OBJ);
 	
-	unset($connexion);
-	unset($stmt);
-	exit;
+		unset($connexion);
+		unset($stmt);
+		//exit;
 	
-	$nvnom=$ligne->nom;
-	$nvprenom=$ligne->prenom;
+	$nom=$ligne->nom;
+	$prenom=$ligne->prenom;
 	unset($connexion);
 	unset($stmt);
-	//envoyerFiche($num,$titre,$res);
+	envoyerFiche($idUser,$nom,$prenom);
+}
+obtenirFiche();
 
 ?>
 <!doctype html>
@@ -47,11 +76,11 @@ global $connexion,$idSession;
       </div>
         
       <!-- debut formulaire -->
-      <form method="post" enctype= "multipart/form-data"action='profilUtilisateurModifier.php'> 
+      <!-- <form method="post" enctype= "multipart/form-data"action='profilUtilisateurModifier.php'> 
           <div class="form-group row">
             <label for="nvnom" class="col-sm-2 col-form-label">Nom</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="nvnom" name="nvnom" placeholder="Nom" >
+              <input type="text" class="form-control" id="nvnom" name="nvnom"  >
               
             </div>
             
@@ -117,11 +146,12 @@ global $connexion,$idSession;
           </div>
           
         </form>
-        <!-- fin formulaire -->
-    </div>
+         fin formulaire 
+    </div> 
+    -->
  
 </div>
-</div>
+</div> 
 <!-- fin container -->
 
 <?php include("includes/footer.php"); ?>
