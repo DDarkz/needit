@@ -22,7 +22,7 @@ function vueListerMembresAdmin(dataMembresAdmin){
 function vueListerAnnoncesAdmin(dataAnnonces) {
 	rep="<h2>Liste des annonces</h2>";
 	rep+="<table class='table table-striped'>";
-	rep+='<tr><th scope="col">#</th><th scope="col">Titre</th><th scope="col">Description demande</th><th scope="col">Code Postale</th><th scope="col">Fichier</th></tr>';
+	rep+='<tr><th scope="col">#</th><th scope="col">Titre</th><th scope="col">Description demande</th><th scope="col">Code Postal</th><th scope="col">Fichier</th></tr>';
 	var taille = dataAnnonces.length;
 	for(i=0; i<taille; i++) {
 		ligne=dataAnnonces[i];
@@ -44,12 +44,13 @@ function vueListerAnnoncesAdmin(dataAnnonces) {
 function vueListerAnnoncesMembres(dataAnnonces) {
 	rep="<h2>Liste des annonces de ce membre</h2>";
 	rep+="<table class='table table-striped'>";
-	rep+='<tr><th scope="col">#</th><th scope="col">Titre</th><th scope="col">Description demande</th><th scope="col">Code Postale</th><th scope="col">Fichier</th></tr>';
+	rep+='<tr><th scope="col">#</th><th scope="col">Titre</th><th scope="col">Description demande</th><th scope="col">Code Postal</th><th scope="col">Fichier</th></tr>';
 	var taille = dataAnnonces.length;
 	for(i=0; i<taille; i++) {
 		ligne=dataAnnonces[i];
 		rep+="<tr>";
-		rep+="<td><button type='button' class='btn btn-danger' id='"+(ligne.idAnnonce)+"' name='"+(ligne.idAnnonce)+"' onclick='listerIdAnnonce(this,this.id)'>Supprimer  "+(ligne.idAnnonce)+"</button></td>";
+		rep+="<td><button type='button' class='btn btn-danger mr-1' id='"+(ligne.idAnnonce)+"' name='"+(ligne.idAnnonce)+"' onclick='listerIdAnnonce(this,this.id)'>Supprimer  "+(ligne.idAnnonce)+"</button>";
+		rep+="<button type='button' class='btn btn-info' id='"+(ligne.idAnnonce)+"' name='"+(ligne.idAnnonce)+"' onclick='modifierIdAnnonce(this,this.id)'>Modifier  "+(ligne.idAnnonce)+"</button></td>";
 		// rep+="<td>"+(ligne.idAnnonce)+"</td>";
 		// rep+="<td>"+(ligne.idDemandeur)+"</td>";
 		rep+="<td>"+(ligne.Titre)+"</td>";

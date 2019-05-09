@@ -92,6 +92,21 @@ function ctlDeleteMembres() {
 		 $stmtC->execute(array($idUser));
 }
 
+function ctlModifierAnnonce() {
+	global $connexion, $rep;
+	$idAnnonce=$_POST['idAnnonce'];
+	$titre=$_POST['titre'];
+	$liste=$_POST['liste'];
+	$codepostal=$_POST['codepostal'];
+	$service=$_POST['service'];
+	$tmp=$_FILES['photo']['tmp_name'];
+	$sql = "UPDATE annonce SET titre=?, liste=?, codepostal=?, photo=? WHERE idAnnonce='$idAnnonce'";
+	
+		 $stmt = $connexion->prepare($sql);
+		 $stmt->execute(array($titre, $liste, $codepostal, $service));
+		//  echo "Le membre $idUser à été enlevé.";
+}
+
 function ctlDeleteAnnonce() {
 	global $connexion, $rep;
 	$idAnnonce=$_POST['idAnnonce'];
@@ -117,6 +132,9 @@ switch ($action) {
 		break;
 	case 'actCtlDeleteMembre':
 		ctlDeleteMembres();
+		break;
+	case 'actCtlModifierAnnonce':
+		ctlModifierAnnonce();
 		break;
 	case 'actCtlDeleteAnnonce':
 		ctlDeleteAnnonce();
