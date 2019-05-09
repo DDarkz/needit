@@ -126,6 +126,25 @@ function ajaxDeleteAnnonce(elem){
 	});
 }
 
+function ajaxModifierAnnonce(elem){
+	var idAnnonce=$('#idAnnonce').val();
+	alert(idAnnonce);
+	$.ajax({
+		url:'serveur/controleur.php',
+		type:'POST',
+		data:{"action":'actCtlModifierAnnonce',"idAnnonce":idAnnonce},
+		dataType: 'json', // si en txt je peux utiliser jquery #loading
+		 success: function(data){
+			// alert(elem);
+			//$(elem.parentNode.parentNode).remove();
+			// $("#loading").append("<h2>you are here</h2>");
+		 },
+		fail: function(){
+			alert("Problème pour modifier.");
+		}
+	});
+}
+
 var requetes = function(elem,action){
 	// alert(action);
 	switch(action) {
@@ -149,6 +168,9 @@ var requetes = function(elem,action){
 			break;
 		case "actDeleteAnnonce" :
 			ajaxDeleteAnnonce(elem);
+			break;
+		case "actModifierAnnonce" :
+			ajaxModifierAnnonce(elem);
 			break;
 		case "actionListerAnnoncesMembres" :
 			ajaxListerAnnoncesMembres();

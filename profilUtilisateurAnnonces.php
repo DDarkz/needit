@@ -60,6 +60,13 @@ session_start();
 						requetes(elem,'actDeleteAnnonce');
 					})();
         }
+
+        function modifierIdAnnonce(elem,choixId) {
+					var idAnnonce = document.getElementById("idAnnonce").value = choixId;
+					(function(){
+						requetes(elem,'actModifierAnnonce');
+					})();
+        }
       
       </script>
       

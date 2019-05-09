@@ -103,16 +103,16 @@ if(isset($_POST["submit"]))
           <div class="form-group row">
             <label for="codepostal" class="col-sm-2 col-form-label">Code potal</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="codepostal" name="codepostal" placeholder="Code potal" onChange="validation()">
+              <input type="text" class="form-control" id="codepostal" name="codepostal" placeholder="Code postal" onChange="validation()">
             </div>
           </div>
           <div class="form-group row">
             <label for="service" class="col-sm-2 col-form-label">Service</label>
             <div class="col-sm-10">
               <select class="form-select" name="service">
-                <option value="epicerie">epicerie</option>
-                <option value="pharmacie">pharmacie</option>
-                <option value="autres">autres</option>
+                <option value="epicerie">Épicerie</option>
+                <option value="pharmacie">Pharmacie</option>
+                <option value="autres">Autres</option>
               </select>
             </div>
           </div>
@@ -127,7 +127,7 @@ if(isset($_POST["submit"]))
           <div class="form-group row">
             <div class="col-sm-10">
               <input type="submit" name="submit" class="btn btn-primary" value="Créer l'annonce" />
-              <button type="rest" name="rest" class="btn btn-warning">Éffacer</button>
+              <button type="rest" name="rest" class="btn btn-warning">Effacer</button>
             </div>
           </div>
         </form>

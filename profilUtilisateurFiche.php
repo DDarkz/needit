@@ -2,22 +2,61 @@
 include("bd/connexion.php");
 session_start();
 //echo "POST";
-global $connexion,$idSession;
+global $connexion,$idSession,$rep;
+echo"$idSession";
 	
-	$requete="SELECT * FROM utilisateur WHERE idUser=?";
+	// $requete="SELECT * FROM utilisateur WHERE idUser='$idSession'";
+	// $stmt=$connexion->prepare($requete);
+	// $stmt->execute(array($idSession));
+	// $ligne=$stmt->fetch(PDO::FETCH_OBJ);
+	
+	// unset($connexion);
+	// unset($stmt);
+	// $nvnom=$ligne->nom;
+	// $nvprenom=$ligne->prenom;
+	// unset($connexion);
+	// unset($stmt);
+    // //envoyerFiche($num,$titre,$res);
+    
+
+    function envoyerFiche($idSession,$nom,$prenom){
+        $rep= "<form id=\"enregModifier\" enctype=\"multipart/form-data\" action=\"profilUtilisateurModifier.php\" method=\"POST\">\n"; 
+        $rep.= "<div class='form-group row'>";
+        $rep.="<label for='nom' class='col-sm-2 col-form-label'>Nom</label>";
+        $rep.="<div class='col-sm-10'>";
+        $rep.= "<input type=\'text\' id=\'nom\' class=\'form-control\' name=\'nom\' value='".$nom."'><br><br>\n"; 
+        $rep.="</div>";
+        $rep.="</div>";
+        $rep.= "<div class='form-group row'>";
+        $rep.="<label for='prenom' class='col-sm-2 col-form-label'>Prénom</label>";
+        $rep.= "<input type=\"text\" id=\"prenom\" class=\'form-control\' name=\"prenom\" value='".$prenom."'><br><br>"; 
+        $rep.="</div>";
+        $rep.="</div>";
+        $rep.= "<input type=\"submit\" value=\"Envoyer\">"; 
+        $rep.= "</form>\n"; 
+        $rep.= "</div>\n";
+        echo $rep;
+    }
+    
+function obtenirFiche(){
+	global $connexion,$idSession;
+	
+	$requete="SELECT * FROM utilisateur WHERE idUser='$idSession'";
 	$stmt=$connexion->prepare($requete);
-	$stmt->execute(array($idUser));
+	$stmt->execute(array($idSession));
 	$ligne=$stmt->fetch(PDO::FETCH_OBJ);
 	
-	unset($connexion);
-	unset($stmt);
-	exit;
+		unset($connexion);
+		unset($stmt);
+		//exit;
 	
-	$nvnom=$ligne->nom;
-	$nvprenom=$ligne->prenom;
+	$nom=$ligne->nom;
+	$prenom=$ligne->prenom;
 	unset($connexion);
 	unset($stmt);
-	//envoyerFiche($num,$titre,$res);
+	envoyerFiche($idSession,$nom,$prenom);
+}
+obtenirFiche();
 
 ?>
 <!doctype html>
@@ -47,11 +86,11 @@ global $connexion,$idSession;
       </div>
         
       <!-- debut formulaire -->
-      <form method="post" enctype= "multipart/form-data"action='profilUtilisateurModifier.php'> 
+      <!-- <form method="post" enctype= "multipart/form-data"action='profilUtilisateurModifier.php'> 
           <div class="form-group row">
             <label for="nvnom" class="col-sm-2 col-form-label">Nom</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="nvnom" name="nvnom" placeholder="Nom" >
+              <input type="text" class="form-control" id="nvnom" name="nvnom"  >
               
             </div>
             
@@ -117,11 +156,12 @@ global $connexion,$idSession;
           </div>
           
         </form>
-        <!-- fin formulaire -->
-    </div>
+         fin formulaire 
+    </div> 
+    -->
  
 </div>
-</div>
+</div> 
 <!-- fin container -->
 
 <?php include("includes/footer.php"); ?>
