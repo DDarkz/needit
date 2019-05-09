@@ -22,7 +22,7 @@ function vueListerMembresAdmin(dataMembresAdmin){
 function vueListerAnnoncesAdmin(dataAnnonces) {
 	rep="<h2>Liste des annonces</h2>";
 	rep+="<table class='table table-striped'>";
-	rep+='<tr><th scope="col">#</th><th scope="col">Titre</th><th scope="col">Description demande</th><th scope="col">Code Postal</th><th scope="col">Fichier</th></tr>';
+	rep+='<tr><th scope="col">#</th><th scope="col">Titre</th><th scope="col">Description demande</th><th scope="col">Code Postale</th><th scope="col">Fichier</th></tr>';
 	var taille = dataAnnonces.length;
 	for(i=0; i<taille; i++) {
 		ligne=dataAnnonces[i];
@@ -44,13 +44,12 @@ function vueListerAnnoncesAdmin(dataAnnonces) {
 function vueListerAnnoncesMembres(dataAnnonces) {
 	rep="<h2>Liste des annonces de ce membre</h2>";
 	rep+="<table class='table table-striped'>";
-	rep+='<tr><th scope="col">#</th><th scope="col">Titre</th><th scope="col">Description demande</th><th scope="col">Code Postal</th><th scope="col">Fichier</th></tr>';
+	rep+='<tr><th scope="col">#</th><th scope="col">Titre</th><th scope="col">Description demande</th><th scope="col">Code Postale</th><th scope="col">Fichier</th></tr>';
 	var taille = dataAnnonces.length;
 	for(i=0; i<taille; i++) {
 		ligne=dataAnnonces[i];
 		rep+="<tr>";
-		rep+="<td><button type='button' class='btn btn-danger mr-1' id='"+(ligne.idAnnonce)+"' name='"+(ligne.idAnnonce)+"' onclick='listerIdAnnonce(this,this.id)'>Supprimer  "+(ligne.idAnnonce)+"</button>";
-		rep+="<button type='button' class='btn btn-info' id='"+(ligne.idAnnonce)+"' name='"+(ligne.idAnnonce)+"' onclick='modifierIdAnnonce(this,this.id)'>Modifier  "+(ligne.idAnnonce)+"</button></td>";
+		rep+="<td><button type='button' class='btn btn-danger' id='"+(ligne.idAnnonce)+"' name='"+(ligne.idAnnonce)+"' onclick='listerIdAnnonce(this,this.id)'>Supprimer  "+(ligne.idAnnonce)+"</button></td>";
 		// rep+="<td>"+(ligne.idAnnonce)+"</td>";
 		// rep+="<td>"+(ligne.idDemandeur)+"</td>";
 		rep+="<td>"+(ligne.Titre)+"</td>";
@@ -79,11 +78,10 @@ function vueListerAnnonces(Annonces) {
 		rep+='<p class="card-text"><small class="text-muted">Poste il y'+(ligne.date)+'</small></p>';
 		rep+='</div>';
 		rep+='</a>';
-		//rep+='<form method="post" action="annonceDetail.php">';
-		// rep+='<input type="hidden" id="idAnnonce" name="idAnnonce" value="'+(ligne.idAnnonce)+'">';
-		// rep+='<input type="submit" class="btn btn-primary" id="submit" name="submit" value="Detail">';
-		rep+="<button type='button' class='btn btn-info mr-1' id='"+(ligne.idAnnonce)+"' name='"+(ligne.idAnnonce)+"' onclick='listerIdAnnonce(this,this.id)'>Détail"+(ligne.idAnnonce)+"</button>";
-		//rep+='</form>';
+		rep+='<form method="post" action="annonceDetail.php">';
+		rep+='<input type="hidden" id="idAnnonce" name="idAnnonce" value="'+(ligne.idAnnonce)+'">';
+		rep+='<input type="submit" class="btn btn-primary" id="submit" name="submit" value="Detail">';
+		rep+='</form>';
 		rep+="</div>";
 		//rep+="</div>";
 	}
@@ -99,7 +97,7 @@ function vueListerAnnoncesIndex(Annonces) {
 		rep+='<div class="row align-items-center no-gutters mb-4 mb-lg-5">';
 		rep+='<div class="col-xl-8 col-lg-7">';
 		rep+='<a href="annonces.php">';
-          rep+='<img class="img-fluid mb-3 mb-lg-0" src="images/'+(ligne.pochette)+'" alt="">';
+          rep+='<img class="img-fluid mb-3 mb-lg-0" src="images/'+(ligne.pochette)+'" alt="" width="80%" height="30%">';
         rep+='</div>';
         rep+='<div class="col-xl-4 col-lg-5">';
           rep+='<div class="featured-text text-center text-lg-left">';
@@ -126,7 +124,7 @@ function vueListerAnnoncesDetail(Annonces) {
         rep+='<h1>'+(ligne.Titre)+'</h1>';
 		rep+='<p class="card-date">'+(ligne.date)+'</p>';
 		rep+='<p class="text-black-50 mb-0">'+(ligne.listeAchat)+'</p>';
-        rep+='</div>';
+				rep+='</div>';
 	}
 	$("#annoncesDetail").html(rep);
 

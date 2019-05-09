@@ -77,13 +77,12 @@ function ajaxListerAnnoncesIndex(){
 		}
 	});
 }
-function ajaxListerAnnoncesDetail(elem){
+function ajaxListerAnnoncesDetail(){
 	var idAnnonce=$('#idAnnonce').val();
-	alert(idAnnonce);
 	$.ajax({
 		url:'serveur/controleur.php',
 		type:'POST',
-		data: {'action' : 'actCtlListerDetail',"idAnnonce":idAnnonce}, 
+		data: {'action' : 'actCtlListerDetail','idAnnonce':idAnnonce}, 
 		dataType: 'json',
 		success: function(Annonces){
 			vue('actVueListerDetail',Annonces); 
@@ -112,6 +111,7 @@ function ajaxDeleteMembres(elem){
 
 function ajaxDeleteAnnonce(elem){
 	var idAnnonce=$('#idAnnonce').val();
+	alert(idAnnonce);
 	$.ajax({
 		url:'serveur/controleur.php',
 		type:'POST',

@@ -50,15 +50,6 @@ session_start();
 
     </div>
     <!-- fin container -->
-
-    <!-- <script type="text/javascript">
-         function listerIdAnnonce(elem,choixId) {
-					var idAnnonce = document.getElementById("idAnnonce").value = choixId;
-					(function(){
-						requetes(elem,'actionListerDetail');
-					})();
-        }
-    </script> -->
       
 
     <?php include("includes/footer.php"); ?>

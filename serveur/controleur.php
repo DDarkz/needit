@@ -3,7 +3,6 @@ require_once("../bd/connexion.php");
 session_start();
 
 $rep=array();
-
 function ctlListerMembresAdmin() {
 	global $connexion, $rep;
 	$sql = "SELECT * FROM utilisateur";
@@ -99,10 +98,10 @@ function ctlListerAnnoncesIndex() {
 function ctlListerAnnoncesDetail() {
 	global $connexion, $rep;
 	$idAnnonce=$_POST['idAnnonce'];
-	$sql = "SELECT * FROM annonce WHERE idAnnonce='$idAnnonce'";
+	$sql = "SELECT * FROM annonce WHERE idAnnonce = '$idAnnonce'";
 	try{
 		 $stmt = $connexion->prepare($sql);
-		 $stmt->execute();
+		 $stmt->execute(array($idAnnonce));
 		 while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
 			$rep[]=$ligne;
 		 }
