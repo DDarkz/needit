@@ -2,7 +2,8 @@
 include("bd/connexion.php");
 session_start();
 //echo "POST";
-global $connexion,$idSession;
+global $connexion,$idSession,$rep;
+echo"$idSession";
 	
 	// $requete="SELECT * FROM utilisateur WHERE idUser='$idSession'";
 	// $stmt=$connexion->prepare($requete);
@@ -18,8 +19,8 @@ global $connexion,$idSession;
     // //envoyerFiche($num,$titre,$res);
     
 
-    function envoyerFiche($idUser,$nom,$prenom){
-        $rep.= "			<form id=\"enregModifier\" enctype=\"multipart/form-data\" action=\"profilUtilisateurModifier.php\" method=\"POST\">\n"; 
+    function envoyerFiche($idSession,$nom,$prenom){
+        $rep= "			<form id=\"enregModifier\" enctype=\"multipart/form-data\" action=\"profilUtilisateurModifier.php\" method=\"POST\">\n"; 
         $rep.= "				Nom :<input type=\"text\" id=\"nom\" name=\"nom\" value='".$nom."'><br><br>\n"; 
         $rep.= "				Prénom :<input type=\"text\" id=\"prenom\" name=\"prenom\" value='".$prenom."'><br><br>\n"; 
         $rep.= "				<input type=\"submit\" value=\"Envoyer\">\n"; 
@@ -27,7 +28,7 @@ global $connexion,$idSession;
         $rep.= "		</div>\n";
         echo $rep;
     }
-    }
+    
 function obtenirFiche(){
 	global $connexion,$idSession;
 	
@@ -44,7 +45,7 @@ function obtenirFiche(){
 	$prenom=$ligne->prenom;
 	unset($connexion);
 	unset($stmt);
-	envoyerFiche($idUser,$nom,$prenom);
+	envoyerFiche($idSession,$nom,$prenom);
 }
 obtenirFiche();
 

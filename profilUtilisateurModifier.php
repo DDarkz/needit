@@ -3,6 +3,14 @@ include("bd/connexion.php");
 session_start();
 echo "POST";
 //requete update
+global $connexion,$idSession;
+	
+$requete="UPDATE utilisateur SET nom=?,prenom=? WHERE idUser='$idSession'";
+$stmt=$connexion->prepare($requete);
+$stmt->execute(array($nom,$prenom,$idSession));
+echo "informations bien modifié";
+unset($connexion);
+unset($stmt);	
 ?>
 <!doctype html>
 <html lang="fr">
