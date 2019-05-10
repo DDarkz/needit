@@ -23,6 +23,7 @@ session_start();
    
 
     <!-- debut container -->
+    <form>
     <div class="container pt-5">
     
       <div class="row" id="annoncesDetail">
@@ -49,7 +50,10 @@ session_start();
       
 
     </div>
+    <input type="hidden" id="idAnnonce" name="idAnnonce" value="">
+    </form>
     <!-- fin container -->
+<<<<<<< HEAD
     <script type="text/javascript">
 				function listerId(ele,choixId) {
 					var idUser = document.getElementById("idAnnonce").value = choixId;
@@ -58,6 +62,17 @@ session_start();
 					})();
         }
       </script>  
+=======
+      
+    <script type="text/javascript">
+				function listerIdAnnonce(elem,choixId) {
+					var idAnnonce = document.getElementById("idAnnonce").value = choixId;
+					(function(){
+						requetes(elem,'actionListerDetail');
+					})();
+        }
+    </script>
+>>>>>>> 5a95ca90d1242bd6da7e261a73fd5beb3c96c23a
 
     <?php include("includes/footer.php"); ?>
     <?php include("includes/footer-script.php"); ?>
