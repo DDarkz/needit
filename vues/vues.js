@@ -49,7 +49,7 @@ function vueListerAnnoncesMembres(dataAnnonces) {
 	for(i=0; i<taille; i++) {
 		ligne=dataAnnonces[i];
 		rep+="<tr>";
-		rep+="<td><button type='button' class='btn btn-danger' id='"+(ligne.idAnnonce)+"' name='"+(ligne.idAnnonce)+"' onclick='listerIdAnnonce(this,this.id)'>Supprimer  "+(ligne.idAnnonce)+"</button></td>";
+		rep+="<td><button type='button' class='btn btn-danger' id='"+(ligne.idAnnonce)+"' name='"+(ligne.idAnnonce)+"' onclick='listerIdAnnonce(this,this.id)'>Supprimer  "+(ligne.idAnnonce)+"</button><br><button type='button' class='btn btn-info' id='"+(ligne.idAnnonce)+"' name='"+(ligne.idAnnonce)+"' onclick='modifierIdAnnonce(this,this.id)'>Modifier  "+(ligne.idAnnonce)+"</button></td>";
 		// rep+="<td>"+(ligne.idAnnonce)+"</td>";
 		// rep+="<td>"+(ligne.idDemandeur)+"</td>";
 		rep+="<td>"+(ligne.Titre)+"</td>";
@@ -130,6 +130,40 @@ function vueListerAnnoncesDetail(Annonces) {
 
 }
 
+function formEnregistrer(pourQui){
+	var rep = '<div id="divEnreg">'+
+'			<span onClick="cacher(\'divEnreg\')">X</span>'+
+'			<h1>Fiche annonce</h1>'+
+'			<form id="enregForm"">';
+if(pourQui=="M")
+	rep+='				idAnnonce:<input type="text" id="idAnnonce1" name="idAnnonce" readonly value=""><br><br>';
+rep+='				Titre:<input type="text" id="titre" name="titre" value=""><br><br>'+
+'				Liste:<input type="text" id="liste" name="liste" value=""><br><br>'+
+'				Pochette : <input type="file" name="pochette"><br><br>';
+if(pourQui=="E"){
+	rep+='<input type="button" value="Enregistrer" onClick="requetes(\'enregistrer\');">';
+}else
+	if(pourQui=="M"){
+	  rep+='<input type="button" value="Modifier" onClick="requetes(\'modifier\');">';
+	}
+rep+='</form></div>';
+return rep;
+}
+
+function montrerFiche(data){
+	alert(data[0].idAnnonce);
+	// Génère la fonction qui écrit le formulaire modifier dans le div ContenuEnreg.
+	$('#contenuEnreg').html(formEnregistrer('M'));
+	// Affiche les valeurs de la bd dans le formulaire modifier
+	$('#idAnnonce1').val(data[0].idAnnonce);
+	$('#titre').val(data[0].Titre);
+	$('#liste').val(data[0].listeAchat);
+
+	// $("#test").html('<p>idAnnonce '+(data[0].idAnnonce)+'</p>')
+	// Créer le formulaire divEnreg.
+	montrer('divEnreg');
+}
+
 var vue=function(action,donnees){
 	switch(action){
 		case "actVueListerMAdmin":
@@ -149,7 +183,10 @@ var vue=function(action,donnees){
 		break;	
 		case "actVueListerAnnoncesMembres":
 			vueListerAnnoncesMembres(donnees);
-		break;	
+		break;
+		case 'montrerFiche':
+			montrerFiche(donnees);
+		break;
 		
 
 		
