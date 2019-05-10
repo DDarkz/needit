@@ -48,7 +48,12 @@ try{
    $stmt = $connexion->prepare($requete);
    $stmt->execute(array($idSession));
    while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
-    
+    if($ligne->sexe=='F'){
+      $ligne->sexe='Féminin';
+    }
+    else{
+      $ligne->sexe='Masculin';
+    }
     $rep.="<h2>".($ligne->nom)." ".($ligne->prenom)."</h2>";
     $rep.="<p> Sexe : ".($ligne->sexe)."</p>";
     $rep.="<p> Ville : <span class='text-capitalize'> ".($ligne->ville)."</span></p>";
