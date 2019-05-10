@@ -35,9 +35,20 @@ global $connexion, $rep, $idSession;
 
 $requete = "SELECT * FROM utilisateur WHERE idUser='$idSession'";
 
-$rep="<div class='col-4 '><img class='img-fluid' src='images/avatarfemme.png'></div>";
-$rep.="<div class='col-8'>";
+$stmt = $connexion->prepare($requete);
+   $stmt->execute(array($idSession));
+   while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
+if ($ligne->sexe=='F'){  
 
+$rep="<div class='col-4'><img class='img-fluid' src='images/avatarfemme.png'></div>";
+
+}else{
+  $rep="<div class='col-4'><img class='img-fluid' src='images/avatarHomme.png'></div>";
+  
+}
+$rep.="<div class='col-8'>";
+   }
+   
 
 try{
    $stmt = $connexion->prepare($requete);
