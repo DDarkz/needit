@@ -58,6 +58,7 @@ session_start();
     <script>
        $("#voirAnnonce").click(function(){
           $("#annoncesAccueil").show();
+          $("#annoncesDetail").hide();
         });
     </script>
   </body>
