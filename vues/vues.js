@@ -130,30 +130,24 @@ function vueListerAnnoncesDetail(Annonces) {
 
 }
 
-function formEnregistrer(pourQui){
-	var rep = '<div id="divEnreg">'+
-'			<span onClick="cacher(\'divEnreg\')">X</span>'+
-'			<h1>Fiche annonce</h1>'+
-'			<form id="enregForm"">';
-if(pourQui=="M")
-	rep+='				idAnnonce:<input type="text" id="idAnnonce1" name="idAnnonce" readonly value=""><br><br>';
-rep+='				Titre:<input type="text" id="titre" name="titre" value=""><br><br>'+
-'				Liste:<input type="text" id="liste" name="liste" value=""><br><br>'+
-'				Pochette : <input type="file" name="pochette"><br><br>';
-if(pourQui=="E"){
-	rep+='<input type="button" value="Enregistrer" onClick="requetes(\'enregistrer\');">';
-}else
-	if(pourQui=="M"){
-	  rep+='<input type="button" value="Modifier" onClick="requetes(\'modifier\');">';
-	}
-rep+='</form></div>';
+function formEnregistrer(){
+	rep='<div id="divEnreg">';
+  rep+='<span onClick="cacher(\'divEnreg\')">X</span>';
+	rep+='<h1>Fiche annonce</h1>';
+	rep+='<form id="enregForm"">';
+	rep+='idAnnonce:<input type="text" id="idAnnonce1" name="idAnnonce" readonly value=""><br><br>';
+	rep+='Titre:<input type="text" id="titre" name="titre" value=""><br><br>';
+	rep+='Liste:<input type="text" id="liste" name="liste" value=""><br><br>';
+	rep+='Pochette : <input type="file" name="pochette"><br><br>';
+	rep+='<input type="button" value="Modifier" onClick="requetes(\'modifier\');">';
+	rep+='</form></div>';
 return rep;
 }
 
 function montrerFiche(data){
-	alert(data[0].idAnnonce);
+	// alert(data[0].idAnnonce);
 	// Génère la fonction qui écrit le formulaire modifier dans le div ContenuEnreg.
-	$('#contenuEnreg').html(formEnregistrer('M'));
+	$('#contenuEnreg').html(formEnregistrer());
 	// Affiche les valeurs de la bd dans le formulaire modifier
 	$('#idAnnonce1').val(data[0].idAnnonce);
 	$('#titre').val(data[0].Titre);
