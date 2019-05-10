@@ -87,6 +87,7 @@ function ajaxListerAnnoncesDetail(){
 		dataType: 'json',
 		success: function(Annonces){
 			vue('actVueListerDetail',Annonces); 
+			$("#annoncesAccueil").hide();
 		},
 		fail:function(){
 			alert("Problème pour lister annonces.");
@@ -206,6 +207,7 @@ var requetes = function(elem,action){
 			ajaxListerAnnonces();
 		break;
 		case "actionListerDetail" :
+			//alert("coucou");
 			ajaxListerAnnoncesDetail();
 		break;
 		case "actionListerIndex" :

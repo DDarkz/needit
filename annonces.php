@@ -25,80 +25,15 @@ session_start();
     <!-- debut container -->
     <div class="container pt-5">
     <h1>Toutes les annonces</h1>
+    <button id="voirAnnonce" onclick="requetes(null,'actionLister');">Voir les annonces</button>
        <!-- debut card-columns -->
-       <form>
-        <div class="card-columns" id="annoncesAccueil">
-
-          <!-- <div class="card m-3">
-            <a class="text-dark" href="annonceDetail.php"><img class="card-img-top" src="images/beetle-400.jpg" alt="Card image cap">
-            <div class="card-body">
-              <p class="card-date">24 avril 2019</p>
-              <h5 class="card-title">Jean-couteu</h5>
-              <p class="card-text">J'ai besoin de couches pour bébé chez.</p>
-              <h5 class="card-title">Épicerie</h5>
-              <ul>
-                  <li>lait</li>
-                  <li>pain</li>
-                  <li>Yogout</li>
-              </ul>
-              <p class="card-text"><small class="text-muted">Mise à jour il y 3 minutes.</small></p>
-            </div>
-            </a>
-          </div>
-          
-          <div class="card m-3">
-            <img class="card-img-top" src="images/cookies-400.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-          </div>
-
-          <div class="card text-center m-3">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-          </div>
-
-          <div class="card text-center m-3">
-            <img class="card-img" src="images/fuji-400.jpg" alt="Card image">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-          </div>
-
-          <div class="card m-3">
-            <img class="card-img" src="images/jump-400.jpg" alt="Card image">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-          </div>
-
-          <div class="card m-3 text-right">
-            <img class="card-img" src="images/lamp-400.jpg" alt="Card image">
-             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-          </div>
-
-          <div class="card m-3">
-            <img class="card-img" src="images/tulips-400.jpg" alt="Card image">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-          </div> -->
-
+    <form>
+      <div class="card-columns" id="annoncesAccueil">
+          <!-- ici load contenu des annonces -->
+      </div>
+      <div id="annoncesDetail">
+      
+        <p>Annonce détail</p>
       </div>
       <input type="hidden" id="idAnnonce" name="idAnnonce" value="">
     </form>
@@ -110,12 +45,20 @@ session_start();
 				function listerIdAnnonce(elem,choixId) {
 					var idAnnonce = document.getElementById("idAnnonce").value = choixId;
 					(function(){
-						requetes(elem,'actionListerDetail');
+            requetes(elem,'actionListerDetail');
 					})();
         }
+
+       
     </script>
-    
+
     <?php include("includes/footer.php"); ?>
     <?php include("includes/footer-script.php"); ?>
+
+    <script>
+       $("#voirAnnonce").click(function(){
+          $("#annoncesAccueil").show();
+        });
+    </script>
   </body>
 </html>

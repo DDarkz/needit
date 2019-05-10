@@ -18,6 +18,7 @@ session_start();
     <title>Formulaire livreur</title>
   </head>
   <body onload="requetes(null,'actionListerDetail');">
+  <!-- <body> -->
 
     <?php include("includes/menu.php"); ?>
    
@@ -50,29 +51,11 @@ session_start();
       
 
     </div>
-    <input type="hidden" id="idAnnonce" name="idAnnonce" value="">
+    
     </form>
     <!-- fin container -->
-<<<<<<< HEAD
-    <script type="text/javascript">
-				function listerId(ele,choixId) {
-					var idUser = document.getElementById("idAnnonce").value = choixId;
-					(function(){
-						requetes(null,'actCtlListerDetail');
-					})();
-        }
-      </script>  
-=======
       
-    <script type="text/javascript">
-				function listerIdAnnonce(elem,choixId) {
-					var idAnnonce = document.getElementById("idAnnonce").value = choixId;
-					(function(){
-						requetes(elem,'actionListerDetail');
-					})();
-        }
-    </script>
->>>>>>> 5a95ca90d1242bd6da7e261a73fd5beb3c96c23a
+    
 
     <?php include("includes/footer.php"); ?>
     <?php include("includes/footer-script.php"); ?>

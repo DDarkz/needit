@@ -70,7 +70,7 @@ function vueListerAnnonces(Annonces) {
 		ligne=Annonces[i];
 		//rep+='<div class="card-columns">';
 		rep+='<div class="card m-3">';
-		rep+='<a class="text-dark" href="annonceDetail.php"><img class="card-img-top" src="images/'+(ligne.pochette)+'" alt="Card image cap">';
+		rep+='<a class="text-dark"><img class="card-img-top" src="images/'+(ligne.pochette)+'" alt="Card image cap">';
 		rep+='<div class="card-body">';
 		rep+='<p class="card-date">'+(ligne.date)+'</p>';
 		rep+='<h5 class="card-title">'+(ligne.Titre)+'</h5>';
@@ -78,19 +78,16 @@ function vueListerAnnonces(Annonces) {
 		rep+='<p class="card-text"><small class="text-muted">Poste il y'+(ligne.date)+'</small></p>';
 		rep+='</div>';
 		rep+='</a>';
-		rep+='<form method="post" action="annonceDetail.php">';
-		rep+='<input type="hidden" id="idAnnonce" name="idAnnonce" value="'+(ligne.idAnnonce)+'">';
-<<<<<<< HEAD
-		rep+='<input type="submit" class="btn btn-primary" id="submit" name="submit" value="Detail" onClick="requetes(null, \'actionListerDetail \');">';
-=======
+		// rep+='<form method="post" action="annonceDetail.php">';
+		// rep+='<input type="hidden" id="idAnnonce" name="idAnnonce" value="'+(ligne.idAnnonce)+'">';
 		// rep+='<input type="submit" class="btn btn-primary" id="submit" name="submit" value="Detail">';
 		rep+='<button type="button" class="btn btn-info" id="'+(ligne.idAnnonce)+'" name="'+(ligne.idAnnonce)+'" onclick="listerIdAnnonce(this,this.id)">Detail'+(ligne.idAnnonce)+'</button>';
->>>>>>> 5a95ca90d1242bd6da7e261a73fd5beb3c96c23a
-		rep+='</form>';
+		// rep+='</form>';
 		rep+="</div>";
 		//rep+="</div>";
 	}
 	$("#annoncesAccueil").html(rep);
+	// $("#annoncesDetail").hide();
 
 }
 
@@ -132,6 +129,8 @@ function vueListerAnnoncesDetail(Annonces) {
 				rep+='</div>';
 	}
 	$("#annoncesDetail").html(rep);
+	// $("#annoncesAccueil").hide();
+	
 
 }
 
