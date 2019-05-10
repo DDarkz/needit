@@ -38,6 +38,7 @@ $requete = "SELECT * FROM utilisateur WHERE idUser='$idSession'";
 $rep="<div class='col-4 '><img class='img-fluid' src='images/avatarfemme.png'></div>";
 $rep.="<div class='col-8'>";
 
+
 try{
    $stmt = $connexion->prepare($requete);
    $stmt->execute(array($idSession));

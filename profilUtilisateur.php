@@ -38,11 +38,11 @@ $stmt = $connexion->prepare($requete);
    while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
 if ($ligne->sexe=='F'){  
 
-$rep="<div class='col-4'><img class='img-fluid' src='images/avatarfemme.png'>";
-$rep.="<a class='btn btn-dark mt-3' href='profilUtilisateurAnnonces.php' role='button'>Mes annonces</a></div>";
+$rep="<div class='col-4'><img class='img-fluid' src='images/avatarfemme.png'></div>";
+
 }else{
-  $rep="<div class='col-4'><img class='img-fluid' src='images/avatarHomme.png'>";
-  $rep.="<a class='btn btn-dark mt-3' href='profilUtilisateurAnnonces.php' role='button'>Mes annonces</a></div>";
+  $rep="<div class='col-4'><img class='img-fluid' src='images/avatarHomme.png'></div>";
+  
 }
 $rep.="<div class='col-8'>";
    }
@@ -66,7 +66,8 @@ try{
     $rep.="<p> Date de naissance : ".($ligne->dateNaissance)."</p>";
     $rep.="<p> Code Postal <span class='text-uppercase'>: ".($ligne->codePostale)."</span></p>";
     $rep.="<p> Téléphone : ".($ligne->telephone)."</p>";
-    $rep.="<a class='btn btn-primary' href='profilUtilisateurFiche.php' role='button'>Modifier</a>";
+    $rep.="<a class='btn btn-success mr-2' href='profilUtilisateurFiche.php' role='button'>Modifier mon profil</a>";
+    $rep.="<a class='btn btn-dark ' href='profilUtilisateurAnnonces.php' role='button'>Voir mes annonces</a>";
 
   
   }
