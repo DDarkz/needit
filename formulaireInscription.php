@@ -11,6 +11,7 @@ if(isset($_POST["submit"]))
         global $connexion, $rep;	
 	      $nom = htmlspecialchars(trim($_POST['nom']));
         $prenom = htmlspecialchars(trim($_POST['prenom']));
+        $sexe = htmlspecialchars(trim($_POST['sexe']));
         $dateNaissance = htmlspecialchars(trim($_POST['dateNaissance']));
         $ville = htmlspecialchars(trim($_POST['ville']));
         $codePostale = htmlspecialchars(trim($_POST['codePostale']));
@@ -18,19 +19,13 @@ if(isset($_POST["submit"]))
         $courriel = htmlspecialchars(trim($_POST['courriel']));
         $mdp = htmlspecialchars(trim($_POST['mdp']));
         
-	      $requete1="INSERT INTO utilisateur VALUES(0,?,?,?,?,?,?)";
+	      $requete1="INSERT INTO utilisateur VALUES(0,?,?,?,?,?,?,?)";
 	      $stmt = $connexion->prepare($requete1);
-        $stmt->execute(array($nom,$prenom,$dateNaissance,$ville,$codePostale,$telephone));
+        $stmt->execute(array($nom,$prenom,$sexe,$dateNaissance,$ville,$codePostale,$telephone));
         $idUser=$connexion->lastInsertId(); 
-        //unset($connexion);
+        
         unset($stmt);
-        //header("location: annonces.php");
-        //$idUser="SELECT idUser FROM utilisateur WHERE `courriel` = ?";
-        //Var_dump($mdp);
-        //Var_dump($courriel);
-        //echo "allo";
-        //Var_dump($idUser);
-        //echo("$idUser");
+        
         $requete2="INSERT INTO connexion VALUES(?,?,?)";
 	      $stmt2 = $connexion->prepare($requete2);
         $stmt2->execute(array($courriel,$mdp,$idUser));
@@ -120,6 +115,21 @@ if(isset($_POST["submit"]))
             </div>
            
           </div>
+          <div class="form-group row">
+            <label for="sexe" class="col-sm-2 col-form-label">Sexe</label>
+            <div class="col-sm-10">
+          <div class="custom-control custom-radio">
+            <input type="radio" id="F" name="sexe" class="custom-control-input">
+              <label class="custom-control-label" for="F">Féminin</label>
+        </div>
+          <div class="custom-control custom-radio">
+            <input type="radio" id="M" name="sexe" class="custom-control-input">
+              <label class="custom-control-label" for="M">Masculin</label>
+              </div>
+              </div>
+            </div>
+           
+          
 
           <div class="form-group row">
             <label for="dateNaissance" class="col-sm-2 col-form-label">Date de naissance</label>

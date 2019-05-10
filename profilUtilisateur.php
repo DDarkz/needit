@@ -1,19 +1,6 @@
 <?php
 include("bd/connexion.php");
 session_start();
-// if(isset($_POST["modifier"]))
-// {
-  
-//     //echo"post";
-    
-//     global $connexion;
-//     $requeteModif = "Update utilisateur SET nom=?,prenom=?,dateNaissance=?,ville=?,codePostale=?,telephone=? WHERE idUser='$idSession'";
-//     $stmt=$connexion->prepare($requeteModif);
-//     $stmt->execute(array($nom,$prenom,$dateNaissance,$ville,$codePostale,$telephone));
-//     unset($connexion);
-//     unset($stmt);	
- 
-// }
 
 ?>
 <!doctype html>
@@ -46,23 +33,28 @@ session_start();
 global $connexion, $rep, $idSession;
 
 $requete = "SELECT * FROM utilisateur WHERE idUser='$idSession'";
+$stmt = $connexion->prepare($requete);
+   $stmt->execute(array($idSession));
+   while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
+if ($ligne->sexe=='F'){  
 
-$rep="<div class='col-6'><img class='img-fluid' src='images/avatarfemme.png'></div>";
-$rep.="<div class='col-6'>";
-
+$rep="<div class='col-4'><img class='img-fluid' src='images/avatarfemme.png'></div>";
+}else{
+  $rep="<div class='col-4'><img class='img-fluid' src='images/avatarHomme.png'></div>";
+}
+$rep.="<div class='col-8'>";
+   }
 try{
    $stmt = $connexion->prepare($requete);
    $stmt->execute(array($idSession));
    while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
-    //echo "coucou";
-    //$rep[]=$ligne;
+    
     $rep.="<h2>".($ligne->nom)." ".($ligne->prenom)."</h2>";
+    $rep.="<p> Sexe : ".($ligne->sexe)."</p>";
     $rep.="<p> Ville : <span class='text-capitalize'> ".($ligne->ville)."</span></p>";
     $rep.="<p> Date de naissance : ".($ligne->dateNaissance)."</p>";
     $rep.="<p> Code Postal <span class='text-uppercase'>: ".($ligne->codePostale)."</span></p>";
     $rep.="<p> Téléphone : ".($ligne->telephone)."</p>";
-    //$rep.="<form method='post' enctype= 'multipart/form-data' action='profilUtilisateur.php'>";
-    //$rep.="<button type='buttom'  onclick='profilUtilisateurModifier.php' class='btn btn-warning'>Modifier</button>";
     $rep.="<a class='btn btn-primary' href='profilUtilisateurFiche.php' role='button'>Modifier</a>";
 
   
@@ -76,6 +68,7 @@ try{
   unset($connexion);
   unset($stmt);
   echo ($rep);
+
  }
 
        
