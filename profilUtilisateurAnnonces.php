@@ -17,6 +17,16 @@ session_start();
     <script type="text/javascript" src="requetes/requetes.js"></script>
 
     <title>Profil Utilisateur - Gérer mes annonces.</title>
+
+    <script>
+    function montrer(elem){
+	    document.getElementById(elem).style.display='block';
+    }
+
+    function cacher(elem){
+      document.getElementById(elem).style.display='none';
+    }
+</script>
   </head>
   <!-- onload="requetes('actionListerMAdmin'), requetes('actionListerA');" -->
   <body>
@@ -49,6 +59,13 @@ session_start();
           
             
 
+    </div>
+    <div id="contenuEnreg">
+           <p>#ContenuEnreg</p>
+    </div>
+
+    <div id="test">
+           <p>test</p>
     </div>
     <!-- fin container -->
 

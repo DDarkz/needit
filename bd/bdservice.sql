@@ -74,6 +74,7 @@ CREATE TABLE `connexion` (
 
 INSERT INTO `connexion` (`courriel`, `mdp`, `idUser`) VALUES
 ('emna.kh@gmail.com', 'leyane', 1),
+('britanicus@hotmail.com', '123456', 2),
 ('admin@gmail.com', '123456', 4);
 
 -- --------------------------------------------------------

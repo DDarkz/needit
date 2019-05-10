@@ -128,20 +128,20 @@ function ctlDeleteMembres() {
 		 $stmtC->execute(array($idUser));
 }
 
-function ctlModifierAnnonce() {
-	global $connexion, $rep;
-	$idAnnonce=$_POST['idAnnonce'];
-	$titre=$_POST['titre'];
-	$liste=$_POST['liste'];
-	$codepostal=$_POST['codepostal'];
-	$service=$_POST['service'];
-	$tmp=$_FILES['photo']['tmp_name'];
-	$sql = "UPDATE annonce SET titre=?, liste=?, codepostal=?, photo=? WHERE idAnnonce='$idAnnonce'";
+// function ctlModifierAnnonce() {
+// 	global $connexion, $rep;
+// 	$idAnnonce=$_POST['idAnnonce'];
+// 	$titre=$_POST['titre'];
+// 	$liste=$_POST['liste'];
+// 	$codepostal=$_POST['codepostal'];
+// 	$service=$_POST['service'];
+// 	$tmp=$_FILES['photo']['tmp_name'];
+// 	$sql = "UPDATE annonce SET titre=?, liste=?, codepostal=?, photo=? WHERE idAnnonce='$idAnnonce'";
 	
-		 $stmt = $connexion->prepare($sql);
-		 $stmt->execute(array($titre, $liste, $codepostal, $service));
-		//  echo "Le membre $idUser à été enlevé.";
-}
+// 		 $stmt = $connexion->prepare($sql);
+// 		 $stmt->execute(array($titre, $liste, $codepostal, $service));
+// 		//  echo "Le membre $idUser à été enlevé.";
+// }
 
 function ctlDeleteAnnonce() {
 	global $connexion, $rep;
@@ -149,8 +149,28 @@ function ctlDeleteAnnonce() {
 	$sqlD = "DELETE FROM annonce WHERE idAnnonce='$idAnnonce'";
 	
 		 $stmtD = $connexion->prepare($sqlD);
-		 $stmtD->execute(array($idUser));
+		 $stmtD->execute(array($idAnnonce));
 		//  echo "Le membre $idUser à été enlevé.";
+}
+
+function fiche(){
+	global $connexion, $rep;
+	$idAnnonce=$_POST['idAnnonce'];
+	$sql="SELECT * FROM annonce WHERE idAnnonce='$idAnnonce'";
+	try{
+		$stmt = $connexion->prepare($sql);
+		$stmt->execute(array($idAnnonce));
+		while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
+			// echo "bonjour";
+		   $rep[]=$ligne;
+		}
+	} catch (Exception $e){
+	   echo "Problème controleur pour afficher l'annonce.";
+	}finally {
+	   unset($connexion);
+	   unset($stmt);
+	   echo json_encode($rep);
+	}
 }
 
 
@@ -175,9 +195,12 @@ switch ($action) {
 	case 'actCtlDeleteMembre':
 		ctlDeleteMembres();
 		break;
-	case 'actCtlModifierAnnonce':
-		ctlModifierAnnonce();
+	case 'fiche':
+		fiche();
 		break;
+	// case 'actCtlModifierAnnonce':
+	// 	ctlModifierAnnonce();
+	// 	break;
 	case 'actCtlDeleteAnnonce':
 		ctlDeleteAnnonce();
 		break;

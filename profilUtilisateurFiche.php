@@ -1,62 +1,7 @@
 <?php
 include("bd/connexion.php");
 session_start();
-//echo "POST";
-global $connexion,$idSession,$rep;
-echo"$idSession";
-	
-	// $requete="SELECT * FROM utilisateur WHERE idUser='$idSession'";
-	// $stmt=$connexion->prepare($requete);
-	// $stmt->execute(array($idSession));
-	// $ligne=$stmt->fetch(PDO::FETCH_OBJ);
-	
-	// unset($connexion);
-	// unset($stmt);
-	// $nvnom=$ligne->nom;
-	// $nvprenom=$ligne->prenom;
-	// unset($connexion);
-	// unset($stmt);
-    // //envoyerFiche($num,$titre,$res);
-    
 
-    function envoyerFiche($idSession,$nom,$prenom){
-        $rep= "<form id=\"enregModifier\" enctype=\"multipart/form-data\" action=\"profilUtilisateurModifier.php\" method=\"POST\">\n"; 
-        $rep.= "<div class='form-group row'>";
-        $rep.="<label for='nom' class='col-sm-2 col-form-label'>Nom</label>";
-        $rep.="<div class='col-sm-10'>";
-        $rep.= "<input type=\'text\' id=\'nom\' class=\'form-control\' name=\'nom\' value='".$nom."'><br><br>\n"; 
-        $rep.="</div>";
-        $rep.="</div>";
-        $rep.= "<div class='form-group row'>";
-        $rep.="<label for='prenom' class='col-sm-2 col-form-label'>Prénom</label>";
-        $rep.= "<input type=\"text\" id=\"prenom\" class=\'form-control\' name=\"prenom\" value='".$prenom."'><br><br>"; 
-        $rep.="</div>";
-        $rep.="</div>";
-        $rep.= "<input type=\"submit\" value=\"Envoyer\">"; 
-        $rep.= "</form>\n"; 
-        $rep.= "</div>\n";
-        echo $rep;
-    }
-    
-function obtenirFiche(){
-	global $connexion,$idSession;
-	
-	$requete="SELECT * FROM utilisateur WHERE idUser='$idSession'";
-	$stmt=$connexion->prepare($requete);
-	$stmt->execute(array($idSession));
-	$ligne=$stmt->fetch(PDO::FETCH_OBJ);
-	
-		unset($connexion);
-		unset($stmt);
-		//exit;
-	
-	$nom=$ligne->nom;
-	$prenom=$ligne->prenom;
-	unset($connexion);
-	unset($stmt);
-	envoyerFiche($idSession,$nom,$prenom);
-}
-obtenirFiche();
 
 ?>
 <!doctype html>
@@ -82,86 +27,82 @@ obtenirFiche();
     <div class="container pt-5">
       <div class="row">
       <div class='col-12'>
-      <h1>Modifier mon profil</h1>
+      <h1>Mon profil</h1>
       </div>
         
-      <!-- debut formulaire -->
-      <!-- <form method="post" enctype= "multipart/form-data"action='profilUtilisateurModifier.php'> 
-          <div class="form-group row">
-            <label for="nvnom" class="col-sm-2 col-form-label">Nom</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="nvnom" name="nvnom"  >
-              
-            </div>
-            
-          </div>
+      <?php
+global $connexion, $rep, $idSession;
 
-          <div class="form-group row">
-            <label for="nvprenom" class="col-sm-2 col-form-label">Prénom</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="nvprenom" name="nvprenom" >
-              
-            </div>
-           
-          </div>
+$requete = "SELECT * FROM utilisateur WHERE idUser='$idSession'";
 
-          <div class="form-group row">
-            <label for="nvdateNaissance" class="col-sm-2 col-form-label">Date de naissance</label>
-            <div class="col-sm-10">
-              
-            <input type="date" class="form-control" id="nvdateNaissance" name="nvdateNaissance" >
-            
-            </div>
+$rep="<div class='col-4 '><img class='img-fluid' src='images/avatarfemme.png'></div>";
+$rep.="<div class='col-8'>";
+
+try{
+   $stmt = $connexion->prepare($requete);
+   $stmt->execute(array($idSession));
+   while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
+    //echo "coucou";
+    //$rep[]=$ligne;
+    $rep.="<form method='post'  action='profilUtilisateurModifier.php'>";
+    $rep.="<div class='form-group row'>";
+    $rep.=" <label for='nom' class='col-md-3 col-form-label'> Nom : </label> ";
+    $rep.="<div class='col-md-9'> <input name='nom' value=$ligne->nom id='nom' ></div>";
+    $rep.="</div>";
+    $rep.="<div class='form-group row'>";
+    $rep.="<label for='prenom' class='col-md-3 col-form-label'> Prénom :</label> ";
+    $rep.="<div class='col-md-9'> <input  name='prenom' value=$ligne->prenom></div>";
+    $rep.="</div>";
+    $rep.="<div class='form-group row'>";
+    $rep.="<label for='sexe' class='col-md-3 col-form-label'> Sexe :</label> ";
+    $rep.="<div class='col-md-9'> <input  name='sexe' value=$ligne->sexe></div>";
+    $rep.="</div>";
+    $rep.="<div class='form-group row'>";
+    $rep.="<label for='ville' class='col-md-3 col-form-label'> Ville : </label>";
+    $rep.="<div class='col-md-9'><input  name='ville' value=$ligne->ville></div>";
+    $rep.="</div>";
+    $rep.="<div class='form-group row'>";
+    $rep.="<label for='dateNaissance' class='col-md-3 col-form-label'> Date de naissance : </label> ";
+    $rep.="<div class='col-md-9'><input name='dateNaissance' value=$ligne->dateNaissance></div>";
+    $rep.="</div>";
+    $rep.="<div class='form-group row'>";
+    $rep.="<label for='codePostale' class='col-md-3 col-form-label'>Code Postal :</label> ";
+    $rep.="<div class='col-md-9'><input name='codePostale' value=$ligne->codePostale></div>";
+    $rep.="</div>";
+    $rep.="<div class='form-group row'>";
+    $rep.="<label for='telephone' class='col-md-3 col-form-label'> Téléphone : </label>";
+    $rep.="<div class='col-md-9'><input  name='telephone' value=$ligne->telephone></div>";
+    $rep.="</div>";
+    $rep.="<button class='btn btn-primary' type='submit' >Confirmer </button>";
+    $rep.="</form>";
+
+  
+  }
+  $rep.="</div>";
+ }
+ catch (Exception $e){
+  echo "Problème controleur pour lister infos.";
+ }
+ finally {
+  unset($connexion);
+  unset($stmt);
+  echo ($rep);
+ }
+
+       
+       ?>
         
-          </div>
-          <div class="form-group row">
-            <label for="nvville" class="col-sm-2 col-form-label">Ville</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="ville" name="ville" >
-              
-            </div>
-            
-          </div>
-          <div class="form-group row">
-            <label for="nvcodePostale" class="col-sm-2 col-form-label">Code Postale</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" name="nvcodePostale" id="nvcodePostale" >
-              
-            </div>
-            
-          </div>
-          <div class="form-group row">
-            <label for="nvtelephone" class="col-sm-2 col-form-label">Téléphone</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" name="nvtelephone" id="nvtelephone"  >
-              
-            </div>
-           
-          </div>
-          <div class="form-group row">
-            <label for="nvcourriel" class="col-sm-2 col-form-label">Courriel</label>
-            <div class="col-sm-10">
-              <input type="email" class="form-control" id="nvcourriel" name="nvcourriel"  >
-              
-            </div> 
-            
-          </div>
-          <div class="form-group row">
-            <label for="nvmdp" class="col-sm-2 col-form-label">Mot de passe</label>
-            <div class="col-sm-10">
-              <input type="password" class="form-control" id="nvmdp" name="nvmdp">
-              
-            </div>
-            
-          </div>
-          
-        </form>
-         fin formulaire 
-    </div> 
-    -->
- 
+        
+      </div>
+    </div>
+    <!-- fin container -->
+
+    
 </div>
-</div> 
+
+ 
+
+       
 <!-- fin container -->
 
 <?php include("includes/footer.php"); ?>

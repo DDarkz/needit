@@ -49,7 +49,7 @@ function vueListerAnnoncesMembres(dataAnnonces) {
 	for(i=0; i<taille; i++) {
 		ligne=dataAnnonces[i];
 		rep+="<tr>";
-		rep+="<td><button type='button' class='btn btn-danger' id='"+(ligne.idAnnonce)+"' name='"+(ligne.idAnnonce)+"' onclick='listerIdAnnonce(this,this.id)'>Supprimer  "+(ligne.idAnnonce)+"</button></td>";
+		rep+="<td><button type='button' class='btn btn-danger' id='"+(ligne.idAnnonce)+"' name='"+(ligne.idAnnonce)+"' onclick='listerIdAnnonce(this,this.id)'>Supprimer  "+(ligne.idAnnonce)+"</button><br><button type='button' class='btn btn-info' id='"+(ligne.idAnnonce)+"' name='"+(ligne.idAnnonce)+"' onclick='modifierIdAnnonce(this,this.id)'>Modifier  "+(ligne.idAnnonce)+"</button></td>";
 		// rep+="<td>"+(ligne.idAnnonce)+"</td>";
 		// rep+="<td>"+(ligne.idDemandeur)+"</td>";
 		rep+="<td>"+(ligne.Titre)+"</td>";
@@ -130,6 +130,34 @@ function vueListerAnnoncesDetail(Annonces) {
 
 }
 
+function formEnregistrer(){
+	rep='<div id="divEnreg">';
+  rep+='<span onClick="cacher(\'divEnreg\')">X</span>';
+	rep+='<h1>Fiche annonce</h1>';
+	rep+='<form id="enregForm"">';
+	rep+='idAnnonce:<input type="text" id="idAnnonce1" name="idAnnonce" readonly value=""><br><br>';
+	rep+='Titre:<input type="text" id="titre" name="titre" value=""><br><br>';
+	rep+='Liste:<input type="text" id="liste" name="liste" value=""><br><br>';
+	rep+='Pochette : <input type="file" name="pochette"><br><br>';
+	rep+='<input type="button" value="Modifier" onClick="requetes(\'modifier\');">';
+	rep+='</form></div>';
+return rep;
+}
+
+function montrerFiche(data){
+	// alert(data[0].idAnnonce);
+	// Génère la fonction qui écrit le formulaire modifier dans le div ContenuEnreg.
+	$('#contenuEnreg').html(formEnregistrer());
+	// Affiche les valeurs de la bd dans le formulaire modifier
+	$('#idAnnonce1').val(data[0].idAnnonce);
+	$('#titre').val(data[0].Titre);
+	$('#liste').val(data[0].listeAchat);
+
+	// $("#test").html('<p>idAnnonce '+(data[0].idAnnonce)+'</p>')
+	// Créer le formulaire divEnreg.
+	montrer('divEnreg');
+}
+
 var vue=function(action,donnees){
 	switch(action){
 		case "actVueListerMAdmin":
@@ -149,7 +177,10 @@ var vue=function(action,donnees){
 		break;	
 		case "actVueListerAnnoncesMembres":
 			vueListerAnnoncesMembres(donnees);
-		break;	
+		break;
+		case 'montrerFiche':
+			montrerFiche(donnees);
+		break;
 		
 
 		

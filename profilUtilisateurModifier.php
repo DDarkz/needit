@@ -1,16 +1,16 @@
 <?php
 include("bd/connexion.php");
 session_start();
-echo "POST";
+//echo "POST";
 //requete update
 global $connexion,$idSession;
-	
-$requete="UPDATE utilisateur SET nom=?,prenom=? WHERE idUser='$idSession'";
-$stmt=$connexion->prepare($requete);
-$stmt->execute(array($nom,$prenom,$idSession));
-echo "informations bien modifié";
-unset($connexion);
-unset($stmt);	
+	echo $idSession;
+// $requete="UPDATE utilisateur SET nom=?,prenom=? WHERE idUser='$idSession'";
+// $stmt=$connexion->prepare($requete);
+// $stmt->execute(array($nom,$prenom,$idSession));
+// echo "informations bien modifié";
+// unset($connexion);
+// unset($stmt);	
 ?>
 <!doctype html>
 <html lang="fr">
@@ -35,81 +35,34 @@ unset($stmt);
     <div class="container pt-5">
       <div class="row">
       <div class='col-12'>
-      <h1>Modifier mon profil</h1>
+      <h1>Mon profil</h1>
       </div>
-        modifié
-      <!-- debut formulaire 
-      <form method="post" enctype= "multipart/form-data"> 
-          <div class="form-group row">
-            <label for="nvnom" class="col-sm-2 col-form-label">Nom</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="nvnom" name="nvnom" placeholder="Nom" >
-              
-            </div>
-            
-          </div>
-
-          <div class="form-group row">
-            <label for="nvprenom" class="col-sm-2 col-form-label">Prénom</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="nvprenom" name="nvprenom" >
-              
-            </div>
-           
-          </div>
-
-          <div class="form-group row">
-            <label for="nvdateNaissance" class="col-sm-2 col-form-label">Date de naissance</label>
-            <div class="col-sm-10">
-              
-            <input type="date" class="form-control" id="nvdateNaissance" name="nvdateNaissance" >
-            
-            </div>
         
-          </div>
-          <div class="form-group row">
-            <label for="nvville" class="col-sm-2 col-form-label">Ville</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="ville" name="ville" >
-              
-            </div>
-            
-          </div>
-          <div class="form-group row">
-            <label for="nvcodePostale" class="col-sm-2 col-form-label">Code Postale</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" name="nvcodePostale" id="nvcodePostale" >
-              
-            </div>
-            
-          </div>
-          <div class="form-group row">
-            <label for="nvtelephone" class="col-sm-2 col-form-label">Téléphone</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" name="nvtelephone" id="nvtelephone"  >
-              
-            </div>
-           
-          </div>
-          <div class="form-group row">
-            <label for="nvcourriel" class="col-sm-2 col-form-label">Courriel</label>
-            <div class="col-sm-10">
-              <input type="email" class="form-control" id="nvcourriel" name="nvcourriel"  >
-              
-            </div> 
-            
-          </div>
-          <div class="form-group row">
-            <label for="nvmdp" class="col-sm-2 col-form-label">Mot de passe</label>
-            <div class="col-sm-10">
-              <input type="password" class="form-control" id="nvmdp" name="nvmdp">
-              
-            </div>
-            
-          </div>
-          
-        </form>
-         fin formulaire -->
+<?php
+       
+        
+        //requete update
+        global $connexion,$idSession;
+        //echo $idSession;
+        $nom=$_POST['nom'];
+        $prenom=$_POST['prenom'];
+        $sexe=$_POST['sexe'];
+        $ville=$_POST['ville'];
+        $dateNaissance=$_POST['dateNaissance'];
+        $codePostale=$_POST['codePostale'];
+        $telephone=$_POST['telephone'];
+        
+
+        
+
+$requete="UPDATE utilisateur SET nom=?,prenom=?,sexe=?,ville=?,dateNaissance=?,codePostale=?,telephone=? WHERE idUser='$idSession'";
+ $stmt=$connexion->prepare($requete);
+$stmt->execute(array($nom,$prenom,$sexe,$ville,$dateNaissance,$codePostale,$telephone));
+echo "Vos informations ont été bien modifié !";
+unset($connexion);
+unset($stmt);	
+?>
+      
     </div>
  
 </div>
