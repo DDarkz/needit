@@ -38,12 +38,18 @@ $stmt = $connexion->prepare($requete);
    while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
 if ($ligne->sexe=='F'){  
 
-$rep="<div class='col-4'><img class='img-fluid' src='images/avatarfemme.png'></div>";
+$rep="<div class='col-4'><img class='img-fluid' src='images/avatarfemme.png'>";
+$rep.="<a class='btn btn-dark mt-3' href='profilUtilisateurAnnonces.php' role='button'>Mes annonces</a></div>";
 }else{
-  $rep="<div class='col-4'><img class='img-fluid' src='images/avatarHomme.png'></div>";
+  $rep="<div class='col-4'><img class='img-fluid' src='images/avatarHomme.png'>";
+  $rep.="<a class='btn btn-dark mt-3' href='profilUtilisateurAnnonces.php' role='button'>Mes annonces</a></div>";
 }
 $rep.="<div class='col-8'>";
    }
+   
+
+   
+  
 try{
    $stmt = $connexion->prepare($requete);
    $stmt->execute(array($idSession));
