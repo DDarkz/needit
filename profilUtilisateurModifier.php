@@ -35,7 +35,7 @@ global $connexion,$idSession;
     <div class="container pt-5">
       <div class="row">
       <div class='col-12'>
-      <h1>Modifier mon profil</h1>
+      <h1>Mon profil</h1>
       </div>
         
 <?php
@@ -43,7 +43,7 @@ global $connexion,$idSession;
         
         //requete update
         global $connexion,$idSession;
-        echo $idSession;
+        //echo $idSession;
         $nom=$_POST['nom'];
         $prenom=$_POST['prenom'];
         $ville=$_POST['ville'];
@@ -57,7 +57,7 @@ global $connexion,$idSession;
 $requete="UPDATE utilisateur SET nom=?,prenom=?,ville=?,dateNaissance=?,codePostale=?,telephone=? WHERE idUser='$idSession'";
  $stmt=$connexion->prepare($requete);
 $stmt->execute(array($nom,$prenom,$ville,$dateNaissance,$codePostale,$telephone));
- echo "informations bien modifié";
+echo "Vos informations ont été bien modifié !";
 unset($connexion);
 unset($stmt);	
 ?>

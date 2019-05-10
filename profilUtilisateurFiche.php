@@ -35,8 +35,8 @@ global $connexion, $rep, $idSession;
 
 $requete = "SELECT * FROM utilisateur WHERE idUser='$idSession'";
 
-$rep="<div class='col-6'><img class='img-fluid' src='images/avatarfemme.png'></div>";
-$rep.="<div class='col-6'>";
+$rep="<div class='col-4'><img class='img-fluid' src='images/avatarfemme.png'></div>";
+$rep.="<div class='col-8'>";
 
 try{
    $stmt = $connexion->prepare($requete);
@@ -45,12 +45,30 @@ try{
     //echo "coucou";
     //$rep[]=$ligne;
     $rep.="<form method='post'  action='profilUtilisateurModifier.php'>";
-    $rep.=" <p> Nom : <input name='nom' value=$ligne->nom id='nom' ><br> ";
-    $rep.="<p> Prénom : <input  name='prenom' value=$ligne->prenom><br>";
-    $rep.="<p> Ville : <input  name='ville' value=$ligne->ville></p>";
-    $rep.="<p>  Date de naissance : <input name='dateNaissance' value=$ligne->dateNaissance></p>";
-    $rep.="<p> Code Postal : <input name='codePostale' value=$ligne->codePostale></p>";
-    $rep.="<p> Téléphone : <input  name='telephone' value=$ligne->telephone></p>";
+    $rep.="<div class='form-group row'>";
+    $rep.=" <label for='nom' class='col-md-2 col-form-label'> Nom : </label> ";
+    $rep.="<div class='col-md-10'> <input name='nom' value=$ligne->nom id='nom' ></div>";
+    $rep.="</div>";
+    $rep.="<div class='form-group row'>";
+    $rep.="<label for='prenom' class='col-md-2 col-form-label'> Prénom :</label> ";
+    $rep.="<div class='col-md-10'> <input  name='prenom' value=$ligne->prenom></div>";
+    $rep.="</div>";
+    $rep.="<div class='form-group row'>";
+    $rep.="<label for='ville' class='col-md-2 col-form-label'> Ville : </label>";
+    $rep.="<div class='col-md-10'><input  name='ville' value=$ligne->ville></div>";
+    $rep.="</div>";
+    $rep.="<div class='form-group row'>";
+    $rep.="<label for='dateNaissance' class='col-md-2 col-form-label'> Date de naissance : </label> ";
+    $rep.="<div class='col-md-10'><input name='dateNaissance' value=$ligne->dateNaissance></div>";
+    $rep.="</div>";
+    $rep.="<div class='form-group row'>";
+    $rep.="<label for='codePostale' class='col-md-2 col-form-label'>Code Postal :</label> ";
+    $rep.="<div class='col-md-10'><input name='codePostale' value=$ligne->codePostale></div>";
+    $rep.="</div>";
+    $rep.="<div class='form-group row'>";
+    $rep.="<label for='telephone' class='col-md-2 col-form-label'> Téléphone : </label>";
+    $rep.="<div class='col-md-10'><input  name='telephone' value=$ligne->telephone></div>";
+    $rep.="</div>";
     $rep.="<button class='btn btn-primary' type='submit' >Confirmer </button>";
     $rep.="</form>";
 
