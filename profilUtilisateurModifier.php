@@ -46,6 +46,7 @@ global $connexion,$idSession;
         //echo $idSession;
         $nom=$_POST['nom'];
         $prenom=$_POST['prenom'];
+        $sexe=$_POST['sexe'];
         $ville=$_POST['ville'];
         $dateNaissance=$_POST['dateNaissance'];
         $codePostale=$_POST['codePostale'];
@@ -54,9 +55,9 @@ global $connexion,$idSession;
 
         
 
-$requete="UPDATE utilisateur SET nom=?,prenom=?,ville=?,dateNaissance=?,codePostale=?,telephone=? WHERE idUser='$idSession'";
+$requete="UPDATE utilisateur SET nom=?,prenom=?,sexe=?,ville=?,dateNaissance=?,codePostale=?,telephone=? WHERE idUser='$idSession'";
  $stmt=$connexion->prepare($requete);
-$stmt->execute(array($nom,$prenom,$ville,$dateNaissance,$codePostale,$telephone));
+$stmt->execute(array($nom,$prenom,$sexe,$ville,$dateNaissance,$codePostale,$telephone));
 echo "Vos informations ont été bien modifié !";
 unset($connexion);
 unset($stmt);	
