@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  jeu. 02 mai 2019 à 20:11
+-- Généré le :  ven. 10 mai 2019 à 20:31
 -- Version du serveur :  5.7.17
 -- Version de PHP :  5.6.30
 
@@ -75,7 +75,8 @@ CREATE TABLE `connexion` (
 INSERT INTO `connexion` (`courriel`, `mdp`, `idUser`) VALUES
 ('emna.kh@gmail.com', 'leyane', 1),
 ('britanicus@hotmail.com', '123456', 2),
-('admin@gmail.com', '123456', 4);
+('admin@gmail.com', '123456', 4),
+('live@hotmail.com', '123', 5);
 
 -- --------------------------------------------------------
 
@@ -120,6 +121,7 @@ CREATE TABLE `utilisateur` (
   `idUser` int(11) NOT NULL,
   `nom` varchar(50) NOT NULL,
   `prenom` varchar(50) NOT NULL,
+  `sexe` varchar(30) NOT NULL,
   `dateNaissance` date NOT NULL,
   `ville` varchar(50) NOT NULL,
   `codePostale` varchar(50) NOT NULL,
@@ -130,11 +132,12 @@ CREATE TABLE `utilisateur` (
 -- Déchargement des données de la table `utilisateur`
 --
 
-INSERT INTO `utilisateur` (`idUser`, `nom`, `prenom`, `dateNaissance`, `ville`, `codePostale`, `telephone`) VALUES
-(1, 'Emna', 'khelifi', '1989-11-25', 'tunisie', 'h7n3t9', '514789789'),
-(2, 'Mélanie', 'joly', '1980-05-14', 'Montreal', 'h3t1n9', '514252252'),
-(3, 'sofiane', 'Bourbit', '1990-03-12', 'Montreal', 'y4r5n6', '514147789'),
-(4, 'administrateur', 'master', '1982-04-10', 'Montreal', '', '');
+INSERT INTO `utilisateur` (`idUser`, `nom`, `prenom`, `sexe`, `dateNaissance`, `ville`, `codePostale`, `telephone`) VALUES
+(1, 'Emnaa', 'khelifi', 'F', '1989-11-25', 'tunisie', 'h7n3t9', '514789789'),
+(2, 'Mélanie', 'joly', 'F', '1980-05-14', 'Montreal', 'h3t1n9', '514252252'),
+(3, 'sofiane', 'Bourbit', 'M', '1990-03-12', 'Montreal', 'y4r5n6', '514147789'),
+(4, 'administrateur', 'master', '', '1982-04-10', 'Montreal', '', ''),
+(5, 'richard', 'lebien', 'M', '2019-05-07', 'Montreal', 'y4r5n6', '514287785');
 
 --
 -- Index pour les tables déchargées
@@ -198,7 +201,7 @@ ALTER TABLE `service`
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;COMMIT;
+  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
