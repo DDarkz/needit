@@ -54,7 +54,7 @@ try{
     $rep.="<div class='col-md-9'> <input  name='prenom' value=$ligne->prenom></div>";
     $rep.="</div>";
     $rep.="<div class='form-group row'>";
-    $rep.="<label for='sexe' class='col-md-3 col-form-label'> Prénom :</label> ";
+    $rep.="<label for='sexe' class='col-md-3 col-form-label'> Sexe :</label> ";
     $rep.="<div class='col-md-9'> <input  name='sexe' value=$ligne->sexe></div>";
     $rep.="</div>";
     $rep.="<div class='form-group row'>";
