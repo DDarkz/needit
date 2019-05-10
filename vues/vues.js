@@ -87,6 +87,9 @@ function vueListerAnnonces(Annonces) {
 		//rep+="</div>";
 	}
 	$("#annoncesAccueil").html(rep);
+	$(".btn").click(function(){
+		$("#annoncesDetail").show();
+	});
 	// $("#annoncesDetail").hide();
 
 }

@@ -79,7 +79,6 @@ function ajaxListerAnnoncesIndex(){
 }
 function ajaxListerAnnoncesDetail(){
 	var idAnnonce=$('#idAnnonce').val();
-	alert(idAnnonce);
 	$.ajax({
 		url:'serveur/controleur.php',
 		type:'POST',
