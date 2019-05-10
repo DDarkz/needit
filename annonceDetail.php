@@ -50,7 +50,14 @@ session_start();
 
     </div>
     <!-- fin container -->
-      
+    <script type="text/javascript">
+				function listerId(ele,choixId) {
+					var idUser = document.getElementById("idAnnonce").value = choixId;
+					(function(){
+						requetes(null,'actCtlListerDetail');
+					})();
+        }
+      </script>  
 
     <?php include("includes/footer.php"); ?>
     <?php include("includes/footer-script.php"); ?>

@@ -80,7 +80,7 @@ function vueListerAnnonces(Annonces) {
 		rep+='</a>';
 		rep+='<form method="post" action="annonceDetail.php">';
 		rep+='<input type="hidden" id="idAnnonce" name="idAnnonce" value="'+(ligne.idAnnonce)+'">';
-		rep+='<input type="submit" class="btn btn-primary" id="submit" name="submit" value="Detail">';
+		rep+='<input type="submit" class="btn btn-primary" id="submit" name="submit" value="Detail" onClick="requetes(null, \'actionListerDetail \');">';
 		rep+='</form>';
 		rep+="</div>";
 		//rep+="</div>";
