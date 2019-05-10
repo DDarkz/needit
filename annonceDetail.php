@@ -23,6 +23,7 @@ session_start();
    
 
     <!-- debut container -->
+    <form>
     <div class="container pt-5">
     
       <div class="row" id="annoncesDetail">
@@ -49,8 +50,18 @@ session_start();
       
 
     </div>
+    <input type="hidden" id="idAnnonce" name="idAnnonce" value="">
+    </form>
     <!-- fin container -->
       
+    <script type="text/javascript">
+				function listerIdAnnonce(elem,choixId) {
+					var idAnnonce = document.getElementById("idAnnonce").value = choixId;
+					(function(){
+						requetes(elem,'actionListerDetail');
+					})();
+        }
+    </script>
 
     <?php include("includes/footer.php"); ?>
     <?php include("includes/footer-script.php"); ?>

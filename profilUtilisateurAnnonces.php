@@ -63,10 +63,7 @@ session_start();
     <div id="contenuEnreg">
            <p>#ContenuEnreg</p>
     </div>
-
-    <div id="test">
-           <p>test</p>
-    </div>
+    
     <!-- fin container -->
 
    

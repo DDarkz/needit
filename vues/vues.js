@@ -80,7 +80,8 @@ function vueListerAnnonces(Annonces) {
 		rep+='</a>';
 		rep+='<form method="post" action="annonceDetail.php">';
 		rep+='<input type="hidden" id="idAnnonce" name="idAnnonce" value="'+(ligne.idAnnonce)+'">';
-		rep+='<input type="submit" class="btn btn-primary" id="submit" name="submit" value="Detail">';
+		// rep+='<input type="submit" class="btn btn-primary" id="submit" name="submit" value="Detail">';
+		rep+='<button type="button" class="btn btn-info" id="'+(ligne.idAnnonce)+'" name="'+(ligne.idAnnonce)+'" onclick="listerIdAnnonce(this,this.id)">Detail'+(ligne.idAnnonce)+'</button>';
 		rep+='</form>';
 		rep+="</div>";
 		//rep+="</div>";
@@ -134,12 +135,15 @@ function formEnregistrer(){
 	rep='<div id="divEnreg">';
   rep+='<span onClick="cacher(\'divEnreg\')">X</span>';
 	rep+='<h1>Fiche annonce</h1>';
-	rep+='<form id="enregForm"">';
-	rep+='idAnnonce:<input type="text" id="idAnnonce1" name="idAnnonce" readonly value=""><br><br>';
-	rep+='Titre:<input type="text" id="titre" name="titre" value=""><br><br>';
-	rep+='Liste:<input type="text" id="liste" name="liste" value=""><br><br>';
-	rep+='Pochette : <input type="file" name="pochette"><br><br>';
-	rep+='<input type="button" value="Modifier" onClick="requetes(\'modifier\');">';
+	rep+='<form id="enregForm">';
+	rep+='<label for="idAnnonce1" class="col-sm-2 col-form-label">Annonce</label>';
+	rep+='<div class="col-sm-10"><input type="text" id="idAnnonce1" name="idAnnonce" readonly value=""></div>';
+	rep+='<label for="titre" class="col-sm-2 col-form-label">Titre</label>';
+	rep+='<div class="col-sm-10"><input type="text" class="form-control" id="titre" name="titre"></div>';
+	rep+='<label for="liste" class="col-sm-2 col-form-label">Liste</label>';
+	rep+='<div class="col-sm-10"><textarea col="20" row="10" class="form-control" id="liste" name="liste"></textarea></div>';
+	// rep+='Pochette : <input type="file" name="pochette"><br><br>';
+	rep+='<div class="col-sm-10"><input type="button" class="btn btn-primary" value="Modifier" onClick="requetes(\'modifier\');"></div>';
 	rep+='</form></div>';
 return rep;
 }
@@ -151,11 +155,12 @@ function montrerFiche(data){
 	// Affiche les valeurs de la bd dans le formulaire modifier
 	$('#idAnnonce1').val(data[0].idAnnonce);
 	$('#titre').val(data[0].Titre);
-	$('#liste').val(data[0].listeAchat);
+	$('#liste').html(data[0].listeAchat);
 
 	// $("#test").html('<p>idAnnonce '+(data[0].idAnnonce)+'</p>')
 	// Créer le formulaire divEnreg.
 	montrer('divEnreg');
+	cacher('contenu');
 }
 
 var vue=function(action,donnees){

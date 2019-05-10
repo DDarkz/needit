@@ -26,6 +26,7 @@ session_start();
     <div class="container pt-5">
     <h1>Toutes les annonces</h1>
        <!-- debut card-columns -->
+       <form>
         <div class="card-columns" id="annoncesAccueil">
 
           <!-- <div class="card m-3">
@@ -99,10 +100,21 @@ session_start();
           </div> -->
 
       </div>
+      <input type="hidden" id="idAnnonce" name="idAnnonce" value="">
+    </form>
       <!-- debut card-columns -->
     </div>
     <!-- fin container -->
 
+    <script type="text/javascript">
+				function listerIdAnnonce(elem,choixId) {
+					var idAnnonce = document.getElementById("idAnnonce").value = choixId;
+					(function(){
+						requetes(elem,'actionListerDetail');
+					})();
+        }
+    </script>
+    
     <?php include("includes/footer.php"); ?>
     <?php include("includes/footer-script.php"); ?>
   </body>
