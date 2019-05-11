@@ -81,12 +81,12 @@ if(isset($_POST["login"]))
        <!-- debut formulaire -->
         <form method="post">
           <div class="form-group">
-            <label for="courriel">courriel</label> <input type="text" id="courriel" name="courriel" class="form-control">
+            <label for="courriel">Courriel</label> <input type="text" id="courriel" name="courriel" class="form-control">
           </div>
           <div class="form-group">
             <label for="password">Password</label> <input type="password" id="password" name="password" class="form-control">
           </div>
-          <input type="submit" name="login" class="btn btn-primary" value="connexion" />
+          <input type="submit" name="login" class="btn btn-primary" value="Connexion" />
         </form>
   </form>
         <!-- fin formulaire -->
