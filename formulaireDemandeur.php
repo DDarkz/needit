@@ -101,7 +101,7 @@ if(isset($_POST["submit"]))
           </div>
 
           <div class="form-group row">
-            <label for="codepostal" class="col-sm-2 col-form-label">Code potal</label>
+            <label for="codepostal" class="col-sm-2 col-form-label">Code postal</label>
             <div class="col-sm-10">
               <input type="text" class="form-control" id="codepostal" name="codepostal" placeholder="Code postal" onChange="validation()">
             </div>
