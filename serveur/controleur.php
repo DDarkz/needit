@@ -174,6 +174,35 @@ function ctlMontrerAnnonce(){
 	}
 }
 
+function modifier(){
+	require_once("../librairie/gestionFichiers.inc.php");
+	global $connexion, $rep;
+	$idAnnonce=$_POST['idAnnonce1'];
+	$titre=$_POST['titre'];
+	$listeAchat=$_POST['liste'];
+	$tmp=$_FILES['photo']['tmp_name'];
+	$requete="SELECT pochette FROM annonce WHERE idAnnonce=?";
+	$stmt=$connexion->prepare($requete);
+	$stmt->execute(array($idAnnonce));
+	$ligne=$stmt->fetch(PDO::FETCH_OBJ);
+	$pochette=$ligne->pochette;
+	if($tmp !== ""){
+		//Je dois enlever l'ancienne pochete
+		$dossier='../images/';
+		if($pochette !== "avatar.jpg"){
+			enleverFichier($dossier,$pochette);
+		}
+		$nomPochette=sha1($titre.time());
+		$pochette=deposerFichier("pochette",$dossier,$nomPochette);
+	}
+	$requete="UPDATE annonce SET titre=?,listeAchat=?,pochette=? WHERE idAnnonce=?";
+	$stmt=$connexion->prepare($requete);
+	$stmt->execute(array($titre,$listeAchat,$pochette,$idAnnonce));
+	$rep['msg']="Annonce $idAnnonce bien modifie";
+	unset($connexion);
+	unset($stmt);
+	echo json_encode($rep);
+}
 
 // controleur
 $action=$_POST["action"];
@@ -199,9 +228,9 @@ switch ($action) {
 	case 'actMontrerAnnonce':
 		ctlMontrerAnnonce();
 		break;
-	// case 'actCtlModifierAnnonce':
-	// 	ctlModifierAnnonce();
-	// 	break;
+	case 'modifier':
+			modifier();
+		break;
 	case 'actCtlDeleteAnnonce':
 		ctlDeleteAnnonce();
 		break;

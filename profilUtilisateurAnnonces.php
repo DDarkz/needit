@@ -34,6 +34,9 @@ session_start();
     
     <!-- debut container -->
     <div class="container pt-5">
+    <div id="message">
+      <p>message</p>
+    </div>
       <?php
         if (isset($message)) {
           echo '<div class="alert alert-danger" role="alert">'.$message.'</div>';

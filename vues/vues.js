@@ -147,13 +147,13 @@ function formEnregistrer(){
 	rep+='<h1>Fiche annonce</h1>';
 	rep+='<form id="enregForm">';
 	rep+='<label for="idAnnonce1" class="col-sm-2 col-form-label">Annonce</label>';
-	rep+='<div class="col-sm-10"><input type="text" id="idAnnonce1" name="idAnnonce" readonly value=""></div>';
+	rep+='<div class="col-sm-10"><input type="text" id="idAnnonce1" name="idAnnonce1" readonly value=""></div>';
 	rep+='<label for="titre" class="col-sm-2 col-form-label">Titre</label>';
 	rep+='<div class="col-sm-10"><input type="text" class="form-control" id="titre" name="titre"></div>';
 	rep+='<label for="liste" class="col-sm-2 col-form-label">Liste</label>';
 	rep+='<div class="col-sm-10"><textarea col="20" row="10" class="form-control" id="liste" name="liste"></textarea></div>';
 	rep+='Photo : <input type="file" name="photo"><br><br>';
-	rep+='<div class="col-sm-10"><input type="button" class="btn btn-primary" value="Modifier" onClick="requetes(\'modifier\');"></div>';
+	rep+='<div class="col-sm-10"><input type="button" class="btn btn-primary" value="Modifier" onClick="requetes(null,\'modifier\');"></div>';
 	rep+='</form></div>';
 return rep;
 }
@@ -196,7 +196,10 @@ var vue=function(action,donnees){
 		case 'actVueMontrerAnnonce':
 			vueMontrerAnnonce(donnees);
 		break;
-		
+		case 'modifierJSON':
+			$('#message').html(donnees.msg);
+			setTimeout(function(){ $('#message').html(""); }, 3000);
+		break;
 
 		
 	}

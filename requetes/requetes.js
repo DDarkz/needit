@@ -151,6 +151,28 @@ function ajaxMontrerAnnonce(){
 	});
 }
 
+function modifier(){
+	alert("coucou requetes modifier");
+	var enregForm = new FormData(document.getElementById('enregForm'));
+	enregForm.append('action','modifier');
+	$.ajax({
+		url:'serveur/controleur.php',
+		type:'POST',
+		data:enregForm,
+		dataType:'json',
+		async : false,
+		cache : false,
+		contentType : false,
+		processData : false,
+		success: function(message){
+			vue('modifierJSON',message);
+		},
+		fail:function(){
+			alert("Vous avez un GROS problème");
+		}
+	});
+}
+
 var requetes = function(elem,action){
 	// alert(action);
 	switch(action) {
@@ -178,6 +200,10 @@ var requetes = function(elem,action){
 		case "ajaxMontrerAnnonce" :
 			ajaxMontrerAnnonce(elem);
 			break;
+		case 'modifier' :
+		alert("coucou action modifier");
+			modifier();
+		break;
 		case "actionListerAnnoncesMembres" :
 			ajaxListerAnnoncesMembres();
 			break;
