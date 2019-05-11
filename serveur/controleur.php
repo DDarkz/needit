@@ -193,7 +193,7 @@ function modifier(){
 			enleverFichier($dossier,$pochette);
 		}
 		$nomPochette=sha1($titre.time());
-		$pochette=deposerFichier("pochette",$dossier,$nomPochette);
+		$pochette=deposerFichier("photo",$dossier,$nomPochette);
 	}
 	$requete="UPDATE annonce SET titre=?,listeAchat=?,pochette=? WHERE idAnnonce=?";
 	$stmt=$connexion->prepare($requete);

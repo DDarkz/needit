@@ -152,7 +152,7 @@ function ajaxMontrerAnnonce(){
 }
 
 function modifier(){
-	alert("coucou requetes modifier");
+	// alert("1111 coucou requetes modifier");
 	var enregForm = new FormData(document.getElementById('enregForm'));
 	enregForm.append('action','modifier');
 	$.ajax({
@@ -166,6 +166,7 @@ function modifier(){
 		processData : false,
 		success: function(message){
 			vue('modifierJSON',message);
+			
 		},
 		fail:function(){
 			alert("Vous avez un GROS problème");
@@ -201,7 +202,7 @@ var requetes = function(elem,action){
 			ajaxMontrerAnnonce(elem);
 			break;
 		case 'modifier' :
-		alert("coucou action modifier");
+		//alert("coucou action modifier");
 			modifier();
 		break;
 		case "actionListerAnnoncesMembres" :
