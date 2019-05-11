@@ -154,7 +154,7 @@ function ctlDeleteAnnonce() {
 		//  echo "Le membre $idUser à été enlevé.";
 }
 
-function fiche(){
+function ctlMontrerAnnonce(){
 	global $connexion, $rep;
 	$idAnnonce=$_POST['idAnnonce'];
 	$sql="SELECT * FROM annonce WHERE idAnnonce='$idAnnonce'";
@@ -196,8 +196,8 @@ switch ($action) {
 	case 'actCtlDeleteMembre':
 		ctlDeleteMembres();
 		break;
-	case 'fiche':
-		fiche();
+	case 'actMontrerAnnonce':
+		ctlMontrerAnnonce();
 		break;
 	// case 'actCtlModifierAnnonce':
 	// 	ctlModifierAnnonce();

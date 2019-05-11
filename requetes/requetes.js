@@ -62,20 +62,7 @@ function ajaxListerAnnonces(){
 			alert("Problème pour lister annonces.");
 		}
 	});
-	// $(document).ajaxSend(function(event, request, settings) {
-	// 	$('spinner-border').show();
-	// });
-	
-	// $(document).ajaxComplete(function(event, request, settings) {
-	// 	$('spinner-border').hide();
-	// });
 }
-
-// $(document).bind("ajaxSend", function(){
-// 	$(".spinner-border").show();
-//   }).bind("ajaxComplete", function(){
-// 	$(".spinner-border").hide();
-// });
 
 function ajaxListerAnnoncesIndex(){
 	$.ajax({
@@ -143,71 +130,26 @@ function ajaxDeleteAnnonce(elem){
 	});
 }
 
-// function ajaxModifierAnnonce(elem){
-// 	var idAnnonce=$('#idAnnonce').val();
-// 	alert(idAnnonce);
-// 	$.ajax({
-// 		url:'serveur/controleur.php',
-// 		type:'POST',
-// 		data:{"action":'actCtlModifierAnnonce',"idAnnonce":idAnnonce},
-// 		dataType: 'json', // si en txt je peux utiliser jquery #loading
-// 		 success: function(data){
-// 			// alert(elem);
-// 			//$(elem.parentNode.parentNode).remove();
-// 			// $("#loading").append("<h2>you are here</h2>");
-// 		 },
-// 		fail: function(){
-// 			alert("Problème pour modifier.");
-// 		}
-// 	});
-// }
 
-function envoyerFiche(){
+function ajaxMontrerAnnonce(){
 	//var idf=$('#numM').val();
 	var idAnnonce=$('#idAnnonce').val();
 	alert(idAnnonce);
 	$.ajax({
 		url:'serveur/controleur.php',
 		type:'POST',
-		data:{"action":'fiche',"idAnnonce":idAnnonce},
+		data:{"action":'actMontrerAnnonce',"idAnnonce":idAnnonce},
 		dataType:'json',
 		success: function(data){
 			//cacher('divModifier');
-			//alert(JSON.stringify(leFilm));
-			//if(leFilm.msg==="OK")
-				//vue('montrerFiche',data.donnees);
-				vue('montrerFiche',data); 
-			//else
-				//vue('ficheJSON',leFilm);
+			//alert(JSON.stringify(data));
+			vue('actVueMontrerAnnonce',data); 
 		},
 		fail:function(){
 			alert("Problème pour afficher cette annonce.");
 		}
 	});
 }
-
-// function modifier(){
-// 	var enregForm = new FormData(document.getElementById('enregForm'));
-// 	enregForm.append('action','modifier');
-// 	$.ajax({
-// 		url:'serveur/controleurFilms.php',
-// 		type:'POST',
-// 		data:enregForm,
-// 		dataType:'json',
-// 		async : false,
-// 		cache : false,
-// 		contentType : false,
-// 		processData : false,
-// 		success: function(message){
-// 			vue('modifierJSON',message);
-// 		},
-// 		fail:function(){
-// 			alert("Vous avez un GROS problème");
-// 		}
-// 	});
-// }
-
-
 
 var requetes = function(elem,action){
 	// alert(action);
@@ -222,7 +164,6 @@ var requetes = function(elem,action){
 			ajaxListerAnnonces();
 		break;
 		case "actionListerDetail" :
-			//alert("coucou");
 			ajaxListerAnnoncesDetail();
 		break;
 		case "actionListerIndex" :
@@ -234,9 +175,8 @@ var requetes = function(elem,action){
 		case "actDeleteAnnonce" :
 			ajaxDeleteAnnonce(elem);
 			break;
-		case "actModifierAnnonce" :
-			//ajaxModifierAnnonce(elem);
-			envoyerFiche(elem);
+		case "ajaxMontrerAnnonce" :
+			ajaxMontrerAnnonce(elem);
 			break;
 		case "actionListerAnnoncesMembres" :
 			ajaxListerAnnoncesMembres();

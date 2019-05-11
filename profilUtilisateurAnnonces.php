@@ -78,7 +78,7 @@ session_start();
         function modifierIdAnnonce(elem,choixId) {
 					var idAnnonce = document.getElementById("idAnnonce").value = choixId;
 					(function(){
-						requetes(elem,'actModifierAnnonce');
+						requetes(elem,'ajaxMontrerAnnonce');
 					})();
         }
       

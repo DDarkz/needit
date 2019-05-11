@@ -148,13 +148,13 @@ function formEnregistrer(){
 	rep+='<div class="col-sm-10"><input type="text" class="form-control" id="titre" name="titre"></div>';
 	rep+='<label for="liste" class="col-sm-2 col-form-label">Liste</label>';
 	rep+='<div class="col-sm-10"><textarea col="20" row="10" class="form-control" id="liste" name="liste"></textarea></div>';
-	// rep+='Pochette : <input type="file" name="pochette"><br><br>';
+	rep+='Photo : <input type="file" name="photo"><br><br>';
 	rep+='<div class="col-sm-10"><input type="button" class="btn btn-primary" value="Modifier" onClick="requetes(\'modifier\');"></div>';
 	rep+='</form></div>';
 return rep;
 }
 
-function montrerFiche(data){
+function vueMontrerAnnonce(data){
 	// alert(data[0].idAnnonce);
 	// Génère la fonction qui écrit le formulaire modifier dans le div ContenuEnreg.
 	$('#contenuEnreg').html(formEnregistrer());
@@ -189,8 +189,8 @@ var vue=function(action,donnees){
 		case "actVueListerAnnoncesMembres":
 			vueListerAnnoncesMembres(donnees);
 		break;
-		case 'montrerFiche':
-			montrerFiche(donnees);
+		case 'actVueMontrerAnnonce':
+			vueMontrerAnnonce(donnees);
 		break;
 		
 
