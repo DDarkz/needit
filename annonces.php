@@ -28,12 +28,18 @@ session_start();
     <button id="voirAnnonce" onclick="requetes(null,'actionLister');">Voir les annonces</button>
        <!-- debut card-columns -->
     <form>
+    <!-- ajax loader animation -->
+    <div class="text-center">
+      <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+
       <div class="card-columns" id="annoncesAccueil">
           <!-- ici load contenu des annonces -->
       </div>
       <div id="annoncesDetail">
-      
-        <p>Annonce détail</p>
+        <!-- ici load contenu détail -->
       </div>
       <input type="hidden" id="idAnnonce" name="idAnnonce" value="">
     </form>
@@ -48,17 +54,23 @@ session_start();
             requetes(elem,'actionListerDetail');
 					})();
         }
-
-       
     </script>
 
     <?php include("includes/footer.php"); ?>
     <?php include("includes/footer-script.php"); ?>
 
     <script>
+
        $("#voirAnnonce").click(function(){
           $("#annoncesAccueil").show();
           $("#annoncesDetail").hide();
+        });
+
+        $('.spinner-border').hide();
+        $(document).bind("ajaxSend", function(){
+          $(".spinner-border").show();
+          }).bind("ajaxComplete", function(){
+          $(".spinner-border").hide();
         });
     </script>
   </body>

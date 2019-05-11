@@ -56,12 +56,26 @@ function ajaxListerAnnonces(){
 		success: function(Annonces){
 			// alert("hello");
 			vue('actVueLister',Annonces); 
+			$('spinner-border').hide();
 		},
 		fail:function(){
 			alert("Problème pour lister annonces.");
 		}
 	});
+	// $(document).ajaxSend(function(event, request, settings) {
+	// 	$('spinner-border').show();
+	// });
+	
+	// $(document).ajaxComplete(function(event, request, settings) {
+	// 	$('spinner-border').hide();
+	// });
 }
+
+// $(document).bind("ajaxSend", function(){
+// 	$(".spinner-border").show();
+//   }).bind("ajaxComplete", function(){
+// 	$(".spinner-border").hide();
+// });
 
 function ajaxListerAnnoncesIndex(){
 	$.ajax({
@@ -192,6 +206,8 @@ function envoyerFiche(){
 // 		}
 // 	});
 // }
+
+
 
 var requetes = function(elem,action){
 	// alert(action);
