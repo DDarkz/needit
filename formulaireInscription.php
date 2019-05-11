@@ -2,6 +2,9 @@
 include("bd/connexion.php");
 echo"post";
 session_start();
+if(isset($_SESSION["courriel"])){
+  header('location:annonces.php');
+}
 if(isset($_POST["submit"]))
 {
   //echo"post";
