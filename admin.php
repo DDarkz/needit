@@ -1,6 +1,9 @@
 <?php
 include("bd/connexion.php");
 session_start();
+if($_SESSION["courriel"] != "admin@gmail.com"){
+  header("Location:annonces.php");
+}
 
 ?>
 <!doctype html>
