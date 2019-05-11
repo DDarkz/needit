@@ -122,6 +122,7 @@ function vueListerAnnoncesDetail(Annonces) {
 	var taille = Annonces.length;
 	for(i=0; i<taille; i++) {
 		ligne=Annonces[i];
+		rep+='<div class="row">';
 		rep+='<div class="col-6">';
 		rep+='<img class="img-fluid mb-3 mb-lg-0" src="images/'+(ligne.pochette)+'" alt="">';
         rep+='</div>';
@@ -129,6 +130,9 @@ function vueListerAnnoncesDetail(Annonces) {
         rep+='<h1>'+(ligne.Titre)+'</h1>';
 		rep+='<p class="card-date">'+(ligne.date)+'</p>';
 		rep+='<p class="text-black-50 mb-0">'+(ligne.listeAchat)+'</p>';
+		rep+="<button id='voirAnnonce' class='btn btn-success mr-2' onclick='requetes(null,'actionLister');'>Voir les annonces</button>";
+		rep+="<button id='contacter' class='btn btn-dark'>Contacter</button>";
+				rep+='</div>';
 				rep+='</div>';
 	}
 	$("#annoncesDetail").html(rep);

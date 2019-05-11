@@ -12,14 +12,11 @@
           <li class="nav-item">
             <a class="nav-link text-white" href="annonces.php">Annonces</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="annonceDetail.php">Annonces Détail</a>
-          </li>
           <?php
             if(!isset($_SESSION["courriel"])){
           ?>
           <li class="nav-item">
-            <a class="nav-link text-white" href="formulaireInscription.php"></a>
+            <a class="nav-link text-white" href="formulaireInscription.php">Inscription</a>
           </li>
           <?php
           }

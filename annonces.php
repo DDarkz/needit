@@ -25,7 +25,6 @@ session_start();
     <!-- debut container -->
     <div class="container pt-5">
     <h1>Toutes les annonces</h1>
-    <button id="voirAnnonce" onclick="requetes(null,'actionLister');">Voir les annonces</button>
        <!-- debut card-columns -->
     <form>
     <!-- ajax loader animation -->
