@@ -1,15 +1,14 @@
 <?php
 include("bd/connexion.php");
 session_start();
-global $connexion, $rep, $idSession;
-echo "post";
+global $connexion,$rep;
 $codePostale=$_POST['codePostale'];
-//echo"post";
+echo"post";
 echo $codePostale;
-$requete = "SELECT * FROM annonces WHERE codePostale=?";
-
+$requete = "SELECT * FROM annonce WHERE codePostale=?";
 if(isset($_POST["submit"]))
 {
+
 try{
    $stmt = $connexion->prepare($requete);
    $stmt->execute(array($codePostale));
@@ -62,11 +61,17 @@ try{
     <!-- debut container -->
     <div class="container pt-5">
     <h1>Toutes les annonces</h1>
-    <h2>Recherche par code Postal</h2>
-      <form id='formRecherche' method='post'  action='annonces.php' enctype='multipart/form-data'>
-      <input type='text'id='codePostale'name='codePostale'>
-      <input type="submit" value="Rechercher">
-      </form>
+
+      <h2>Recherche par code Postal</h2>
+        <form id='formRecherche' method='post'  action='annonces.php' enctype='multipart/form-data'>
+          <input type='text'id='codePostale'name='codepostale'>
+          <div class="form-group row">
+            <div class="col-sm-10">
+              <input type="submit" name="submit" class="btn btn-primary" value="Rechercher" />
+              
+            </div>
+          
+        </form>
        <!-- debut card-columns -->
     <form>
     <!-- ajax loader animation -->
