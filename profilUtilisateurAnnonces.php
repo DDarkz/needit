@@ -29,7 +29,7 @@ session_start();
 </script>
   </head>
   <!-- onload="requetes('actionListerMAdmin'), requetes('actionListerA');" -->
-  <body>
+  <body onload="requetes(null,'actionListerAnnoncesMembres')">
     <?php include("includes/menu.php"); ?>
     
     <!-- debut container -->
@@ -49,24 +49,19 @@ session_start();
           <a class="nav-link" id="lienAnnonces" href="#" onclick="requetes(null,'actionListerAnnoncesMembres')">Lister mes annonces</a>
         </li>
       </ul>
-       <form>
+       
        <div id="loading"></div>
         <div id="contenu">
            
            <!--?php actionListerAnnoncesMembres(); ?-->
         </div>
-        <input type="hidden" id="idDemandeur" name="idDemandeur" value="<?php echo $idSession ?>">
-        <input type="hidden" id="idAnnonce" name="idAnnonce" value="">
+
+        <form>
+          <input type="hidden" id="idDemandeur" name="idDemandeur" value="<?php echo $idSession ?>">
+          <input type="hidden" id="idAnnonce" name="idAnnonce" value="">
         </form>
 
-          
-            
-
     </div>
-    <div id="contenuEnreg">
-           <p>#ContenuEnreg</p>
-    </div>
-    
     <!-- fin container -->
 
    
@@ -92,6 +87,8 @@ session_start();
 
     <script>
     $(document).ready(function(){
+      $('nav-pills').hide();
+      
       $('.nav-link').click(function(){
         $('.nav-link').removeClass('active');
         $(this).addClass('active');

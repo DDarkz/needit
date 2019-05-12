@@ -42,21 +42,20 @@ function vueListerAnnoncesAdmin(dataAnnonces) {
 }
 
 function vueListerAnnoncesMembres(dataAnnonces) {
-	rep="<h2>Liste des annonces de ce membre</h2>";
-	rep+="<table class='table table-striped'>";
+	rep="<table class='table table-striped'>";
 	rep+='<tr><th scope="col">#</th><th scope="col">Titre</th><th scope="col">Description demande</th><th scope="col">Code Postale</th><th scope="col">Fichier</th></tr>';
 	var taille = dataAnnonces.length;
 	for(i=0; i<taille; i++) {
 		ligne=dataAnnonces[i];
 		rep+="<tr>";
-		rep+="<td><button type='button' class='btn btn-danger' id='"+(ligne.idAnnonce)+"' name='"+(ligne.idAnnonce)+"' onclick='listerIdAnnonce(this,this.id)'>Supprimer  "+(ligne.idAnnonce)+"</button><br><button type='button' class='btn btn-info' id='"+(ligne.idAnnonce)+"' name='"+(ligne.idAnnonce)+"' onclick='modifierIdAnnonce(this,this.id)'>Modifier  "+(ligne.idAnnonce)+"</button></td>";
+		rep+="<td><button type='button' class='btn btn-success mr-2' id='"+(ligne.idAnnonce)+"' name='"+(ligne.idAnnonce)+"' onclick='modifierIdAnnonce(this,this.id)'>Modifier  "+(ligne.idAnnonce)+"</button><button type='button' class='btn btn-danger' id='"+(ligne.idAnnonce)+"' name='"+(ligne.idAnnonce)+"' onclick='listerIdAnnonce(this,this.id)'>Supprimer  "+(ligne.idAnnonce)+"</button></td>";
 		// rep+="<td>"+(ligne.idAnnonce)+"</td>";
 		// rep+="<td>"+(ligne.idDemandeur)+"</td>";
 		rep+="<td>"+(ligne.Titre)+"</td>";
 		rep+="<td>"+(ligne.listeAchat)+"</td>";
 		rep+="<td class='text-uppercase'>"+(ligne.codePostale)+"</td>";
 		// rep+="<td>"+(ligne.statut)+"</td>";
-		rep+="<td>"+(ligne.pochette)+"</td>";
+		rep+="<td><img src='images/"+(ligne.pochette)+"' alt='photo' width='150'></td>";
 		rep+="</tr>";
 	}
 	rep+="</table>";
@@ -146,17 +145,18 @@ function vueListerAnnoncesDetail(Annonces) {
 
 function formEnregistrer(){
 	rep='<div id="divEnreg">';
-  rep+='<span onClick="cacher(\'divEnreg\')">X</span>';
-	rep+='<h1>Fiche annonce</h1>';
+  // rep+='<span onClick="cacher(\'divEnreg\')">X</span>';
+	rep+='<h2>Modifier cette annonce</h2>';
 	rep+='<form id="enregForm">';
-	rep+='<label for="idAnnonce1" class="col-sm-2 col-form-label">Annonce</label>';
-	rep+='<div class="col-sm-10"><input type="text" id="idAnnonce1" name="idAnnonce1" readonly value=""></div>';
-	rep+='<label for="titre" class="col-sm-2 col-form-label">Titre</label>';
-	rep+='<div class="col-sm-10"><input type="text" class="form-control" id="titre" name="titre"></div>';
-	rep+='<label for="liste" class="col-sm-2 col-form-label">Liste</label>';
-	rep+='<div class="col-sm-10"><textarea col="20" row="10" class="form-control" id="liste" name="liste"></textarea></div>';
-	rep+='Photo : <input type="file" name="photo"><br><br>';
-	rep+='<div class="col-sm-10"><input type="button" class="btn btn-primary" value="Modifier" onClick="requetes(null,\'modifier\');"></div>';
+	rep+='<label for="idAnnonce1" class="col-md-2 col-form-label">Annonce</label>';
+	rep+='<div class="col-md-10 disable"><input class="form-control" type="text" id="idAnnonce1" name="idAnnonce1" readonly value=""></div>';
+	rep+='<label for="titre" class="col-md-2 col-form-label">Titre</label>';
+	rep+='<div class="col-md-10"><input type="text" class="form-control" id="titre" name="titre"></div>';
+	rep+='<label for="liste" class="col-md-2 col-form-label">Liste</label>';
+	rep+='<div class="col-md-10"><textarea col="20" row="10" class="form-control" id="liste" name="liste"></textarea></div>';
+	rep+='<label for="liste" class="col-md-2 col-form-label">Photo</label>';
+	rep+='<input type="file" name="photo"><br><br>';
+	rep+='<div class="col-md-10"><input type="button" class="btn btn-primary" value="Modifier" onClick="requetes(null,\'modifier\');"></div>';
 	rep+='</form></div>';
 return rep;
 }
@@ -164,7 +164,8 @@ return rep;
 function vueMontrerAnnonce(data){
 	// alert(data[0].idAnnonce);
 	// Génère la fonction qui écrit le formulaire modifier dans le div ContenuEnreg.
-	$('#contenuEnreg').html(formEnregistrer());
+	$('#contenu').html(formEnregistrer());
+	// $('#contenu').html(formEnregistrer());
 	// Affiche les valeurs de la bd dans le formulaire modifier
 	$('#idAnnonce1').val(data[0].idAnnonce);
 	$('#titre').val(data[0].Titre);
@@ -173,7 +174,7 @@ function vueMontrerAnnonce(data){
 	// $("#test").html('<p>idAnnonce '+(data[0].idAnnonce)+'</p>')
 	// Créer le formulaire divEnreg.
 	montrer('divEnreg');
-	cacher('contenu');
+	//cacher('contenu');
 }
 
 var vue=function(action,donnees){
