@@ -120,6 +120,7 @@ function vueListerAnnoncesIndex(Annonces) {
 function vueListerAnnoncesDetail(Annonces) {
 	rep="";
 	var taille = Annonces.length;
+	var email = document.getElementById('email').value;
 	for(i=0; i<taille; i++) {
 		ligne=Annonces[i];
 		rep+='<div class="row">';
@@ -131,7 +132,9 @@ function vueListerAnnoncesDetail(Annonces) {
 		rep+='<p class="card-date">'+(ligne.date)+'</p>';
 		rep+='<p class="text-black-50 mb-0">'+(ligne.listeAchat)+'</p>';
 		rep+="<button id='voirAnnonce' class='btn btn-success mr-2' onclick='requetes(null,'actionLister');'>Voir les annonces</button>";
-		rep+="<button id='contacter' class='btn btn-dark'>Contacter</button>";
+		if(email == 1){
+			rep+="<a id='contacter' href='tchat.php?idDemandeur='"+(ligne.idDemandeur)+" class='btn btn-dark'>Contacter</a>";	
+		}
 				rep+='</div>';
 				rep+='</div>';
 	}
