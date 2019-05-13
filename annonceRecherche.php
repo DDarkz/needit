@@ -29,7 +29,7 @@ if ($stmt->rowCount() > 0){
   }
 } else {
     $rep.= "Vous n'avez aucune annonnce dans cette zone.";
-    // $message = "Vous n'avez aucune annonnces.";
+    
  }
   
  }
@@ -67,16 +67,12 @@ if ($stmt->rowCount() > 0){
     <!-- debut container -->
     <div class="container pt-5">
 <h1>Recherche par code Postal</h1>
-        <form id='formRecherche' method='post'  action='annonceRecherche.php' enctype='multipart/form-data'>
-          <input type='text'id='codePostale'name='codePostale'>
-          <div class="form-group row">
-            <div class="col-sm-10">
-              <input type="submit" name="submit" class="btn btn-primary" value="Rechercher" />
-              
-            </div>
-            </div>
-          
-        </form>
+        <nav class="navbar navbar-light bg-light">  
+            <form  class="form-inline"  method='post'  action='annonceRecherche.php' enctype='multipart/form-data'  >
+                <input type='text'id='codePostale'name='codePostale' class="form-control mr-sm-2"  placeholder="Code postal" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="submit">Rechercher</button>
+             </form>
+        </nav>
         <div class="card-columns" id="annoncesAccueil">
         <?php echo ($rep) ?>
         </div>
