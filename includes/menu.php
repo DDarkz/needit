@@ -23,12 +23,15 @@
             if(isset($_SESSION["courriel"])){
           ?>  
           <li class="nav-item">
-            <a class="nav-link text-white" href="formulaireDemandeur.php">Form Demandeur</a>
+            <a class="nav-link text-white" href="formulaireDemandeur.php">Créer annonce</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-white" href="profilUtilisateur.php">Profil</a>
           </li>
-          
+          <li class="nav-item">
+            <a class="nav-link text-white" href="profilUtilisateurAnnonces.php">Mes annonces</a>
+          </li>
+        
           <?php
             }
             
