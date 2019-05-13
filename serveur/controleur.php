@@ -156,7 +156,7 @@ function ctlDeleteAnnonce() {
 	
 		 $stmtD = $connexion->prepare($sqlD);
 		 $stmtD->execute(array($idAnnonce));
-		 $rep['msg'] = "Votre annonces est effacé.";
+		 $rep['msg'] = "Votre annonce est effacée.";
 		 echo json_encode($rep);
 }
 

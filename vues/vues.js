@@ -41,32 +41,54 @@ function vueListerAnnoncesAdmin(dataAnnonces) {
 	$("#contenu").html(rep);
 }
 
+
 function vueListerAnnoncesMembres(dataAnnonces) {
+	rep="";
 	var taille = dataAnnonces.length;
-	// alert(taille);
-	if (taille == null) {
-		rep="<table class='table table-striped d-none'>";
+	for(i=0; i<taille; i++) {
+		ligne=dataAnnonces[i];
+		rep+='<div class="card m-3">';
+		rep+='<a class="text-dark"><img class="card-img-top" src="images/'+(ligne.pochette)+'" alt="Card image cap">';
+		rep+='<div class="card-body">';
+		rep+='<p class="card-date">'+(ligne.date)+'</p>';
+		rep+='<h5 class="card-title">'+(ligne.Titre)+'</h5>';
+		rep+='<p class="card-text">'+(ligne.listeAchat)+'</p>';
+		rep+='<p class="card-text"><small class="text-muted">Poste il y'+(ligne.date)+'</small></p>';
+	
+		rep+="<button type='button' class='btn btn-success mr-2' id='"+(ligne.idAnnonce)+"' name='"+(ligne.idAnnonce)+"' onclick='modifierIdAnnonce(this,this.id)'>Modifier  "+(ligne.idAnnonce)+"</button><button type='button' class='btn btn-danger' id='"+(ligne.idAnnonce)+"' name='"+(ligne.idAnnonce)+"' onclick='listerIdAnnonce(this,this.id)'>Supprimer  "+(ligne.idAnnonce)+"</button>";
+		rep+='</div>';
+		rep+='</a>';
+		rep+="</div>";
 	}
-	else {
-	rep="<table class='table table-striped'>";
-	rep+='<tr><th scope="col">#</th><th scope="col">Titre</th><th scope="col">Description demande</th><th scope="col">Code Postale</th><th scope="col">Fichier</th></tr>';
-	}
-		for(i=0; i<taille; i++) {
-			ligne=dataAnnonces[i];
-			rep+="<tr>";
-			rep+="<td><button type='button' class='btn btn-success mr-2' id='"+(ligne.idAnnonce)+"' name='"+(ligne.idAnnonce)+"' onclick='modifierIdAnnonce(this,this.id)'>Modifier  "+(ligne.idAnnonce)+"</button><button type='button' class='btn btn-danger' id='"+(ligne.idAnnonce)+"' name='"+(ligne.idAnnonce)+"' onclick='listerIdAnnonce(this,this.id)'>Supprimer  "+(ligne.idAnnonce)+"</button></td>";
-			// rep+="<td>"+(ligne.idAnnonce)+"</td>";
-			// rep+="<td>"+(ligne.idDemandeur)+"</td>";
-			rep+="<td>"+(ligne.Titre)+"</td>";
-			rep+="<td>"+(ligne.listeAchat)+"</td>";
-			rep+="<td class='text-uppercase'>"+(ligne.codePostale)+"</td>";
-			// rep+="<td>"+(ligne.statut)+"</td>";
-			rep+="<td><img src='images/"+(ligne.pochette)+"' alt='photo' width='150'></td>";
-			rep+="</tr>";
-		}
-	rep+="</table>";
-	$("#contenu").html(rep);
+	$(".card-columns").html(rep);
 }
+	
+// function vueListerAnnoncesMembres(dataAnnonces) {
+// 	var taille = dataAnnonces.length;
+// 	// alert(taille);
+// 	if (taille == null) {
+// 		rep="<table class='table table-striped d-none'>";
+// 	}
+// 	else {
+// 	rep="<table class='table table-striped'>";
+// 	rep+='<tr><th scope="col">#</th><th scope="col">Titre</th><th scope="col">Description demande</th><th scope="col">Code Postale</th><th scope="col">Fichier</th></tr>';
+// 	}
+// 		for(i=0; i<taille; i++) {
+// 			ligne=dataAnnonces[i];
+// 			rep+="<tr>";
+// 			rep+="<td><button type='button' class='btn btn-success mr-2' id='"+(ligne.idAnnonce)+"' name='"+(ligne.idAnnonce)+"' onclick='modifierIdAnnonce(this,this.id)'>Modifier  "+(ligne.idAnnonce)+"</button><button type='button' class='btn btn-danger' id='"+(ligne.idAnnonce)+"' name='"+(ligne.idAnnonce)+"' onclick='listerIdAnnonce(this,this.id)'>Supprimer  "+(ligne.idAnnonce)+"</button></td>";
+// 			// rep+="<td>"+(ligne.idAnnonce)+"</td>";
+// 			// rep+="<td>"+(ligne.idDemandeur)+"</td>";
+// 			rep+="<td>"+(ligne.Titre)+"</td>";
+// 			rep+="<td>"+(ligne.listeAchat)+"</td>";
+// 			rep+="<td class='text-uppercase'>"+(ligne.codePostale)+"</td>";
+// 			// rep+="<td>"+(ligne.statut)+"</td>";
+// 			rep+="<td><img src='images/"+(ligne.pochette)+"' alt='photo' width='150'></td>";
+// 			rep+="</tr>";
+// 		}
+// 	rep+="</table>";
+// 	$("#contenu").html(rep);
+// }
 
 function vueListerAnnonces(Annonces) {
 	rep="";

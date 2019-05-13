@@ -32,33 +32,42 @@ session_start();
   <body onload="requetes(null,'actionListerAnnoncesMembres')">
     <?php include("includes/menu.php"); ?>
     
-    <!-- debut container -->
-    <div class="container pt-5">
-    <div id="alert">
-      <div class="alert" role="alert"></div>
+  <!-- debut container -->
+  <div class="container pt-5">
+  <div id="alert">
+    <div class="alert" role="alert"></div>
+  </div>
+
+  
+  <!-- debut contenu -->
+  <div id="contenu">
+  <h1>Mes annonces</h1>
+
+    <div id="loading"></div>
+
+  
+  <!-- ajax loader animation -->
+  <div class="text-center">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
     </div>
-
-       <h1>Mes annonces</h1>
-       <ul class="nav nav-pills">
-        <li class="nav-item">
-          <a class="nav-link" id="lienAnnonces" href="#" onclick="requetes(null,'actionListerAnnoncesMembres')">Lister mes annonces</a>
-        </li>
-      </ul>
-       
-       <div id="loading"></div>
-        <div id="contenu">
-           
-           <!--?php actionListerAnnoncesMembres(); ?-->
-        </div>
-
-        <form>
-          <input type="hidden" id="idDemandeur" name="idDemandeur" value="<?php echo $idSession ?>">
-          <input type="hidden" id="idAnnonce" name="idAnnonce" value="">
-        </form>
-
+  </div>
+  
+  <form>
+    <div class="card-columns">
+      <!-- ici load contenu des annonces -->
     </div>
-    <!-- fin container -->
+  
+  <!-- debut card-columns -->
+    <input type="hidden" id="idDemandeur" name="idDemandeur" value="<?php echo $idSession ?>">
+    <input type="hidden" id="idAnnonce" name="idAnnonce" value="">
+  </form>
 
+  </div>
+  <!-- fin contenu -->
+
+  </div>
+<!-- fin container -->
    
     <script type="text/javascript">
          function listerIdAnnonce(elem,choixId) {
@@ -82,12 +91,12 @@ session_start();
 
     <script>
     $(document).ready(function(){
-      $('nav-pills').hide();
-      
-      $('.nav-link').click(function(){
-        $('.nav-link').removeClass('active');
-        $(this).addClass('active');
-      })
+      $('.spinner-border').hide();
+        $(document).bind("ajaxSend", function(){
+          $(".spinner-border").show();
+          }).bind("ajaxComplete", function(){
+          $(".spinner-border").hide();
+        });
     })
 
 </script>

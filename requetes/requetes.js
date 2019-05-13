@@ -121,7 +121,8 @@ function ajaxDeleteAnnonce(elem){
 		dataType: 'json', // si en txt je peux utiliser jquery #loading
 		 success: function(data){
 			//  alert(elem);
-			$(elem.parentNode.parentNode).remove();
+			// $(elem.parentNode.parentNode).remove();
+			$(elem).closest('.card').remove();
 			messageAlert('alert-success',data.msg);
 		 },
 		fail: function(){
