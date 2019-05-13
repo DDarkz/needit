@@ -12,23 +12,25 @@ if(isset($_POST["submit"]))
 try{
    $stmt = $connexion->prepare($requete);
    $stmt->execute(array($codePostale));
-$rep='';
+    $rep='';
+if ($stmt->rowCount() > 0){
    while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
    
         $rep.='<div class="card m-3">';
-        $rep.='<div class="card-body">';
         $rep.='<a class="text-dark"><img class="card-img-top" src="images/'.($ligne->pochette).'" alt="Card image cap">';
-		$rep.="<h5 class='card-title'>".($ligne->Titre)."</h5>";
+        $rep.='<div class="card-body">';
+        $rep.="<h5 class='card-title'>".($ligne->Titre)."</h5>";
         $rep.="<p class='card-text'>".($ligne->listeAchat)."</p>";
-        //$rep.="<p class='card-date'>".($ligne->date)."</p>";
         $rep.='<p class="card-text"><small class="text-muted">Posté le  '.($ligne->date).'</small></p>';
-        
-        //$rep.="<p class='card-date'>".($ligne->pochette)."</p>";
-		
 		$rep.='</div>';
         $rep.='</a>';
         $rep.="</div>";
+        
   }
+} else {
+    $rep.= "Vous n'avez aucune annonnce dans cette zone.";
+    // $message = "Vous n'avez aucune annonnces.";
+ }
   
  }
  catch (Exception $e){
