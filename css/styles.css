@@ -19,6 +19,10 @@
     background-color:#343a40;
 }
 
+#alert{
+    display: none;
+}
+
 /* Style du tchat */
 .messages-box{
     width: 100%;
