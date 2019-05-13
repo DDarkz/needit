@@ -1,42 +1,7 @@
 <?php
 include("bd/connexion.php");
 session_start();
-global $connexion,$rep;
-$codePostale=$_POST['codePostale'];
-echo"post";
-echo $codePostale;
-$requete = "SELECT * FROM annonce WHERE codePostale=?";
-if(isset($_POST["submit"]))
-{
 
-try{
-   $stmt = $connexion->prepare($requete);
-   $stmt->execute(array($codePostale));
-   while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
-    
-   
-   
-    $rep='<div class="card m-3">';
-		//$rep.='<a class="text-dark"><img class="card-img-top" src="images/'+(ligne.pochette)+'" alt="Card image cap">';
-		$rep.='<div class="card-body">';
-		$rep="<p class='card-date'>".($ligne->date)."</p>";
-		$rep.="<h5 class='card-title'>".($ligne->Titre)."</h5>";
-		$rep.="<p class='card-text'>".($ligne->listeAchat)."</p>";
-		//$rep.='<p class="card-text"><small class="text-muted">Poste il y'+(ligne.date)+'</small></p>';
-		$rep.='</div>';
-		$rep.='</a>';
-  }
-  $rep.="</div>";
- }
- catch (Exception $e){
-  echo "Problème controleur pour lister annonce.";
- }
- finally {
-  unset($connexion);
-  unset($stmt);
-  echo ($rep);
- }
-}
 ?>
 <!doctype html>
 <html lang="fr">
@@ -62,16 +27,6 @@ try{
     <div class="container pt-5">
     <h1>Toutes les annonces</h1>
 
-      <h2>Recherche par code Postal</h2>
-        <form id='formRecherche' method='post'  action='annonces.php' enctype='multipart/form-data'>
-          <input type='text'id='codePostale'name='codepostale'>
-          <div class="form-group row">
-            <div class="col-sm-10">
-              <input type="submit" name="submit" class="btn btn-primary" value="Rechercher" />
-              
-            </div>
-          
-        </form>
        <!-- debut card-columns -->
     <form>
     <!-- ajax loader animation -->
