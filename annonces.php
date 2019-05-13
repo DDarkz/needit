@@ -41,6 +41,7 @@ session_start();
         <!-- ici load contenu détail -->
       </div>
       <input type="hidden" id="idAnnonce" name="idAnnonce" value="">
+      <!-- Récuperer l'email -->
       <input type="hidden" id="email" name="email" value='<?= isset($_SESSION["courriel"])?>'>
     </form>
       <!-- debut card-columns -->

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  ven. 10 mai 2019 à 20:31
+-- Généré le :  lun. 13 mai 2019 à 08:45
 -- Version du serveur :  5.7.17
 -- Version de PHP :  5.6.30
 
@@ -45,10 +45,6 @@ CREATE TABLE `annonce` (
 --
 
 INSERT INTO `annonce` (`idAnnonce`, `idDemandeur`, `idService`, `Titre`, `listeAchat`, `codePostale`, `statut`, `pochette`, `date`) VALUES
-(1, 2, 1, '', 'lait\r\noeufs\r\npain au chocolat\r\n', 'h4ebd5', 0, '', '0000-00-00'),
-(2, 3, 2, '', 'couches bébé taille 3\r\nAdvil', 'h7n3u9', 0, '', '0000-00-00'),
-(3, 1, 1, 'achat chez maxi', '-lait', 'h3h3l3', 0, 'achat.jpeg', '2019-05-02'),
-(4, 1, 1, 'achat chez maxi', '-Lait', 'h3h3l3', 0, 'avatar.jpeg', '2019-05-02'),
 (5, 1, 1, 'achat chez maxi', '-Lait', 'h3h3l3', 0, 'avatar.jpeg', '2019-05-02'),
 (6, 1, 1, 'Pharmaprix', '-Advil', 'h3h2j3', 0, 'avatar.jpeg', '2019-05-02'),
 (7, 1, 2, 'achat chez Pharmaprix', '-Advil', 'J4J 3L3', 0, 'avatar.jpeg', '2019-05-02'),
@@ -90,6 +86,21 @@ CREATE TABLE `livraison` (
   `idAnnonce` int(11) NOT NULL,
   `date` date NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `messages`
+--
+
+CREATE TABLE `messages` (
+  `id` int(11) NOT NULL,
+  `livreur` varchar(255) NOT NULL,
+  `demandeur` varchar(255) NOT NULL,
+  `idAnnonce` int(11) NOT NULL,
+  `message` text NOT NULL,
+  `date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -167,6 +178,12 @@ ALTER TABLE `livraison`
   ADD KEY `annonce-utilisateur` (`idLivreur`);
 
 --
+-- Index pour la table `messages`
+--
+ALTER TABLE `messages`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `service`
 --
 ALTER TABLE `service`
@@ -192,6 +209,11 @@ ALTER TABLE `annonce`
 --
 ALTER TABLE `livraison`
   MODIFY `idLivraison` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `messages`
+--
+ALTER TABLE `messages`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT pour la table `service`
 --

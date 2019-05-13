@@ -37,6 +37,7 @@ function CodePostalValide() {
   // le code postal est valide !
   return true;
   }
+
   function validation(){
     var resultat = CodePostalValide();
     if(resultat== false){

@@ -132,7 +132,7 @@ function vueListerAnnoncesDetail(Annonces) {
 		rep+='<p class="text-black-50 mb-0">'+(ligne.listeAchat)+'</p>';
 		rep+="<button id='voirAnnonce' class='btn btn-success mr-2' onclick='requetes(null,'actionLister');'>Voir les annonces</button>";
 		if(email == 1){
-			rep+="<a id='contacter' href='tchat.php?idDemandeur='"+(ligne.idDemandeur)+" class='btn btn-dark'>Contacter</a>";	
+			rep+="<a id='contacter' href='tchat.php?idAnnonce="+(ligne.idAnnonce)+"' class='btn btn-dark'>Contacter</a>";	
 		}
 				rep+='</div>';
 				rep+='</div>';
