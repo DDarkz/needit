@@ -67,7 +67,7 @@ try{
     $rep.="<p> Code Postal <span class='text-uppercase'>: ".($ligne->codePostale)."</span></p>";
     $rep.="<p> Téléphone : ".($ligne->telephone)."</p>";
     $rep.="<a class='btn btn-success mr-2' href='profilUtilisateurFiche.php' role='button'>Modifier mon profil</a>";
-    $rep.="<a class='btn btn-dark ' href='profilUtilisateurAnnonces.php' role='button'>Voir mes annonces</a>";
+    //$rep.="<a class='btn btn-dark ' href='profilUtilisateurAnnonces.php' role='button'>Voir mes annonces</a>";
 
   
   }
