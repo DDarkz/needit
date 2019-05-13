@@ -35,13 +35,8 @@ session_start();
     <!-- debut container -->
     <div class="container pt-5">
     <div id="message">
-      <p>message</p>
+      <div class="alert alert-danger" role="alert"></div>
     </div>
-      <?php
-        if (isset($message)) {
-          echo '<div class="alert alert-danger" role="alert">'.$message.'</div>';
-           }
-       ?>
 
        <h1>Mes annonces</h1>
        <ul class="nav nav-pills">

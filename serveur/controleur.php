@@ -3,6 +3,7 @@ require_once("../bd/connexion.php");
 session_start();
 
 $rep=array();
+$message='';
 function ctlListerMembresAdmin() {
 	global $connexion, $rep;
 	$sql = "SELECT * FROM utilisateur";
@@ -41,18 +42,23 @@ function ctlListerAnnoncesAdmin() {
 }
 
 function ctlListerAnnoncesMembres() {
-	global $connexion, $rep, $idSession;
+	global $connexion, $rep, $idSession, $message;
 	$idDemandeur = $_POST['idDemandeur'];
 	$sql = "SELECT * FROM annonce WHERE idDemandeur='$idDemandeur'";
 	try{
 		 $stmt = $connexion->prepare($sql);
 		 $stmt->execute(array($idDemandeur));
-		 while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
-			$rep[]=$ligne;
+		 if ($stmt->rowCount() > 0){
+			while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
+				$rep[]=$ligne;
+			 }
+		 } else {
+			$rep['msg'] = "Vous n'avez aucune annonnces.";
+			// $message = "Vous n'avez aucune annonnces.";
 		 }
 	 } catch (Exception $e){
 		echo "Problème controleur pour lister annonces de ce membre.";
-	 }finally {
+	 } finally {
 		unset($connexion);
 		unset($stmt);
 		echo json_encode($rep);
