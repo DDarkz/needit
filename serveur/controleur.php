@@ -156,7 +156,8 @@ function ctlDeleteAnnonce() {
 	
 		 $stmtD = $connexion->prepare($sqlD);
 		 $stmtD->execute(array($idAnnonce));
-		//  echo "Le membre $idUser à été enlevé.";
+		 $rep['msg'] = "Votre annonces est effacé.";
+		 echo json_encode($rep);
 }
 
 function ctlMontrerAnnonce(){

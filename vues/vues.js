@@ -183,6 +183,17 @@ function vueMontrerAnnonce(data){
 	//cacher('contenu');
 }
 
+function messageAlert(classe,msg) {
+	if (msg == "" || msg == null){
+		$('#alert').hide();
+	} 
+	else{
+		$('#alert').show();
+		$('.alert').addClass(classe).html(msg);
+		setTimeout(function(){ $('#alert').html(""); }, 3000);
+	}
+}
+
 var vue=function(action,donnees){
 	switch(action){
 		case "actVueListerMAdmin":
@@ -202,8 +213,7 @@ var vue=function(action,donnees){
 		break;	
 		case "actVueListerAnnoncesMembres":
 			vueListerAnnoncesMembres(donnees);
-			$('#message .alert').html(donnees.msg);
-			setTimeout(function(){ $('#message').html(""); }, 3000);
+			messageAlert('alert-danger',donnees.msg);
 		break;
 		case 'actVueMontrerAnnonce':
 			vueMontrerAnnonce(donnees);

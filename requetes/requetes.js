@@ -118,11 +118,11 @@ function ajaxDeleteAnnonce(elem){
 		url:'serveur/controleur.php',
 		type:'POST',
 		data:{"action":'actCtlDeleteAnnonce',"idAnnonce":idAnnonce},
-		dataType: 'html', // si en txt je peux utiliser jquery #loading
+		dataType: 'json', // si en txt je peux utiliser jquery #loading
 		 success: function(data){
-			// alert(elem);
+			//  alert(elem);
 			$(elem.parentNode.parentNode).remove();
-			// $("#loading").append("<h2>you are here</h2>");
+			messageAlert('alert-success',data.msg);
 		 },
 		fail: function(){
 			alert("Problème pour supprimer.");
