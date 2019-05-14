@@ -126,6 +126,7 @@ function vueListerAnnoncesDetail(Annonces) {
         rep+='<div class="col-8">';
         rep+='<h2>'+(ligne.Titre)+'</h2>';
 		rep+='<p class="card-date">'+(ligne.date)+'</p>';
+		rep+='<p class="card-date">'+(ligne.nom)+' '+(ligne.prenom)+'</p>';
 		rep+='<p class="text-black-50 mb-20">'+(ligne.listeAchat)+'</p>';
 		rep+="<button id='voirAnnonce' class='btn btn-success mr-2' onclick='requetes(null,'actionLister');'>Voir les annonces</button>";
 		if(email == 1){

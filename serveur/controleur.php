@@ -126,7 +126,7 @@ function ctlListerAnnoncesIndex() {
 function ctlListerAnnoncesDetail() {
 	global $connexion, $rep;
 	$idAnnonce=$_POST['idAnnonce'];
-	$sql = "SELECT * FROM annonce WHERE idAnnonce='$idAnnonce'";
+	$sql = "select * from annonce, utilisateur where annonce.idDemandeur=utilisateur.idUser and annonce.idAnnonce='$idAnnonce'";
 	try{
 		 $stmt = $connexion->prepare($sql);
 		 $stmt->execute(array($idAnnonce));
