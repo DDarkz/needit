@@ -168,7 +168,7 @@ session_start();
               <i class="fas fa-map-marked-alt text-primary mb-2"></i>
               <h4 class="text-uppercase m-0">Adresse</h4>
               <hr class="my-4">
-              <div class="small text-black-50">4923 Market Street, Orlando FL</div>
+              <div class="small text-black-50">9155 Rue St-Hubert, Montréal, QC H2M 1Y8</div>
             </div>
           </div>
         </div>
@@ -180,7 +180,7 @@ session_start();
               <h4 class="text-uppercase m-0">Email</h4>
               <hr class="my-4">
               <div class="small text-black-50">
-                <a href="#">hello@yourdomain.com</a>
+                <a href="#">Gofor@gmail.com</a>
               </div>
             </div>
           </div>
