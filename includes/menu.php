@@ -3,8 +3,8 @@
   <nav class="navbar navbar-expand-lg bg-dark fixed-top" id="mainNav">
     <div class="container">
       <!--aaa-->
-       <a class="navbar-brand text-white m-0" href="../projetFinal/index.php"></a>
-      <img src="images\logoGoFor.png" >
+       <a class="navbar-brand text-white m-0" href="../projetFinal/index.php"><img src="images\logoGoFor.png" width="100"></a>
+      
 
       
       
