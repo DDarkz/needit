@@ -119,10 +119,10 @@ function vueListerAnnoncesDetail(Annonces) {
 	for(i=0; i<taille; i++) {
 		ligne=Annonces[i];
 		rep+='<div class="row">';
-		rep+='<div class="col-6">';
-		rep+='<img class="img-fluid mb-3 mb-lg-0" src="images/'+(ligne.pochette)+'" alt="">';
+		rep+='<div class="col-4">';
+		rep+='<img class="img-fluid mb-3 mb-lg-0" src="images/'+(ligne.pochette)+'" alt="Photo du produit">';
         rep+='</div>';
-        rep+='<div class="col-6">';
+        rep+='<div class="col-8">';
         rep+='<h2>'+(ligne.Titre)+'</h2>';
 		rep+='<p class="card-date">'+(ligne.date)+'</p>';
 		rep+='<p class="text-black-50 mb-20">'+(ligne.listeAchat)+'</p>';
