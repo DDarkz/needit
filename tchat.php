@@ -26,7 +26,7 @@ $_SESSION['idAnnonce'] = $_GET['idAnnonce']
    
 
     <!-- debut container -->
-    <div class="container">
+    <div class="container pt">
         <div class="messages-box"></div>
 
             <div class="bottom">
