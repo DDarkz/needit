@@ -41,33 +41,28 @@ function vueListerAnnoncesAdmin(dataAnnonces) {
 	$("#contenu").html(rep);
 }
 
-function vueListerAnnoncesMembres(dataAnnonces) {
-	var taille = dataAnnonces.length;
-	// alert(taille);
-	if (taille == null) {
-		rep="<table class='table table-striped d-none'>";
-	}
-	else {
-	rep="<table class='table table-striped'>";
-	rep+='<tr><th scope="col">#</th><th scope="col">Titre</th><th scope="col">Description demande</th><th scope="col">Code Postale</th><th scope="col">Fichier</th></tr>';
-	}
-		for(i=0; i<taille; i++) {
-			ligne=dataAnnonces[i];
-			rep+="<tr>";
-			rep+="<td><button type='button' class='btn btn-success mr-2' id='"+(ligne.idAnnonce)+"' name='"+(ligne.idAnnonce)+"' onclick='modifierIdAnnonce(this,this.id)'>Modifier  "+(ligne.idAnnonce)+"</button><button type='button' class='btn btn-danger' id='"+(ligne.idAnnonce)+"' name='"+(ligne.idAnnonce)+"' onclick='listerIdAnnonce(this,this.id)'>Supprimer  "+(ligne.idAnnonce)+"</button></td>";
-			// rep+="<td>"+(ligne.idAnnonce)+"</td>";
-			// rep+="<td>"+(ligne.idDemandeur)+"</td>";
-			rep+="<td>"+(ligne.Titre)+"</td>";
-			rep+="<td>"+(ligne.listeAchat)+"</td>";
-			rep+="<td class='text-uppercase'>"+(ligne.codePostale)+"</td>";
-			// rep+="<td>"+(ligne.statut)+"</td>";
-			rep+="<td><img src='images/"+(ligne.pochette)+"' alt='photo' width='150'></td>";
-			rep+="</tr>";
-		}
-	rep+="</table>";
-	$("#contenu").html(rep);
-}
 
+function vueListerAnnoncesMembres(dataAnnonces) {
+	rep="";
+	var taille = dataAnnonces.length;
+	for(i=0; i<taille; i++) {
+		ligne=dataAnnonces[i];
+		rep+='<div class="card m-3">';
+		rep+='<a class="text-dark"><img class="card-img-top" src="images/'+(ligne.pochette)+'" alt="Card image cap">';
+		rep+='<div class="card-body">';
+		rep+='<p class="card-date">'+(ligne.date)+'</p>';
+		rep+='<h5 class="card-title">'+(ligne.Titre)+'</h5>';
+		rep+='<p class="card-text">'+(ligne.listeAchat)+'</p>';
+		rep+='<p class="card-text"><small class="text-muted">Poste il y'+(ligne.date)+'</small></p>';
+	
+		rep+="<button type='button' class='btn btn-success mr-2' id='"+(ligne.idAnnonce)+"' name='"+(ligne.idAnnonce)+"' onclick='modifierIdAnnonce(this,this.id)'>Modifier  "+(ligne.idAnnonce)+"</button><button type='button' class='btn btn-danger' id='"+(ligne.idAnnonce)+"' name='"+(ligne.idAnnonce)+"' onclick='listerIdAnnonce(this,this.id)'>Supprimer  "+(ligne.idAnnonce)+"</button>";
+		rep+='</div>';
+		rep+='</a>';
+		rep+="</div>";
+	}
+	$(".card-columns").html(rep);
+}
+	
 function vueListerAnnonces(Annonces) {
 	rep="";
 	var taille = Annonces.length;
@@ -81,15 +76,10 @@ function vueListerAnnonces(Annonces) {
 		rep+='<h5 class="card-title">'+(ligne.Titre)+'</h5>';
 		rep+='<p class="card-text">'+(ligne.listeAchat)+'</p>';
 		rep+='<p class="card-text"><small class="text-muted">Poste il y'+(ligne.date)+'</small></p>';
+		rep+='<button type="button" class="btn btn-info" id="'+(ligne.idAnnonce)+'" name="'+(ligne.idAnnonce)+'" onclick="listerIdAnnonce(this,this.id)">Détail</button>';
 		rep+='</div>';
 		rep+='</a>';
-		// rep+='<form method="post" action="annonceDetail.php">';
-		// rep+='<input type="hidden" id="idAnnonce" name="idAnnonce" value="'+(ligne.idAnnonce)+'">';
-		// rep+='<input type="submit" class="btn btn-primary" id="submit" name="submit" value="Detail">';
-		rep+='<button type="button" class="btn btn-info" id="'+(ligne.idAnnonce)+'" name="'+(ligne.idAnnonce)+'" onclick="listerIdAnnonce(this,this.id)">Detail'+(ligne.idAnnonce)+'</button>';
-		// rep+='</form>';
 		rep+="</div>";
-		//rep+="</div>";
 	}
 	$("#annoncesAccueil").html(rep);
 	$(".btn").click(function(){
@@ -129,13 +119,13 @@ function vueListerAnnoncesDetail(Annonces) {
 	for(i=0; i<taille; i++) {
 		ligne=Annonces[i];
 		rep+='<div class="row">';
-		rep+='<div class="col-6">';
-		rep+='<img class="img-fluid mb-3 mb-lg-0" src="images/'+(ligne.pochette)+'" alt="">';
+		rep+='<div class="col-4">';
+		rep+='<img class="img-fluid mb-3 mb-lg-0" src="images/'+(ligne.pochette)+'" alt="Photo du produit">';
         rep+='</div>';
-        rep+='<div class="col-6">';
-        rep+='<h1>'+(ligne.Titre)+'</h1>';
+        rep+='<div class="col-8">';
+        rep+='<h2>'+(ligne.Titre)+'</h2>';
 		rep+='<p class="card-date">'+(ligne.date)+'</p>';
-		rep+='<p class="text-black-50 mb-0">'+(ligne.listeAchat)+'</p>';
+		rep+='<p class="text-black-50 mb-20">'+(ligne.listeAchat)+'</p>';
 		rep+="<button id='voirAnnonce' class='btn btn-success mr-2' onclick='requetes(null,'actionLister');'>Voir les annonces</button>";
 		if(email == 1){
 			rep+="<a id='contacter' href='tchat.php?idAnnonce="+(ligne.idAnnonce)+"' class='btn btn-dark'>Contacter</a>";	
@@ -144,14 +134,11 @@ function vueListerAnnoncesDetail(Annonces) {
 				rep+='</div>';
 	}
 	$("#annoncesDetail").html(rep);
-	// $("#annoncesAccueil").hide();
-	
-
+	$('h1').hide();
 }
 
 function formEnregistrer(){
 	rep='<div id="divEnreg">';
-  // rep+='<span onClick="cacher(\'divEnreg\')">X</span>';
 	rep+='<h2>Modifier cette annonce</h2>';
 	rep+='<form id="enregForm">';
 	rep+='<label for="idAnnonce1" class="col-md-2 col-form-label">Annonce</label>';
@@ -171,7 +158,6 @@ function vueMontrerAnnonce(data){
 	// alert(data[0].idAnnonce);
 	// Génère la fonction qui écrit le formulaire modifier dans le div ContenuEnreg.
 	$('#contenu').html(formEnregistrer());
-	// $('#contenu').html(formEnregistrer());
 	// Affiche les valeurs de la bd dans le formulaire modifier
 	$('#idAnnonce1').val(data[0].idAnnonce);
 	$('#titre').val(data[0].Titre);
@@ -179,10 +165,9 @@ function vueMontrerAnnonce(data){
 
 	// $("#test").html('<p>idAnnonce '+(data[0].idAnnonce)+'</p>')
 	// Créer le formulaire divEnreg.
-	montrer('divEnreg');
-	//cacher('contenu');
 }
 
+// gère les messages de success et alert.
 function messageAlert(classe,msg) {
 	if (msg == "" || msg == null){
 		$('#alert').hide();
@@ -219,8 +204,9 @@ var vue=function(action,donnees){
 			vueMontrerAnnonce(donnees);
 		break;
 		case 'modifierJSON':
-			$('#message').html(donnees.msg);
-			setTimeout(function(){ $('#message').html(""); }, 3000);
+			messageAlert('alert-succes',donnees.msg);
+			// $('#message').html(donnees.msg);
+			// setTimeout(function(){ $('#message').html(""); }, 3000);
 		break;
 
 		

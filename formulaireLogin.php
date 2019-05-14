@@ -8,7 +8,7 @@ if(isset($_POST["login"]))
   
       if (empty($_POST["courriel"])  || empty($_POST["password"]))
       {
-        $message = '<label>Veuillez remplir tous les champs.</lable>';
+        $message = 'Veuillez remplir tous les champs.';
       }
       else
       {
@@ -61,7 +61,7 @@ if(isset($_POST["login"]))
 
     <title>Formulaire Login</title>
   </head>
-  <body onload="requetes('actionListerM');">
+  <body>
 
     <?php include("includes/menu.php"); ?>
     
@@ -75,7 +75,7 @@ if(isset($_POST["login"]))
            }
        ?>
 
-       <h1>Formulaire login</h1>
+       <h1>Inscription</h1>
 
 
        <!-- debut formulaire -->
@@ -88,7 +88,6 @@ if(isset($_POST["login"]))
           </div>
           <input type="submit" name="login" class="btn btn-primary" value="Connexion" />
         </form>
-  </form>
         <!-- fin formulaire -->
 
     </div>
