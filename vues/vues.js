@@ -50,10 +50,10 @@ function vueListerAnnoncesMembres(dataAnnonces) {
 		rep+='<div class="card m-3">';
 		rep+='<a class="text-dark"><img class="card-img-top" src="images/'+(ligne.pochette)+'" alt="Card image cap">';
 		rep+='<div class="card-body">';
-		rep+='<p class="card-date">'+(ligne.date)+'</p>';
+		//rep+='<p class="card-date">'+(ligne.date)+'</p>';
 		rep+='<h5 class="card-title">'+(ligne.Titre)+'</h5>';
 		rep+='<p class="card-text">'+(ligne.listeAchat)+'</p>';
-		rep+='<p class="card-text"><small class="text-muted">Poste il y'+(ligne.date)+'</small></p>';
+		rep+='<p class="card-text"><small class="text-muted">Posté le '+(ligne.date)+'</small></p>';
 	
 		rep+="<button type='button' class='btn btn-success mr-2' id='"+(ligne.idAnnonce)+"' name='"+(ligne.idAnnonce)+"' onclick='modifierIdAnnonce(this,this.id)'>Modifier  "+(ligne.idAnnonce)+"</button><button type='button' class='btn btn-danger' id='"+(ligne.idAnnonce)+"' name='"+(ligne.idAnnonce)+"' onclick='listerIdAnnonce(this,this.id)'>Supprimer  "+(ligne.idAnnonce)+"</button>";
 		rep+='</div>';
@@ -72,10 +72,11 @@ function vueListerAnnonces(Annonces) {
 		rep+='<div class="card m-3">';
 		rep+='<a class="text-dark"><img class="card-img-top" src="images/'+(ligne.pochette)+'" alt="Card image cap">';
 		rep+='<div class="card-body">';
-		rep+='<p class="card-date">'+(ligne.date)+'</p>';
-		rep+='<h5 class="card-title">'+(ligne.Titre)+'</h5>';
+		//rep+='<p class="card-date">'+(ligne.date)+'</p>';
+		rep+='<h5 class="card-title"><b>'+(ligne.Titre)+'</b></h5>';
 		rep+='<p class="card-text">'+(ligne.listeAchat)+'</p>';
-		rep+='<p class="card-text"><small class="text-muted">Poste il y'+(ligne.date)+'</small></p>';
+		//rep+='<p class="card-text">'+(ligne.nom)+'</p>';
+		rep+='<p class="card-text"><small class="text-muted">Posté le '+(ligne.date)+'</small></p>';
 		rep+='<button type="button" class="btn btn-info" id="'+(ligne.idAnnonce)+'" name="'+(ligne.idAnnonce)+'" onclick="listerIdAnnonce(this,this.id)">Détail</button>';
 		rep+='</div>';
 		rep+='</a>';

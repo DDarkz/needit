@@ -34,7 +34,7 @@ session_start();
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">Need it now</a>
+      <a class="navbar-brand js-scroll-trigger" href="propos.php"><img src="images\logoGoFor.png" width="80"></a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
@@ -42,13 +42,13 @@ session_start();
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#about">About</a>
+            <a class="nav-link js-scroll-trigger" href="propos.php">Propos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#projects">Annonces</a>
+            <a class="nav-link js-scroll-trigger" href="annonces.php">Annonces</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#signup">Contact</a>
+            <a class="nav-link js-scroll-trigger" href="contact.php">Contact</a>
           </li>
         </ul>
       </div>
@@ -59,10 +59,10 @@ session_start();
   <header class="masthead">
     <div class="container d-flex h-100 align-items-center">
       <div class="mx-auto text-center">
-        <h1 class="mx-auto my-0 text-uppercase">NEED IT NOW</h1>
+        <h1 class="mx-auto my-0 text-uppercase">Go+For</h1>
         <h2 class="text-white-50 mx-auto mt-2 mb-5">Rendez Service et gagner des bénéfices<br>
           <p class="text-white-50">aidez les gens et gagner de l'argent</p></h2>
-        <a href="annonces.php" class="btn btn-primary js-scroll-trigger">Get Started</a>
+        <a href="annonces.php" class="btn btn-primary js-scroll-trigger">Commencez</a>
       </div>
     </div>
   </header>
@@ -77,7 +77,7 @@ session_start();
             <a href="http://startbootstrap.com/template-overviews/grayscale/">the preview page</a>. The theme is open source, and you can use it for any purpose, personal or commercial.</p>
         </div>
       </div>
-      <img src="img/ipad.png" class="img-fluid" alt="">
+      <img src="images/Gofor.jpg" class="img-fluid" alt="">
     </div>
   </section>
 
@@ -146,10 +146,10 @@ session_start();
           <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
           <h2 class="text-white mb-5">Subscribe to receive updates!</h2>
 
-          <form class="form-inline d-flex">
+          <!-- <form class="form-inline d-flex">
             <input type="email" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail" placeholder="Enter email address...">
             <button type="submit" class="btn btn-primary mx-auto">Subscribe</button>
-          </form>
+          </form> -->
 
         </div>
       </div>
@@ -166,7 +166,7 @@ session_start();
           <div class="card py-4 h-100">
             <div class="card-body text-center">
               <i class="fas fa-map-marked-alt text-primary mb-2"></i>
-              <h4 class="text-uppercase m-0">Address</h4>
+              <h4 class="text-uppercase m-0">Adresse</h4>
               <hr class="my-4">
               <div class="small text-black-50">4923 Market Street, Orlando FL</div>
             </div>
@@ -216,7 +216,7 @@ session_start();
   <!-- Footer -->
   <footer class="bg-black small text-center text-white-50">
     <div class="container">
-      Copyright &copy; Your Website 2019
+      Copyright &copy; GoFor 2019
     </div>
   </footer>
 

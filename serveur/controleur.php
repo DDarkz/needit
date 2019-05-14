@@ -63,7 +63,6 @@ function ctlListerAnnoncesMembres() {
 		echo json_encode($rep);
 	 }
 }
-
 function ctlListerAnnonces() {
 	global $connexion, $rep;
 	$sql = "SELECT * FROM annonce";
@@ -81,6 +80,30 @@ function ctlListerAnnonces() {
 		echo json_encode($rep);
 	 }
 }
+// function ctlListerAnnonces() {
+// 	global $connexion, $rep,$idSession;
+// 	$idDemandeur = $_POST['idDemandeur'];
+// 	//echo $idSession;
+// 	$sql = "SELECT * FROM annonce";
+// 	$sql1 = "SELECT * FROM utilisateur where idDemandeur='$idUser'";
+// 	try{
+// 		 $stmt = $connexion->prepare($sql);
+// 		 $stmt->execute();
+// 		 $stmt1 = $connexion->prepare($sql1);
+// 		 $stmt1->execute(array($idUser));
+// 		 while($ligne=$stmt->fetch(PDO::FETCH_OBJ) && ($ligne=$stmt1->fetch(PDO::FETCH_OBJ)){
+// 			$rep[]=$ligne;
+			
+// 		 }
+		 
+// 	 } catch (Exception $e){
+// 		echo "Problème controleur pour lister annonces.";
+// 	 }finally {
+// 		unset($connexion);
+// 		unset($stmt);
+// 		echo json_encode($rep);
+// 	 }
+// }
 
 function ctlListerAnnoncesIndex() {
 	global $connexion, $rep;
