@@ -68,7 +68,7 @@ if(isset($_POST["submit"]))
     <script type="text/javascript" src="requetes/requetes.js"></script>
     <script type="text/javascript" src="js/general.js"></script>  
 
-    <title>Formulaire demandeur</title>
+    <title>Nouvelle annonce</title>
   </head>
   <body>
 
@@ -85,7 +85,7 @@ if(isset($_POST["submit"]))
        <div class="alert alert-danger" id = "message" role="alert" style="display: none;">
           <label>Le code postal n'est pas valide</label>
        </div>
-       <h1>Formulaire demandeur</h1>
+       <h1>Créer votre annonce</h1>
 
        <!-- debut formulaire -->
         <form method="post" enctype= "multipart/form-data" onsbmit=" return CodePostalValide();">

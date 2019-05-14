@@ -2,7 +2,8 @@
 include("bd/connexion.php");
 session_start();
 global $connexion,$rep;
-$codePostale=$_POST['codePostale'];
+$codePostale=htmlspecialchars(trim($_POST['codePostale']));
+
 //echo"post";
 //echo $codePostale;
 $requete = "SELECT * FROM annonce WHERE codePostale=?";
@@ -28,7 +29,7 @@ if ($stmt->rowCount() > 0){
         
   }
 } else {
-    $rep.= "Vous n'avez aucune annonnce dans cette zone.";
+    $rep.= "Vous n'avez aucune annonces dans cette zone.";
     
  }
   

@@ -3,5 +3,11 @@
     $idSession = $_SESSION["idUser"];
     $nom= strtok($user,"@");
 ?>
-<a class="nav-link text-white" href="logout.php">Bonjour <?php echo $nom, $idSession ?> Logout</a>
+<li class="nav-item">
+<a class="nav-link text-white" href="profilUtilisateur.php">Bonjour <?php echo $nom?></a>
+</li>
+<li class="nav-item">
+<a class="nav-link text-white" href="logout.php"> Logout</a>
+</li>
+
           
