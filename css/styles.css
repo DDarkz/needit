@@ -53,6 +53,18 @@ body h1 {
     display: none;
 }
 
+#map {
+    margin-top: 2em;
+    overflow: hidden;
+    height: 300px;
+    width:100%;
+}
+
+/* #map iframe {
+    height: 300px;
+    width:100%;
+} */
+
 /* Style du tchat */
 .messages-box{
     width: 100%;
