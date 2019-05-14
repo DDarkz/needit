@@ -53,8 +53,7 @@ function ctlListerAnnoncesMembres() {
 				$rep[]=$ligne;
 			 }
 		 } else {
-			$rep['msg'] = "Vous n'avez aucune annonnces.";
-			// $message = "Vous n'avez aucune annonnces.";
+			$rep['msg'] = "Vous n'avez aucune annonnce.";
 		 }
 	 } catch (Exception $e){
 		echo "Problème controleur pour lister annonces de ce membre.";
@@ -156,7 +155,7 @@ function ctlDeleteAnnonce() {
 	
 		 $stmtD = $connexion->prepare($sqlD);
 		 $stmtD->execute(array($idAnnonce));
-		 $rep['msg'] = "Votre annonce est effacée.";
+		 $rep['msg'] = "Votre annonce $idAnnonce est effacée.";
 		 echo json_encode($rep);
 }
 
@@ -204,7 +203,7 @@ function modifier(){
 	$requete="UPDATE annonce SET titre=?,listeAchat=?,pochette=? WHERE idAnnonce=?";
 	$stmt=$connexion->prepare($requete);
 	$stmt->execute(array($titre,$listeAchat,$pochette,$idAnnonce));
-	$rep['msg']="Annonce $idAnnonce bien modifie";
+	$rep['msg']="Votre annonce $idAnnonce est modifiée.";
 	unset($connexion);
 	unset($stmt);
 	echo json_encode($rep);

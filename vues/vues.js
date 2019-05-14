@@ -201,10 +201,11 @@ function vueMontrerAnnonce(data){
 
 	// $("#test").html('<p>idAnnonce '+(data[0].idAnnonce)+'</p>')
 	// Créer le formulaire divEnreg.
-	montrer('divEnreg');
+	// montrer('divEnreg');
 	//cacher('contenu');
 }
 
+// gère les messages de success et alert.
 function messageAlert(classe,msg) {
 	if (msg == "" || msg == null){
 		$('#alert').hide();
@@ -241,8 +242,9 @@ var vue=function(action,donnees){
 			vueMontrerAnnonce(donnees);
 		break;
 		case 'modifierJSON':
-			$('#message').html(donnees.msg);
-			setTimeout(function(){ $('#message').html(""); }, 3000);
+			messageAlert('alert-succes',donnees.msg);
+			// $('#message').html(donnees.msg);
+			// setTimeout(function(){ $('#message').html(""); }, 3000);
 		break;
 
 		

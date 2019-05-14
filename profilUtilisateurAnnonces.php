@@ -17,16 +17,7 @@ session_start();
     <script type="text/javascript" src="requetes/requetes.js"></script>
 
     <title>Profil Utilisateur - Gérer mes annonces.</title>
-
-    <script>
-    function montrer(elem){
-	    document.getElementById(elem).style.display='block';
-    }
-
-    function cacher(elem){
-      document.getElementById(elem).style.display='none';
-    }
-</script>
+   
   </head>
   <!-- onload="requetes('actionListerMAdmin'), requetes('actionListerA');" -->
   <body onload="requetes(null,'actionListerAnnoncesMembres')">
@@ -38,14 +29,10 @@ session_start();
     <div class="alert" role="alert"></div>
   </div>
 
-  
   <!-- debut contenu -->
   <div id="contenu">
   <h1>Mes annonces</h1>
 
-    <div id="loading"></div>
-
-  
   <!-- ajax loader animation -->
   <div class="text-center">
     <div class="spinner-border" role="status">
@@ -83,8 +70,7 @@ session_start();
 						requetes(elem,'ajaxMontrerAnnonce');
 					})();
         }
-      
-      </script>
+    </script>
       
     <?php include("includes/footer.php"); ?>
     <?php include("includes/footer-script.php"); ?>

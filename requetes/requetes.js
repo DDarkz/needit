@@ -165,13 +165,18 @@ function modifier(){
 		cache : false,
 		contentType : false,
 		processData : false,
-		success: function(message){
-			vue('modifierJSON',message);
+		success: function(data){
+			vue('modifierJSON',data);
+			messageAlert('alert-success',data.msg);
 			
 		},
 		fail:function(){
 			alert("Vous avez un GROS problème");
-		}
+		}// ,
+		// complete:function(){
+		// 	alert("c'est terminé");
+		// 	// ajaxListerAnnoncesMembres();
+		// }
 	});
 }
 
