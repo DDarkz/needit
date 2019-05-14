@@ -42,7 +42,7 @@ function ctlListerAnnoncesAdmin() {
 }
 
 function ctlListerAnnoncesMembres() {
-	global $connexion, $rep, $idSession, $message;
+	global $connexion, $rep, $idSession;
 	$idDemandeur = $_POST['idDemandeur'];
 	$sql = "SELECT * FROM annonce WHERE idDemandeur='$idDemandeur'";
 	try{
@@ -234,7 +234,7 @@ switch ($action) {
 		ctlMontrerAnnonce();
 		break;
 	case 'modifier':
-			modifier();
+		modifier();
 		break;
 	case 'actCtlDeleteAnnonce':
 		ctlDeleteAnnonce();

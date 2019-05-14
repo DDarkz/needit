@@ -172,11 +172,11 @@ function modifier(){
 		},
 		fail:function(){
 			alert("Vous avez un GROS problème");
-		}// ,
-		// complete:function(){
-		// 	alert("c'est terminé");
-		// 	// ajaxListerAnnoncesMembres();
-		// }
+		},
+		complete:function(){
+			// alert("c'est terminé");
+			location.reload();
+		}
 	});
 }
 
