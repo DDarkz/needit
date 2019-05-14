@@ -26,7 +26,7 @@ if($_SESSION["courriel"] != "admin@gmail.com"){
     <?php include("includes/menu.php"); ?>
     
     <!-- debut container -->
-    <div class="container pt-5">
+    <div class="container pt">
       <?php
         if (isset($message)) {
           echo '<div class="alert alert-danger" role="alert">'.$message.'</div>';

@@ -43,6 +43,12 @@ body h1 {
     background-color:#343a40;
 }
 
+/* creer de l'espace */
+.container.pt{
+    padding-top: 8em;
+}
+
+/* pour la gestion des msg erreurs et succes */
 #alert{
     display: none;
 }

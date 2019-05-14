@@ -64,6 +64,7 @@ if(isset($_POST["submit"]))
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
     <script type="text/javascript" src="vues/vues.js"></script>
     <script type="text/javascript" src="requetes/requetes.js"></script>
     <script type="text/javascript" src="js/general.js"></script>  
@@ -76,7 +77,7 @@ if(isset($_POST["submit"]))
    
 
     <!-- debut container -->
-    <div class="container pt-5">
+    <div class="container pt">
     <?php
         if (isset($message)) {
           echo '<div class="alert alert-danger" role="alert">'.$message.'</div>';

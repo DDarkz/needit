@@ -25,7 +25,7 @@ session_start();
    
 
     <!-- debut container -->
-    <div class="container pt-5">
+    <div class="container pt">
     <h1>Toutes les annonces</h1>
 
        <!-- debut card-columns -->
