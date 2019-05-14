@@ -12,7 +12,7 @@ session_start();
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Need it now</title>
+  <title>GoFor</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -34,7 +34,7 @@ session_start();
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="propos.php"><img src="images\logoGoFor.png" width="80"></a>
+      <a class="navbar-brand js-scroll-trigger" href="index.php"><img src="images\logoGoFor.png" width="80"></a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
@@ -72,9 +72,10 @@ session_start();
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mx-auto">
-          <h2 class="text-white mb-4">Built with Bootstrap 4</h2>
-          <p class="text-white-50">Grayscale is a free Bootstrap theme created by Start Bootstrap. It can be yours right now, simply download the template on
-            <a href="http://startbootstrap.com/template-overviews/grayscale/">the preview page</a>. The theme is open source, and you can use it for any purpose, personal or commercial.</p>
+          <h2 class="text-white mb-4">Service de livraison entre particuliers</h2>
+          <p class="text-white-50">Besoin d'une épicerie urgente , des médicaments ? vous êtes incapable de sortir?
+            <a href="propos.php"><br>La solution est simple faites appel à votre application GoFor. </a> 
+           <br>Et votre voisin "Go For You" !</p>
         </div>
       </div>
       <img src="images/Gofor.jpg" class="img-fluid" alt="">
