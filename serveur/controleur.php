@@ -65,7 +65,7 @@ function ctlListerAnnoncesMembres() {
 }
 function ctlListerAnnonces() {
 	global $connexion, $rep;
-	$sql = "SELECT * FROM annonce";
+	$sql = "SELECT * FROM annonce ORDER BY idAnnonce DESC";
 	try{
 		 $stmt = $connexion->prepare($sql);
 		 $stmt->execute();
