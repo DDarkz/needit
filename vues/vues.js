@@ -69,7 +69,7 @@ function vueListerAnnonces(Annonces) {
 	for(i=0; i<taille; i++) {
 		ligne=Annonces[i];
 		//rep+='<div class="card-columns">';
-		rep+='<div class="card col-12 lg-4 m-3">';
+		rep+='<div class="card m-3">';
 		rep+='<a class="text-dark"><img class="card-img-top" src="images/'+(ligne.pochette)+'" alt="Card image cap">';
 		rep+='<div class="card-body">';
 		//rep+='<p class="card-date">'+(ligne.date)+'</p>';
@@ -95,43 +95,17 @@ function vueListerAnnoncesIndex(Annonces) {
 	var taille = Annonces.length;
 	for(i=0; i<taille; i++) {
 		ligne=Annonces[i];
-		rep+='<div class="col-md-4">';
 		rep+='<div class="card">';
 		rep+='<div class="card-body">';
           rep+='<img class="img-fluid mb-3 border" src="images/'+(ligne.pochette)+'" alt="">';
 					rep+='<h5 class="card-title mt-3">'+(ligne.Titre)+'</h5>';
 					rep+='<p class="card-text">'+(ligne.listeAchat)+'</p>';
 		rep+='</div>';
-		rep+=' <a href="annonces.php" class="btn btn-primary">Détail</a>';
+		rep+='<div class="md-8 mx-auto"><a href="annonces.php" class="btn btn-primary">Détail</a></div>';
 			rep+='</div>';
-	rep+='</div>';
 	}
 	$("#annoncesIndex").html(rep);
 }
-
-/*
-function vueListerAnnoncesIndex(Annonces) {
-	rep="";
-	var taille = Annonces.length;
-	for(i=0; i<taille; i++) {
-		ligne=Annonces[i];
-		rep+='<div class="row align-items-center no-gutters mb-4 mb-lg-5">';
-		rep+='<div class="col-xl-8 col-lg-7">';
-		rep+='<a href="annonces.php">';
-          rep+='<img class="img-fluid mb-3 mb-lg-0" src="images/'+(ligne.pochette)+'" alt="" width="80%" height="30%">';
-        rep+='</div>';
-        rep+='<div class="col-xl-4 col-lg-5">';
-          rep+='<div class="featured-text text-center text-lg-left">';
-            rep+='<h4>'+(ligne.Titre)+'</h4>';
-            rep+='<p class="text-black-50 mb-0">'+(ligne.listeAchat)+'</p>';
-		  rep+='</div>';
-		  rep+='</a>';
-        rep+='</div>';
-	  rep+='</div>';
-	}
-	$("#annoncesIndex").html(rep);
-}
-*/
 
 function vueListerAnnoncesDetail(Annonces) {
 	rep="";
@@ -148,9 +122,12 @@ function vueListerAnnoncesDetail(Annonces) {
 		rep+='<p class="card-date">'+(ligne.date)+'</p>';
 		rep+='<p class="card-date">'+(ligne.nom)+' '+(ligne.prenom)+'</p>';
 		rep+='<p class="text-black-50 mb-20">'+(ligne.listeAchat)+'</p>';
-		rep+="<button id='voirAnnonce' class='btn btn-success mr-2' onclick='requetes(null,'actionLister');'>Voir les annonces</button>";
+		// rep+="<button id='voirAnnonce' class='btn btn-success mr-2' onclick='requetes(null,'actionLister');'>Voir les annonces</button>";
 		if(email == 1){
 			rep+="<a id='contacter' href='tchat.php?idAnnonce="+(ligne.idAnnonce)+"' class='btn btn-dark'>Contacter</a>";	
+		} else {
+			rep+='<p class="text-black-50 mt-2">Pour contacter l\'auteur de l\'annonce, <a href="formulaireLogin.php">connectez-vous</a></p>';
+			// rep+="<a id='contacter' href='formulaireLogin.php'>Se connecter</a>";
 		}
 				rep+='</div>';
 				rep+='</div>';
@@ -208,6 +185,7 @@ var vue=function(action,donnees){
 		break;
 		case "actVueListerA":
 			vueListerAnnoncesAdmin(donnees);
+			// messageAlert('alert-danger',donnees.msg);
 		break;
 		case "actVueLister":
 			vueListerAnnonces(donnees);

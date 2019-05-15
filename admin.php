@@ -31,7 +31,7 @@ if($_SESSION["courriel"] != "admin@gmail.com"){
         <div class="alert" role="alert"></div>
       </div>
 
-       <h1>Page Admin</h1>
+       <h1>Administration des membres et annonces.</h1>
        <ul class="nav nav-pills">
         <li class="nav-item">
           <a class="nav-link" id="lienMembres" href="#" onclick="requetes(null,'actionListerMAdmin')">Membres</a>
