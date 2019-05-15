@@ -25,8 +25,8 @@ $nom= strtok($user,"@")
     <!-- debut container --> 
       <div class="container pt">
       <h1>Votre inscription est terminée avec succès.</h1>
-      <p>Veuillez vous connecter.</p>
-      <?php echo $nom?>
+      <a href='formulaireLogin.php'>Veuillez vous connecter ici.</a>
+      <?php echo $nom ;?>
     </div>
     <!-- fin container -->
 

@@ -111,7 +111,7 @@ session_start();
               <textarea rows="4" cols="50" class="form-control" ></textarea>
             </div>
           </div>
-           <a href="formulaireLogin.php" class="btn btn-primary js-scroll-trigger form-control ">Contacter</a><br>
+           <a href="formulaireLogin.php" class="btn btn-primary js-scroll-trigger col-sm-2  ">Contacter</a><br>
           </form><br>
            <!-- <p> <a href="formulaireLogin.php" class="btn btn-primary js-scroll-trigger">Se connecter</a>
            <a href="formulaireInscription.php"><br>Pas encore inscrit? </a></p> -->

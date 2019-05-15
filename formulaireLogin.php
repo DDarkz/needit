@@ -16,7 +16,7 @@ if(isset($_POST["login"]))
 
         $statement = $connexion->prepare($sql);
         $statement->execute(array('courriel' => $_POST["courriel"],
-                 'password' => $_POST["password"]));
+                 'password' => sha1($_POST["password"])));
 
 
         $row=$statement->fetch(PDO::FETCH_OBJ);

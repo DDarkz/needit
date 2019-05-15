@@ -20,7 +20,7 @@ if(isset($_POST["submit"]))
         $codePostale = htmlspecialchars(trim($_POST['codePostale']));
         $telephone = htmlspecialchars(trim($_POST['telephone']));
         $courriel = htmlspecialchars(trim($_POST['courriel']));
-        $mdp = htmlspecialchars(trim($_POST['mdp']));
+        $mdp = sha1(htmlspecialchars(trim($_POST['mdp'])));
         
 	      $requete1="INSERT INTO utilisateur VALUES(0,?,?,?,?,?,?,?)";
 	      $stmt = $connexion->prepare($requete1);
