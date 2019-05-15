@@ -27,11 +27,9 @@ if($_SESSION["courriel"] != "admin@gmail.com"){
     
     <!-- debut container -->
     <div class="container pt">
-      <?php
-        if (isset($message)) {
-          echo '<div class="alert alert-danger" role="alert">'.$message.'</div>';
-           }
-       ?>
+      <div id="alert">
+        <div class="alert" role="alert"></div>
+      </div>
 
        <h1>Page Admin</h1>
        <ul class="nav nav-pills">

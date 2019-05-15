@@ -154,6 +154,9 @@ function ctlDeleteMembres() {
 	
 		 $stmtC = $connexion->prepare($sqlC);
 		 $stmtC->execute(array($idUser));
+
+		 $rep['msg'] = "Ce membre $idUser a été effacé";
+		 echo json_encode($rep);
 }
 
 // function ctlModifierAnnonce() {
