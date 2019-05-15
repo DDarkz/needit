@@ -1,1 +1,1 @@
-<li><a class="nav-link text-white" href="formulaireLogin.php">Login</a></li>
+<li><a class="nav-link text-white" href="formulaireLogin.php">Se connecter</a></li>

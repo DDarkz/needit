@@ -75,7 +75,9 @@ session_start();
           <h2 class="text-white mb-4">Service de livraison entre particuliers</h2>
           <p class="text-white-50">Besoin d'une épicerie urgente , des médicaments ? vous êtes incapable de sortir?
             <a href="propos.php"><br>La solution est simple faites appel à votre application GoFor. </a> 
-           <br>Et votre voisin "Go For You" !</p>
+           <br>Et votre voisin "Go For You" !<br><br>
+           <a href="formulaireLogin.php" class="btn btn-primary js-scroll-trigger">Se connecter</a>
+           <a href="formulaireInscription.php"><br>Pas encore inscrit? </a></p>
         </div>
       </div>
       <img src="images/Gofor.jpg" class="img-fluid" alt="">
