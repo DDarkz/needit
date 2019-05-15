@@ -156,9 +156,9 @@ if(isset($_POST["submit"]))
             
           </div>
           <div class="form-group row">
-            <label for="codePostale" class="col-sm-2 col-form-label">Code Postale</label>
+            <label for="codePostale" class="col-sm-2 col-form-label">Code Postal</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="codePostale" id="codePostale" Required >
+              <input type="text" class="form-control" name="codePostale" id="codePostale" placeholder="Code Postal" Required >
               <div class="invalid-feedback">
                 Veuillez choisir votre code postal.
             </div>
@@ -168,7 +168,7 @@ if(isset($_POST["submit"]))
           <div class="form-group row">
             <label for="telephone" class="col-sm-2 col-form-label">Téléphone</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="telephone" id="telephone" Required >
+              <input type="text" class="form-control" name="telephone" id="telephone" placeholder="Téléphone" Required >
               <div class="invalid-feedback">
                 Veuillez choisir votre numéro de téléphone.
             </div>
@@ -188,7 +188,7 @@ if(isset($_POST["submit"]))
           <div class="form-group row">
             <label for="mdp" class="col-sm-2 col-form-label">Mot de passe</label>
             <div class="col-sm-10">
-              <input type="password" class="form-control" id="mdp" name="mdp" placeholder="mot de passe" Required>
+              <input type="password" class="form-control" id="mdp" name="mdp" placeholder="Mot de passe" Required>
               <div class="invalid-feedback">
                 Veuillez choisir votre mot de passe.
             </div>
