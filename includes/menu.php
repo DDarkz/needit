@@ -34,6 +34,10 @@
           <li class="nav-item">
             <a class="nav-link text-white" href="profilUtilisateurAnnonces.php">Mes annonces</a>
           </li>
+
+          <li class="nav-item">
+            <a class="nav-link text-white" href="annonceRecherche.php"><img src="images\loupe.png" width="20">Recherche</a>
+          </li>
         
           <?php
             }
