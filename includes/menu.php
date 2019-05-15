@@ -18,8 +18,9 @@
             if(!isset($_SESSION["courriel"])){
           ?>
           <li class="nav-item">
-            <a class="nav-link text-white" href="formulaireInscription.php">S'inscrire</a>
+            <a class="nav-link text-white"  href="formulaireInscription.php">S'inscrire</a>
           </li>
+          
           <?php
           }
             if(isset($_SESSION["courriel"])){

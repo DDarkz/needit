@@ -17,7 +17,7 @@ session_start();
     <script type="text/javascript" src="vues/vues.js"></script>
     <script type="text/javascript" src="requetes/requetes.js"></script>  
 
-    <title>Toutes les annonces</title>
+    <title>Les annonces</title>
   </head>
   <body onload="requetes(null,'actionLister');">
 
@@ -26,7 +26,7 @@ session_start();
 
     <!-- debut container -->
     <div class="container pt">
-    <h1>Toutes les annonces</h1>
+    <h1> Annonces</h1>
 
        <!-- debut card-columns -->
     <form>
