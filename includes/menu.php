@@ -36,7 +36,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link text-white" href="annonceRecherche.php"><img src="images\loupe.png" width="20">Recherche</a>
+            <a class="nav-link text-white" href="annonceRecherche.php"><img src="images\loupe.png" width="20">Rechercher</a>
           </li>
         
           <?php
