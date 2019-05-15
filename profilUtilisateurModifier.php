@@ -33,7 +33,7 @@ global $connexion,$idSession;
       
   
     <?php include("includes/menu.php"); ?>
-    <div class="container pt-5">
+    <div class="container pt">
       <div class="row">
       <div class='col-12'>
       <h1>Mon profil</h1>
@@ -70,7 +70,7 @@ unset($stmt);
 </div>
 <!-- fin container -->
 
-<?php include("includes/footer.php"); ?>
+    <?php include("includes/footer.php"); ?>
     <?php include("includes/footer-script.php"); ?>
   </body>
 </html>
