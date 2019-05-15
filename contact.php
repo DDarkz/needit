@@ -153,10 +153,10 @@ Thank you for contacting us. We will be in touch with you very soon.
   </nav>
 
   <!-- Header -->
-  <header class="masthead">
+  <header class="contact">
     <div class="container d-flex h-100 align-items-center">
       <div class="mx-auto text-center">
-        <h1 class="mx-auto my-0 text-uppercase">Contactez nous</h1>
+        <h1 class="mx-auto my-0 text-uppercase  couleur ">Contactez nous</h1>
         <!-- <h2 class="text-white-50 mx-auto mt-2 mb-5">Rendez Service et gagner des bénéfices<br>
           <p class="text-white-50">aidez les gens et gagner de l'argent</p></h2>
         <a href="annonces.php" class="btn btn-primary js-scroll-trigger">Commencez</a> -->
@@ -169,7 +169,7 @@ Thank you for contacting us. We will be in touch with you very soon.
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mx-auto">
-          <h2 class="text-white mb-4">Ecrivez nous !</h2>
+          <h2 class="text-white mb-4">GoFor !</h2>
           <p class="text-white-50"></p>
           <form name="contactform" method="post" action="contact.php"> 
           <div class="form-group row">
