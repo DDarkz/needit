@@ -69,7 +69,7 @@ function vueListerAnnonces(Annonces) {
 	for(i=0; i<taille; i++) {
 		ligne=Annonces[i];
 		//rep+='<div class="card-columns">';
-		rep+='<div class="card m-3">';
+		rep+='<div class="card col-12 lg-4 m-3">';
 		rep+='<a class="text-dark"><img class="card-img-top" src="images/'+(ligne.pochette)+'" alt="Card image cap">';
 		rep+='<div class="card-body">';
 		//rep+='<p class="card-date">'+(ligne.date)+'</p>';
