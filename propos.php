@@ -27,7 +27,7 @@ session_start();
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="css/grayscale.min.css" rel="stylesheet">
+  <link href="css/grayscale.css" rel="stylesheet">
 
 </head>
 
@@ -73,22 +73,22 @@ session_start();
   </header>
 
   <!-- About Section -->
-  <section id="about" class="about-section text-center">
+  <section id="about" class="about-section">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mx-auto">
           <h2 class="text-white mb-4">Parce que votre aide est une priorité pour nous</h2>
           <p class="text-white-50">GoFor est une plateforme communautaire qui connecte les particuliers entre eux 
-           pour un service de livraison. <br>
-           Qu'il s'agisse d'une personne agée, handicappée ou meme une personne dans des conditions normales. 
-           Aujourdh'hui c'est la tempete de l'année, il fait -30 dehors , 
-           votre bébé dort.. !<br>
-           Vous etes dans tous les cas incapable de sortir de chez vous pour faire vos courses ou acheter des ingredientns ou medicaments urgents, un outil obligatoire.. que vous voulez 
-           le recevoir dans une heure , 2 heures maximum ! <br>GoFor s'appuie sur la technologie pour vous offrir une expérience exceptionnelle au moment où vous en avez besoin. 
-           on vous offre un service de livraison entre partiuliers pour tous vos besoins.<br>
-            Par ailleurs, vous etes deja entrain de faire vos courses et vous voulez rembourser une partie de votre epicerie ?ou
-             vous avez du temps libre ? <br>GoFor vous offre la possibilité d'aider les gens en gagnant de l'argent .Et ceci, en faisant la livraison pour les gens de votre quartier! 
-             c'est amusant n'est ce pas ?!<br></p>
+           pour un service de livraison. </p>
+           <p class="text-white-50">Qu'il s'agisse d'une personne agée, handicappée ou même une personne dans des conditions normales. 
+           Aujourdh'hui c'est la tempete de l'année, il fait -30 dehors,votre bébé dort !<br>
+           Vous êtes dans tous les cas incapable de sortir de chez vous pour faire vos courses ou acheter des ingredientns ou medicaments urgents, un outil obligatoire.., que vous voulez 
+           le recevoir dans une heure, 2 heures maximum ! </p>
+           <p class="text-white-50">GoFor s'appuie sur la technologie pour vous offrir une expérience exceptionnelle au moment où vous en avez besoin.
+           On vous offre un service de livraison entre partiuliers pour tous vos besoins.</p>
+            <p class="text-white-50">Hey, vous êtes dejà entrain de faire vos courses et vous voulez rembourser une partie de votre epicerie ?
+             vous avez du temps libre?<br>GoFor vous offre aussi la possibilité d'aider les gens en gagnant de l'argent .<br>Et ceci, en faisant la livraison pour les gens de votre quartier! 
+             C'est amusant n'est ce pas?<br></p>
            <p> <a href="formulaireLogin.php" class="btn btn-primary js-scroll-trigger">Se connecter</a>
            <a href="formulaireInscription.php"><br>Pas encore inscrit? </a></p>
            
