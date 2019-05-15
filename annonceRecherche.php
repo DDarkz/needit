@@ -54,7 +54,7 @@ if ($stmt->rowCount() > 0){
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">.
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
     <script type="text/javascript" src="vues/vues.js"></script>
     <script type="text/javascript" src="requetes/requetes.js"></script>  
 
@@ -66,8 +66,8 @@ if ($stmt->rowCount() > 0){
 
 
     <!-- debut container -->
-    <div class="container pt-5">
-<h1>Recherche par code Postal</h1>
+    <div class="container pt">
+      <h1>Recherche par code Postal</h1>
         <nav class="navbar navbar-light bg-light">  
             <form  class="form-inline"  method='post'  action='annonceRecherche.php' enctype='multipart/form-data'  >
                 <input type='text'id='codePostale'name='codePostale' class="form-control mr-sm-2"  placeholder="Code postal" aria-label="Search">
@@ -78,8 +78,8 @@ if ($stmt->rowCount() > 0){
         <?php echo ($rep) ?>
         </div>
         </div>
-  <!-- fin container -->
-        <?php include("includes/footer.php"); ?>
+    <!-- fin container -->
+    <?php include("includes/footer.php"); ?>
     <?php include("includes/footer-script.php"); ?>
 
     </body>

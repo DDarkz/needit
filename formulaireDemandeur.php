@@ -11,7 +11,7 @@ if(isset($_POST["submit"]))
   
       if (empty($_POST["titre"])  || empty($_POST["liste"]) || empty($_POST["codepostal"]))
       {
-        $message = '<label id = "message">Veuillez remplir tous les champs.</lable>';
+        $message = 'Veuillez remplir tous les champs.';
       }
       else
       {
@@ -131,7 +131,7 @@ if(isset($_POST["submit"]))
           <div class="form-group row">
             <div class="col-sm-10">
               <input type="submit" name="submit" class="btn btn-primary" value="Créer l'annonce" />
-              <button type="rest" name="rest" class="btn btn-warning">Effacer</button>
+              <button type="rest" name="rest" class="btn btn-danger">Effacer</button>
             </div>
           </div>
         </form>
