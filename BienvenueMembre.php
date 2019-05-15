@@ -2,7 +2,8 @@
 include("bd/connexion.php");
 session_start();
 $user = $_SESSION["courriel"];
-$nom= strtok($user,"@")
+$idSession = $_SESSION["idUser"];
+$nom= strtok($user,"@");
 ?>
 <!doctype html>
 <html lang="fr">
@@ -24,9 +25,9 @@ $nom= strtok($user,"@")
 
     <!-- debut container --> 
       <div class="container pt">
-      <h1>Votre inscription est terminée avec succès.</h1>
+      <h1>Bonjour <?php echo $nom ?>votre inscription est terminée avec succès.</h1>
       <a href='formulaireLogin.php'>Veuillez vous connecter ici.</a>
-      <?php echo $nom ;?>
+      
     </div>
     <!-- fin container -->
 

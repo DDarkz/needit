@@ -35,14 +35,13 @@ if(isset($_POST["submit"]))
        /*
         $destinataire = $courriel;
        //echo "$destinataire";
-        $sujet = "Activer votre compte" ;
+        $sujet = "Message de Bienvenue" ;
         $entete = "From: 201897878@collegeahuntsic.qc.ca" ;
  
         // Le lien d'activation est composé du login(log) et de la clé(cle)
-        $message = 'Bienvenue sur VotreSite,
+        $message = 'Bienvenue sur Votre Site GoFor,
  
-        Pour activer votre compte, veuillez cliquer sur le lien ci dessous
-        ou copier/coller dans votre navigateur internet.
+        
  
         
         
