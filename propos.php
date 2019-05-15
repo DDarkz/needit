@@ -44,7 +44,7 @@ session_start();
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="propos.php">Propos</a>
+            <a class="nav-link js-scroll-trigger" class="dropdown-item active" href="propos.php">Propos</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="annonces.php">Annonces</a>
@@ -77,9 +77,18 @@ session_start();
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mx-auto">
-          <h2 class="text-white mb-4">Service de livraison entre particuliers</h2>
-          <p class="text-white-50">Besoin d'une épicerie urgente , des médicaments ? vous êtes incapable de sortir?
-            La solution est simple faites appel à votre application GoFor.<br></p>
+          <h2 class="text-white mb-4">Parce que votre aide est une priorité pour nous</h2>
+          <p class="text-white-50">GoFor est une plateforme communautaire qui connecte les particuliers entre eux 
+           pour un service de livraison. <br>
+           Qu'il s'agisse d'une personne agée, handicappée ou meme une personne dans des conditions normales. 
+           Aujourdh'hui c'est la tempete de l'année, il fait -30 dehors , 
+           votre bébé dort.. !<br>
+           Vous etes dans tous les cas incapable de sortir de chez vous pour faire vos courses ou acheter des ingredientns ou medicaments urgents, un outil obligatoire.. que vous voulez 
+           le recevoir dans une heure , 2 heures maximum ! <br>GoFor s'appuie sur la technologie pour vous offrir une expérience exceptionnelle au moment où vous en avez besoin. 
+           on vous offre un service de livraison entre partiuliers pour tous vos besoins.<br>
+            Par ailleurs, vous etes deja entrain de faire vos courses et vous voulez rembourser une partie de votre epicerie ?ou
+             vous avez du temps libre ? <br>GoFor vous offre la possibilité d'aider les gens en gagnant de l'argent .Et ceci, en faisant la livraison pour les gens de votre quartier! 
+             c'est amusant n'est ce pas ?!<br></p>
            <p> <a href="formulaireLogin.php" class="btn btn-primary js-scroll-trigger">Se connecter</a>
            <a href="formulaireInscription.php"><br>Pas encore inscrit? </a></p>
            
