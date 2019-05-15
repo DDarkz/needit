@@ -64,7 +64,7 @@ session_start();
   <header class="propos">
     <div class="container d-flex h-100 align-items-center">
       <div class="mx-auto text-center">
-        <h1 class="mx-auto my-0 text-uppercase">À propos de nous </h1>
+        <h1 class="mx-auto my-0 text-uppercase couleur">À propos de nous </h1>
         <!-- <h2 class="text-white-50 mx-auto mt-2 mb-5">Rendez Service et gagner des bénéfices<br>
           <p class="text-white-50">aidez les gens et gagner de l'argent</p></h2>
         <a href="annonces.php" class="btn btn-primary js-scroll-trigger">Commencez</a> -->
