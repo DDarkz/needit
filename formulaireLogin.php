@@ -59,7 +59,7 @@ if(isset($_POST["login"]))
     <script type="text/javascript" src="vues/vues.js"></script>
     <script type="text/javascript" src="requetes/requetes.js"></script>
 
-    <title>Formulaire Login</title>
+    <title>Se connecter</title>
   </head>
   <body>
 
@@ -84,6 +84,7 @@ if(isset($_POST["login"]))
             <label for="password">Password</label> <input type="password" id="password" name="password" class="form-control">
           </div>
           <input type="submit" name="login" class="btn btn-primary" value="Connexion" />
+          <p><a href="#"><br>Mot de passe oublié? </a></p>
         </form>
         <!-- fin formulaire -->
 
