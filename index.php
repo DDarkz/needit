@@ -25,7 +25,7 @@ session_start();
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="css/grayscale.min.css" rel="stylesheet">
+  <link href="css/grayscale.css" rel="stylesheet">
 
 </head>
 
@@ -83,14 +83,14 @@ session_start();
            <a href="formulaireInscription.php"><br>Pas encore inscrit? </a></p>
         </div>
       </div>
-      <img src="images/Gofor.jpg" class="img-fluid" alt="">
+      <!-- <img src="images/Gofor.jpg" class="img-fluid" alt=""> -->
     </div>
   </section>
 
   <!-- Projects Section -->
   <section id="projects" class="projects-section bg-light">
-    <div class="container" id="annoncesIndex">
-
+    <div class="container">
+      <div class="row" id="annoncesIndex">
       <!-- Featured Project Row -->
       <!-- <div class="row align-items-center no-gutters mb-4 mb-lg-5">
         <div class="col-xl-8 col-lg-7">
@@ -139,7 +139,7 @@ session_start();
           </div>
         </div>
       </div> -->
-
+      </div>
     </div>
   </section>
 
