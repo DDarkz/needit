@@ -14,31 +14,16 @@
           <li class="nav-item">
             <a class="nav-link text-white" href="annonces.php">Annonces</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="annonceRecherche.php"><img src="images\loupe.png" width="20">Rechercher</a>
+          </li>
           <?php
             if(!isset($_SESSION["courriel"])){
           ?>
           <li class="nav-item">
             <a class="nav-link text-white"  href="formulaireInscription.php">S'inscrire</a>
           </li>
-          
-          <?php
-          }
-            if(isset($_SESSION["courriel"])){
-          ?>  
-          <li class="nav-item">
-            <a class="nav-link text-white" href="formulaireDemandeur.php">Créer annonce</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="profilUtilisateur.php">Profil</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="profilUtilisateurAnnonces.php">Mes annonces</a>
-          </li>
 
-          <li class="nav-item">
-            <a class="nav-link text-white" href="annonceRecherche.php"><img src="images\loupe.png" width="20">Rechercher</a>
-          </li>
-        
           <?php
             }
             
