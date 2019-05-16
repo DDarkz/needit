@@ -396,12 +396,20 @@ footer {
   display:inline-block;
   min-height:25px;
   /* border:1px solid yellow; */
+  /* display: block; */
 }
 
 .message.message-Livreur{
   background-color:#3498db;
   float:right;
+  clear: right;
 }
 .message.message-demandeur{
   background-color:#bdc3c7;
 }
+
+.message span.txt-message {
+  clear:both; 
+  overflow:hidden;
+  margin:0; 
+  padding:0;

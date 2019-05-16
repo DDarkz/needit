@@ -54,9 +54,9 @@
     foreach($results as $message){
         ?>
             <div class="message <?php echo ($message->livreur == $livreur) ? 'message-Livreur' : 'message-demandeur' ?>">
-                <small class="text-muted"><?= $message->livreur ?></small>
-                <?= $message->message ?>
-                <small class="text-muted"><?= $message->date ?></small>    
+                <small class="text-white d-block"><?= $message->livreur ?></small>
+                <span class="txt-message"><?= $message->message ?></span>
+                <small class="text-white d-block"><?= $message->date ?></small>    
             </div>
             <br/><br/>
 
