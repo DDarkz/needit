@@ -27,11 +27,11 @@
     foreach($connexion->query($reqDemandeur) as $rowM)
     $demandeur = $rowM['livreur'];
 
-        // if($demandeur==$livreur){
-            // $reqDemandeur = "SELECT courriel FROM connexion WHERE `idUser` = '$idDemandeur'";
-            // foreach($connexion->query($reqDemandeur) as $row)
-            // $demandeur = $row['courriel'];
-        // }
+        if(empty($demandeur)){
+            $reqDemandeur = "SELECT courriel FROM connexion WHERE `idUser` = '$idDemandeur'";
+            foreach($connexion->query($reqDemandeur) as $row)
+            $demandeur = $row['courriel'];
+         }
 
     $requete="INSERT INTO messages VALUES(0,?,?,?,?,NOW())";
 	$stmt = $connexion->prepare($requete);
