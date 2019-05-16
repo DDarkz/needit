@@ -67,7 +67,7 @@ if(isset($_POST["submit"]))
     <?php include("includes/header-script.php"); ?>
 
   </head>
-  <body>
+  <body id="page-top">
 
     <?php include("includes/menu.php"); ?>
    

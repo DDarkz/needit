@@ -44,7 +44,7 @@ if(isset($_POST["login"]))
 
     <?php include("includes/header-script.php"); ?>
   </head>
-  <body>
+  <body id="page-top">
 
     <?php include("includes/menu.php"); ?>
    

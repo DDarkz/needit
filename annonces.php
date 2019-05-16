@@ -14,7 +14,7 @@ session_start();
 
     <?php include("includes/header-script.php"); ?>
   </head>
-  <body onload="requetes(null,'actionLister');">
+  <body id="page-top" onload="requetes(null,'actionLister');">
 
     <?php include("includes/menu.php"); ?>
    
