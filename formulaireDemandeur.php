@@ -122,7 +122,7 @@ if(isset($_POST["submit"]))
             
           <div class="form-group row">
             <div class="col-sm-10">
-              <input type="submit" name="submit" class="btn btn-primary" value="Créer l'annonce" />
+              <input type="submit" name="submit" class="btn btn-primary" value="Créer" />
               <button type="rest" name="rest" class="btn btn-danger">Effacer</button>
             </div>
           </div>

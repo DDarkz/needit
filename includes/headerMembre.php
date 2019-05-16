@@ -8,6 +8,7 @@
 <div class="dropdown-menu">
     <a class="dropdown-item" href="formulaireDemandeur.php">Créer annonce</a>
     <a class="dropdown-item" href="profilUtilisateurAnnonces.php">Mes annonces</a>
+    <a class="dropdown-item" href="profilUtilisateurAnnonces.php">Mes messages</a>
     <a class="dropdown-item" href="profilUtilisateur.php">Profil</a>
 </div>
 </li>
