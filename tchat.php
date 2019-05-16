@@ -16,7 +16,7 @@ $_SESSION['idAnnonce'] = $_GET['idAnnonce']
     <script type="text/javascript" src="vues/vues.js"></script>
     <script type="text/javascript" src="requetes/requetes.js"></script>
     <script type="text/javascript" src="js/general.js"></script> 
-    <script type="text/javascript" src="js/jquery.js"></script>  
+    <script src="js/jquery.js"></script>  
 
     <title>Tchat</title>
   </head>
