@@ -84,16 +84,16 @@ session_start();
             un e-mail de confirmation sera envoyé dans sous peu!
             
            <?php
-      //     $destinataire = 'emna.kh@gmail.com';
+      //     $destinataire = $courriel; //$destinataire ='emna.kh@gmail.com';
 			// $envoyeur	='emna.kh@gmail.com';
      	// 		$sujet = 'Email de test';
-     	// 		$message = "Bonjour !\r\nCeci est un email de test.\r\n";
+     	// 		$message = "Bonjour !\r\votre inscriptiona bien été confirmé. Merci de votre confiance.\r\n";
 	    //  		$headers = 'From: '.$envoyeur . "\r\n" .
      	// 			'Reply-To: '.$envoyeur. "\r\n" .
      	// 			'X-Mailer: PHP/' . phpversion();
 	    //  		$envoye = mail($destinataire, $sujet, $message, $headers);
 			// if ($envoye)
-     	// 			echo "<br />Email envoyé.";
+     	// 			echo "<br />un Email de confirmation est envoyé à votre adresse courriel.";
 			// else
       //   echo "<br />Email refusé.";
         ?> 
