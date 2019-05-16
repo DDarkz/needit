@@ -13,20 +13,19 @@ if($_SESSION["courriel"] != "admin@gmail.com"){
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <script type="text/javascript" src="vues/vues.js"></script>
-    <script type="text/javascript" src="requetes/requetes.js"></script>
-
     <title>Admin</title>
+
+    <?php include("includes/header-script.php"); ?>
   </head>
   <!-- onload="requetes('actionListerMAdmin'), requetes('actionListerA');" -->
-  <body>
+  <body id="page-top">
+
     <?php include("includes/menu.php"); ?>
     
+    <!-- debut section -->
+    <section id="projects" class="projects-section bg-light">
     <!-- debut container -->
-    <div class="container pt">
+    <div class="container pt-5">
       <div id="alert">
         <div class="alert" role="alert"></div>
       </div>
@@ -41,7 +40,7 @@ if($_SESSION["courriel"] != "admin@gmail.com"){
         </li>
       </ul>
        <form>
-       <div id="loading"></div>
+        <div id="loading"></div>
         <div id="contenu">
            <!--?php listerMembres(); ?-->
            <!--?php listerAnnonces(); ?-->
@@ -50,12 +49,10 @@ if($_SESSION["courriel"] != "admin@gmail.com"){
         <input type="hidden" id="idAnnonce" name="idAnnonce" value="">
         </form>
 
-          
-            
-
     </div>
     <!-- fin container -->
-
+  </section>
+  <!-- fin section -->
    
     <script type="text/javascript">
 				function listerId(elem,choixId) {

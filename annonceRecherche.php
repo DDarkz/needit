@@ -2,14 +2,14 @@
 include("bd/connexion.php");
 session_start();
 global $connexion,$rep;
-$codePostale=htmlspecialchars(trim($_POST['codePostale']));
+
 
 //echo"post";
 //echo $codePostale;
 $requete = "SELECT * FROM annonce WHERE codePostale=?";
 if(isset($_POST["submit"]))
 {
-
+  $codePostale=htmlspecialchars(trim($_POST['codePostale']));
 try{
    $stmt = $connexion->prepare($requete);
    $stmt->execute(array($codePostale));
@@ -52,33 +52,33 @@ if ($stmt->rowCount() > 0){
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <script type="text/javascript" src="vues/vues.js"></script>
-    <script type="text/javascript" src="requetes/requetes.js"></script>  
-
     <title>Recherche</title>
+
+    <?php include("includes/header-script.php"); ?>
   </head>
-  <body>
+  <body id="page-top">
 
     <?php include("includes/menu.php"); ?>
 
 
-    <!-- debut container -->
-    <div class="container pt">
-      <h1>Recherche par code Postal</h1>
-        <nav class="navbar navbar-light bg-light">  
-            <form  class="form-inline"  method='post'  action='annonceRecherche.php' enctype='multipart/form-data'  >
-                <input type='text'id='codePostale'name='codePostale' class="form-control mr-sm-2"  placeholder="Code postal" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="submit">Rechercher</button>
-             </form>
-        </nav>
-        <div class="card-columns" id="annoncesAccueil">
-        <?php echo ($rep) ?>
-        </div>
-        </div>
-    <!-- fin container -->
+    <!-- debut section -->
+    <section id="projects" class="projects-section bg-light">
+      <!-- debut container -->
+      <div class="container pt-5">
+        <h1>Recherche par code Postal</h1>
+          <nav class="navbar navbar-light bg-light">  
+              <form  class="form-inline"  method='post'  action='annonceRecherche.php' enctype='multipart/form-data'  >
+                  <input type='text'id='codePostale'name='codePostale' class="form-control mr-sm-2"  placeholder="Code postal" aria-label="Search">
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="submit">Rechercher</button>
+              </form>
+          </nav>
+          <div class="card-columns" id="annoncesAccueil">
+          <?php echo ($rep) ?>
+          </div>
+          </div>
+      <!-- fin container -->
+    </section>
+    <!-- fin section -->
     <?php include("includes/footer.php"); ?>
     <?php include("includes/footer-script.php"); ?>
 

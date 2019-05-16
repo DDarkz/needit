@@ -34,7 +34,7 @@ function vueListerAnnoncesAdmin(dataAnnonces) {
 		rep+="<td>"+(ligne.listeAchat)+"</td>";
 		rep+="<td class='text-uppercase'>"+(ligne.codePostale)+"</td>";
 		// rep+="<td>"+(ligne.statut)+"</td>";
-		rep+="<td>"+(ligne.pochette)+"</td>";
+		rep+="<td><img src='images/"+(ligne.pochette)+"' width='200' alt=''></td>";
 		rep+="</tr>";
 	}
 	rep+="</table>";

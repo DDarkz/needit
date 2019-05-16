@@ -6,7 +6,7 @@
 
 #mainNav {
   min-height: 56px;
-  background-color: #fff;
+  /* background-color: #fff; */
 }
 
 #mainNav .navbar-toggler {
@@ -29,12 +29,12 @@
 #mainNav .navbar-nav .nav-item:hover {
   color: fade(white, 80%);
   outline: none;
-  background-color: transparent;
+  /* background-color: transparent; */
 }
 
 #mainNav .navbar-nav .nav-item:active, #mainNav .navbar-nav .nav-item:focus {
   outline: none;
-  background-color: transparent;
+  /* background-color: transparent; */
 }
 
 @media (min-width: 992px) {
@@ -42,7 +42,7 @@
     padding-top: 0;
     padding-bottom: 0;
     border-bottom: none;
-    background-color: transparent;
+    /* background-color: transparent; */
     -webkit-transition: background-color 0.3s ease-in-out;
     transition: background-color 0.3s ease-in-out;
   }
@@ -54,7 +54,9 @@
     -webkit-transition: none;
     transition: none;
     padding: 2rem 1.5rem;
-    color: rgba(255, 255, 255, 0.5);
+    /* color: rgba(255, 255, 255, 0.5); */
+    color: rgba(255, 255, 255, 0.9);
+    /* color:#161616; */
   }
   #mainNav .nav-link:hover {
     color: rgba(255, 255, 255, 0.75);
