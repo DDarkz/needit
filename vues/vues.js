@@ -55,7 +55,7 @@ function vueListerAnnoncesMembres(dataAnnonces) {
 		rep+='<p class="card-text">'+(ligne.listeAchat)+'</p>';
 		rep+='<p class="card-text"><small class="text-muted">Posté le '+(ligne.date)+'</small></p>';
 	
-		rep+="<button type='button' class='btn btn-success mr-2' id='"+(ligne.idAnnonce)+"' name='"+(ligne.idAnnonce)+"' onclick='modifierIdAnnonce(this,this.id)'>Modifier  "+(ligne.idAnnonce)+"</button><button type='button' class='btn btn-danger' id='"+(ligne.idAnnonce)+"' name='"+(ligne.idAnnonce)+"' onclick='listerIdAnnonce(this,this.id)'>Supprimer  "+(ligne.idAnnonce)+"</button>";
+		rep+="<button type='button' class='btn btn-success mr-2' id='"+(ligne.idAnnonce)+"' name='"+(ligne.idAnnonce)+"' onclick='modifierIdAnnonce(this,this.id)'>Modifier</button><button type='button' class='btn btn-danger' id='"+(ligne.idAnnonce)+"' name='"+(ligne.idAnnonce)+"' onclick='listerIdAnnonce(this,this.id)'>Supprimer</button>";
 		rep+='</div>';
 		rep+='</a>';
 		rep+="</div>";
