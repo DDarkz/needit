@@ -81,20 +81,22 @@ session_start();
         <div class="col-lg-8 mx-auto">
           <h2 class="text-white mb-4">Bonjour Membre  </h2>
           <p class="text-white-50">Bienvenue chez GoFor! votre inscription est terminé avec succés. 
-          <!-- <?php
-          $destinataire = 'emna.kh@gmail.com';
-			$envoyeur	='emna.kh@gmail.com';
-     			$sujet = 'Email de test';
-     			$message = "Bonjour !\r\nCeci est un email de test.\r\n";
-	     		$headers = 'From: '.$envoyeur . "\r\n" .
-     				'Reply-To: '.$envoyeur. "\r\n" .
-     				'X-Mailer: PHP/' . phpversion();
-	     		$envoye = mail($destinataire, $sujet, $message, $headers);
-			if ($envoye)
-     				echo "<br />Email envoyé.";
-			else
-        echo "<br />Email refusé.";
-        ?> -->
+            un e-mail de confirmation sera envoyé dans sous peu!
+            
+           <?php
+      //     $destinataire = 'emna.kh@gmail.com';
+			// $envoyeur	='emna.kh@gmail.com';
+     	// 		$sujet = 'Email de test';
+     	// 		$message = "Bonjour !\r\nCeci est un email de test.\r\n";
+	    //  		$headers = 'From: '.$envoyeur . "\r\n" .
+     	// 			'Reply-To: '.$envoyeur. "\r\n" .
+     	// 			'X-Mailer: PHP/' . phpversion();
+	    //  		$envoye = mail($destinataire, $sujet, $message, $headers);
+			// if ($envoye)
+     	// 			echo "<br />Email envoyé.";
+			// else
+      //   echo "<br />Email refusé.";
+        ?> 
            
            </p>
            
