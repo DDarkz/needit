@@ -68,7 +68,7 @@ $_SESSION['idAnnonce'] = $_GET['idAnnonce']
             });
         }
 
-        // setInterval(recupMessage,1000);
+        setInterval(recupMessage,1000);
 
         });
     </script>
