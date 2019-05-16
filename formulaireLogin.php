@@ -50,43 +50,57 @@ if(isset($_POST["login"]))
    
     <!-- debut section -->
     <section id="projects" class="projects-section bg-light">
-    <!-- debut container -->
-    <div class="container pt-5">
-      <?php
-        if (isset($message)) {
-          echo '<div class="alert alert-danger" role="alert">'.$message.'</div>';
-           }
-       ?>
+      <!-- debut container -->
+      <div class="container pt-5">
+        <!-- debut row -->
+        <div class="row">
+          <!-- debut col-lg-8 -->
+          <div class="col-lg-8 mx-auto">
+            <?php
+              if (isset($message)) {
+                echo '<div class="alert alert-danger" role="alert">'.$message.'</div>';
+                }
+            ?>
 
-       <h1>Connectez-vous</h1>
+            <h1>Connectez-vous</h1>
 
-       <!-- debut formulaire -->
-        <form method="post" class="needs-validation" novalidate>
-          <div class="form-group">
-            <label for="courriel" class="col-sm-2 col-form-label">Courriel</label> 
-            <div class="col-sm-10">
-              <input type="text" id="courriel" name="courriel" class="form-control" required>
-              <div class="invalid-feedback">
-                  Veuillez inscrire votre courriel.
-              </div>
-            </div>
+            <!-- debut formulaire -->
+              <form method="post" class="needs-validation" novalidate>
+                <div class="form-group row">
+                  <label for="courriel" class="col-sm-2 col-form-label">Courriel</label> 
+                  <div class="col-sm-10">
+                    <input type="text" id="courriel" name="courriel" class="form-control" required>
+                    <div class="invalid-feedback">
+                        Veuillez inscrire votre courriel.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="password" class="col-sm-2 col-form-label">Password</label> 
+                  <div class="col-sm-10">
+                    <input type="password" id="password" name="password" class="form-control" required>
+                    <div class="invalid-feedback">
+                        Veuillez inscrire votre mot de passe.
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="form-group row">
+                  <div class="col-sm-10 offset-md-2">
+                    <input type="submit" name="login" class="btn btn-primary" value="Connexion" />
+                    <input type="reset" name="reset" class="btn btn-danger" value="Effacer" /> 
+                    <p><a href="#"><br>Mot de passe oublié? </a></p>
+                  </div>
+                </div>
+              </form>
+              <!-- fin formulaire -->
           </div>
-
-          <div class="form-group">
-            <label for="password" class="col-sm-2 col-form-label">Password</label> 
-            <div class="col-sm-10">
-              <input type="password" id="password" name="password" class="form-control" required>
-              <div class="invalid-feedback">
-                  Veuillez inscrire votre mot de passe.
-              </div>
-            </div>
-          </div>
-          <input type="submit" name="login" class="btn btn-primary" value="Connexion" />
-          <p><a href="#"><br>Mot de passe oublié? </a></p>
-        </form>
-        <!-- fin formulaire -->
-    </div>
-    <!-- fin container -->
+          <!-- fin col-lg-8 -->
+        </div>
+        <!-- fin row -->
+      </div>
+      <!-- fin container -->
     </section>
     <!-- fin section -->
     
