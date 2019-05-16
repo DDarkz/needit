@@ -99,6 +99,45 @@
   background-attachment: scroll;
   background-size: cover;
 }
+.bienvenue {
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 35rem;
+  padding: 15rem 0;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(22, 22, 22, 0.3)), color-stop(75%, rgba(22, 22, 22, 0.7)), to(#161616)), url("../img/bg-masthead.jpg");
+  background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.7) 75%, #161616 100%), url("../img/bienvenueimg.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+}
+.propos {
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 35rem;
+  padding: 15rem 0;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(22, 22, 22, 0.3)), color-stop(75%, rgba(22, 22, 22, 0.7)), to(#161616)), url("../img/bg-masthead.jpg");
+  background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.7) 75%, #161616 100%), url("../img/proposimg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+}
+.contact {
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 35rem;
+  padding: 15rem 0;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(22, 22, 22, 0.3)), color-stop(75%, rgba(22, 22, 22, 0.7)), to(#161616)), url("../img/bg-masthead.jpg");
+  background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.7) 75%, #161616 100%), url("../img/contactimg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+}
 
 .masthead h1 {
   font-family: 'Varela Round';
@@ -167,9 +206,10 @@
 }
 
 .about-section {
-  padding-top: 10rem;
+  padding-top: 5rem;
   background: -webkit-gradient(linear, left top, left bottom, from(#161616), color-stop(75%, rgba(22, 22, 22, 0.9)), to(rgba(22, 22, 22, 0.8)));
   background: linear-gradient(to bottom, #161616 0%, rgba(22, 22, 22, 0.9) 75%, rgba(22, 22, 22, 0.8) 100%);
+  /* border:1px solid green; */
 }
 
 .about-section p {
@@ -177,7 +217,8 @@
 }
 
 .projects-section {
-  padding: 10rem 0;
+  padding: 5rem 0;
+  /* border:1px solid yellow; */
 }
 
 .projects-section .featured-text {
@@ -215,6 +256,7 @@
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-size: cover;
+  /* border:1px solid red; */
 }
 
 .signup-section .form-inline input {
@@ -301,4 +343,43 @@ a:focus, a:hover {
 
 footer {
   padding: 5rem 0;
+}
+.couleur{
+  color: white;
+  font-size: 6em;
+}
+
+
+/*chat*/
+.messages-box{
+  height: auto;
+  margin-bottom: 3%;
+  border-radius: 5px;
+  /* border:1px solid red; */
+}
+#message{
+  border: 2px solid black;
+  height: auto;
+  border-radius: 5px;
+  /* border:1px solid green; */
+}
+.bottom .btn:hover{
+  background-color: #fff;
+  color: black;
+}
+.message{
+  padding: 3px 8px;
+  margin:3px 0;
+  border-radius:12px;
+  display:inline-block;
+  min-height:25px;
+  /* border:1px solid yellow; */
+}
+
+.message.message-Livreur{
+  background-color:#3498db;
+  float:right;
+}
+.message.message-demandeur{
+  background-color:#bdc3c7;
 }

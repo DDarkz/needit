@@ -62,28 +62,20 @@ if(isset($_POST["submit"]))
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <script type="text/javascript" src="vues/vues.js"></script>
-    <script type="text/javascript" src="requetes/requetes.js"></script>
-    <script type="text/javascript" src="js/general.js"></script>  
-
     <title>Nouvelle annonce</title>
+
+    <?php include("includes/header-script.php"); ?>
+
   </head>
   <body>
 
     <?php include("includes/menu.php"); ?>
    
-
-    <!-- debut container -->
-    <div class="container pt">
-    <?php
-        if (isset($message)) {
-          echo '<div class="alert alert-danger" role="alert">'.$message.'</div>';
-           }
-       ?>
-       <div class="alert alert-danger" id = "message" role="alert" style="display: none;">
+   <!-- debut section -->
+    <section id="projects" class="projects-section bg-light">
+        <div class="container pt-5">
+    
+       <div class="alert alert-danger" id="message" role="alert" style="display: none;">
           <label>Le code postal n'est pas valide</label>
        </div>
        <h1>Créer votre annonce</h1>
@@ -130,7 +122,7 @@ if(isset($_POST["submit"]))
             
           <div class="form-group row">
             <div class="col-sm-10">
-              <input type="submit" name="submit" class="btn btn-primary" value="Créer l'annonce" />
+              <input type="submit" name="submit" class="btn btn-primary" value="Créer" />
               <button type="rest" name="rest" class="btn btn-danger">Effacer</button>
             </div>
           </div>
@@ -138,6 +130,8 @@ if(isset($_POST["submit"]))
         <!-- fin formulaire -->
     </div>
     <!-- fin container -->
+    </section>
+    <!-- fin section -->
 
     <?php include("includes/footer.php"); ?>
     <?php include("includes/footer-script.php"); ?>

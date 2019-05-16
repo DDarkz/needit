@@ -100,10 +100,11 @@ function ajaxDeleteMembres(elem){
 		url:'serveur/controleur.php',
 		type:'POST',
 		data:{"action":'actCtlDeleteMembre',"idUser":idUser},
-		dataType: 'html', // si en txt je peux utiliser alert
+		dataType: 'json', 
 		success: function(data){
 			//  alert(elem);
 			 $(elem.parentNode.parentNode).remove();
+			 messageAlert('alert-success',data.msg);
 		},
 		fail: function(){
 			alert("Problème pour supprimer.");
@@ -113,16 +114,17 @@ function ajaxDeleteMembres(elem){
 
 function ajaxDeleteAnnonce(elem){
 	var idAnnonce=$('#idAnnonce').val();
-	alert(idAnnonce);
+	// alert(idAnnonce);
 	$.ajax({
 		url:'serveur/controleur.php',
 		type:'POST',
 		data:{"action":'actCtlDeleteAnnonce',"idAnnonce":idAnnonce},
-		dataType: 'json', // si en txt je peux utiliser jquery #loading
+		dataType: 'json',
 		 success: function(data){
 			//  alert(elem);
 			// $(elem.parentNode.parentNode).remove();
 			$(elem).closest('.card').remove();
+			$(elem.parentNode.parentNode).remove();
 			messageAlert('alert-success',data.msg);
 		 },
 		fail: function(){

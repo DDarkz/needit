@@ -11,22 +11,22 @@ session_start();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <script type="text/javascript" src="vues/vues.js"></script>
-    <script type="text/javascript" src="requetes/requetes.js"></script>
     <title>Profil</title>
+
+    <?php include("includes/header-script.php"); ?>
   </head>
-  <body>
-  <!-- debut container -->
-    
+  <body id="page-top">
+  
     <?php include("includes/menu.php"); ?>
-    <div class="container pt">
+
+    <!-- debut section -->
+    <section id="projects" class="projects-section bg-light">
+    <!-- debut container -->
+    <div class="container pt-5">
       <div class="row">
-      <div class='col-12'>
-        <h1>Mon profil</h1>
-      </div>
+        <div class='col-12'>
+          <h1>Mon profil</h1>
+        </div>
         
       <?php
         global $connexion, $rep, $idSession;
@@ -94,8 +94,10 @@ session_start();
        ?>
         
       </div>
-      </div>
+    </div>
     <!-- fin container -->
+    </section>
+
     <?php include("includes/footer.php"); ?>
     <?php include("includes/footer-script.php"); ?>
   </body>

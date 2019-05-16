@@ -50,7 +50,7 @@ session_start();
     </div>
   </section>
 
-    <!-- Projects Section -->
+    <!-- debut section -->
     <section id="projects" class="projects-section bg-light">
         <div class="container">
             <div class="row">
@@ -61,7 +61,8 @@ session_start();
             </div>
         </div>
     </section>
-
+    <!-- fin section -->
+    
     <?php include("includes/footer.php"); ?>
     <?php include("includes/footer-script.php"); ?>
 

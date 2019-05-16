@@ -11,18 +11,7 @@ body h1 {
     font-weight: 400;
 }
 
-.navbar-nav li a:after {
-    /* font-family: themify; */
-    font-size: 80%;
-    content: "\203A";
-    margin-left: 9px;
-    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
-    opacity: 0.5;
-    -moz-transition: all 0.2s ease-out;
-    -o-transition: all 0.2s ease-out;
-    -webkit-transition: all 0.2s ease-out;
-    transition: all 0.2s ease-out;
-}
+
 #annoncesAccueil .card a.text-dark,
 #annoncesAccueil .card a.text-dark:hover {
     text-decoration:none !important;
