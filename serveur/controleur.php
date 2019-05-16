@@ -53,7 +53,7 @@ function ctlListerAnnoncesMembres() {
 				$rep[]=$ligne;
 			 }
 		 } else {
-			$rep['msg'] = "Vous n'avez aucune annonnce.";
+			$rep['msg'] = "Vous n'avez aucune annonce.";
 		 }
 	 } catch (Exception $e){
 		echo "Problème controleur pour lister annonces de ce membre.";
