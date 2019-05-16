@@ -26,6 +26,10 @@ if(isset($_POST["login"]))
           //$message = 'Vous êtes connecté.';
           //header("location:login_success.php");
         }
+        else
+        {
+          $message = 'Courriel OU Password n\'est pas bon.';
+        }
       }
       catch(Exception $e) 
       {
