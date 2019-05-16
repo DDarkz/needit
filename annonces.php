@@ -10,32 +10,28 @@ session_start();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,900" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <script type="text/javascript" src="vues/vues.js"></script>
-    <script type="text/javascript" src="requetes/requetes.js"></script>  
-
     <title>Les annonces</title>
+
+    <?php include("includes/header-script.php"); ?>
   </head>
   <body onload="requetes(null,'actionLister');">
 
     <?php include("includes/menu.php"); ?>
    
-
+    <!-- début section -->
+    <section id="projects" class="projects-section bg-light">
     <!-- debut container -->
-    <div class="container pt">
-    <h1> Annonces</h1>
+    <div class="container pt-5">
+      <h1>Annonces</h1>
 
-       <!-- debut card-columns -->
-    <form>
-    <!-- ajax loader animation -->
-    <div class="text-center">
-      <div class="spinner-border" role="status">
-        <span class="sr-only">Loading...</span>
+        <!-- debut card-columns -->
+      <form>
+      <!-- ajax loader animation -->
+      <div class="text-center">
+        <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
       </div>
-    </div>
 
       <div class="card-columns" id="annoncesAccueil">
           <!-- ici load contenu des annonces -->
@@ -49,8 +45,9 @@ session_start();
     </form>
       <!-- debut card-columns -->
     </div>
-    
     <!-- fin container -->
+    </section>
+    <!-- fin section -->
 
     <script type="text/javascript">
 				function listerIdAnnonce(elem,choixId) {
