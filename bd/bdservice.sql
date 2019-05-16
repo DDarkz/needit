@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  jeu. 16 mai 2019 à 05:08
+-- Généré le :  jeu. 16 mai 2019 à 08:30
 -- Version du serveur :  5.7.17
 -- Version de PHP :  5.6.30
 
@@ -50,11 +50,10 @@ INSERT INTO `annonce` (`idAnnonce`, `idDemandeur`, `idService`, `Titre`, `listeA
 (12, 2, 1, 'Epicerie', '1kg banane/yogourt 0%/fromage Philadelphia léger pot de 500g', 'h3t1n9', 0, '9ab46523aa15bff4e1c1b8c8eab59ebb60e481dd.png', '2019-05-14'),
 (11, 1, 2, 'Achat urgent Jean coutu !', 'Advil Extra fort/ couche bébé taille 4 marque pampers/lait 3.25%', 'h7n3y8', 0, '7877be3b0415ac8358db596a9a969c22a4d33cf7.jpg', '2019-05-14'),
 (15, 2, 3, 'Achat souris sans fil !', 'Souris sans fil M325, bleu marque logitech !\r\ncomme la photo!\r\nprix : 19.99$ !\r\nje donne 5$ pour la livraison  Merci!!', 'h3t1n7', 0, '99e9a0d5ae376b3125e8e00bc800187bd357735d.jpg', '2019-05-14'),
-(16, 3, 1, 'Achat pain', 'pain toast comme figure sur la photo marque et type . Merci !!', 'h7n3y8', 0, '3cbc4c220dd5c754b22dcfb3f098d7ba91d49115.jpg', '2019-05-14'),
+(16, 2, 1, 'Achat pain', 'pain toast comme figure sur la photo marque et type . Merci !!', 'h7n3y8', 0, '3cbc4c220dd5c754b22dcfb3f098d7ba91d49115.jpg', '2019-05-14'),
 (17, 2, 3, 'Au secours ! Besoin de couche rapidement ! (personne handicapé)', 'besoin de lingettes pour bébé  dans maximum une heure ! \r\nmarque et type comme la photo Merci de me contacter!', 'h3t1n4', 0, '70f01c0bb67132868b6d3cb440d2fd4a38bb5acf.jpg', '2019-05-14'),
 (18, 1, 1, 'panier de légumes Bio', '- 3 poivrons(vert,rouge,jaune)\r\n/un brocoli/1kg patates/une boite 250g tomates cerise\r\n/une aubergine/un paquet champignons/2 citrons moyennes/un paquet oignons', 'y4h2l6', 0, '195b55752ce56bcd3c7048bd3f08f58584714968.jpg', '2019-05-14'),
-(19, 5, 1, 'Achat Walmart', 'pizza congelé au chocolat / nutella/oeufs un paquet de 12 / 2 tablette chocolats de marque value de walmart (noisette et noire) Merci!', 'L7k5l1', 0, 'badf927bc5db480d7b7834796057319360ad43bf.jpg', '2019-05-14'),
-(23, 3, 2, 'Advil pharmaprix urgent!', 'Advil comme figure sur la photo de l\'annonce !', 'y7h2l7', 0, '7e2ac08b41c53e0ead0f8aa76c89c906347498ca.jpeg', '2019-05-15');
+(19, 5, 1, 'Achat Walmart', 'pizza congelé au chocolat / nutella/oeufs un paquet de 12 / 2 tablette chocolats de marque value de walmart (noisette et noire) Merci!', 'L7k5l1', 0, 'badf927bc5db480d7b7834796057319360ad43bf.jpg', '2019-05-14');
 
 -- --------------------------------------------------------
 
@@ -73,11 +72,10 @@ CREATE TABLE `connexion` (
 --
 
 INSERT INTO `connexion` (`courriel`, `mdp`, `idUser`) VALUES
-('emna.kh@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 1),
-('britanicus@hotmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 2),
-('admin@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 4),
-('live@hotmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 5),
-('sofiane@gmail.com', '123456', 3);
+('emna.kh@gmail.com', 'leyane', 1),
+('britanicus@hotmail.com', '123456', 2),
+('admin@gmail.com', '123456', 4),
+('live@hotmail.com', '123', 5);
 
 -- --------------------------------------------------------
 
@@ -104,7 +102,7 @@ CREATE TABLE `messages` (
   `demandeur` varchar(255) NOT NULL,
   `idAnnonce` int(11) NOT NULL,
   `message` text NOT NULL,
-  `date` date NOT NULL
+  `date` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -112,9 +110,19 @@ CREATE TABLE `messages` (
 --
 
 INSERT INTO `messages` (`id`, `livreur`, `demandeur`, `idAnnonce`, `message`, `date`) VALUES
-(28, 'britanicus@hotmail.com', 'emna.kh@gmail.com', 5, 'cc', '2019-05-13'),
-(29, 'emna.kh@gmail.com', 'emna.kh@gmail.com', 11, 'cc', '2019-05-14'),
-(30, 'emna.kh@gmail.com', 'emna.kh@gmail.com', 13, 'cc', '2019-05-15');
+(94, 'live@hotmail.com', 'admin@gmail.com', 19, 'Salut live', '00:00:00'),
+(95, 'admin@gmail.com', 'live@hotmail.com', 19, 'Salut', '00:00:00'),
+(96, 'live@hotmail.com', 'admin@gmail.com', 19, 'Salut', '00:00:00'),
+(97, 'admin@gmail.com', 'live@hotmail.com', 19, 'SS', '00:00:00'),
+(98, 'live@hotmail.com', 'admin@gmail.com', 19, 'LL', '00:00:00'),
+(99, 'admin@gmail.com', 'live@hotmail.com', 19, 'AA', '00:00:00'),
+(100, 'live@hotmail.com', 'admin@gmail.com', 19, 'Salut', '01:47:43'),
+(101, 'admin@gmail.com', 'live@hotmail.com', 19, 'Ca va ?', '02:01:56'),
+(102, 'live@hotmail.com', 'admin@gmail.com', 19, 'Salut', '02:15:36'),
+(103, 'admin@gmail.com', 'live@hotmail.com', 19, 'Admin', '02:15:58'),
+(104, 'live@hotmail.com', 'admin@gmail.com', 19, 'Live', '02:16:39'),
+(105, 'admin@gmail.com', 'live@hotmail.com', 19, 'Admin', '02:17:02'),
+(106, 'live@hotmail.com', 'admin@gmail.com', 19, 'Allo', '02:17:24');
 
 -- --------------------------------------------------------
 
@@ -217,7 +225,7 @@ ALTER TABLE `utilisateur`
 -- AUTO_INCREMENT pour la table `annonce`
 --
 ALTER TABLE `annonce`
-  MODIFY `idAnnonce` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `idAnnonce` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT pour la table `livraison`
 --
@@ -227,7 +235,7 @@ ALTER TABLE `livraison`
 -- AUTO_INCREMENT pour la table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
 --
 -- AUTO_INCREMENT pour la table `service`
 --
@@ -237,7 +245,7 @@ ALTER TABLE `service`
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;COMMIT;
+  MODIFY `idUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
