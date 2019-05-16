@@ -22,7 +22,7 @@
               <h4 class="text-uppercase m-0">Email</h4>
               <hr class="my-4">
               <div class="small text-black-50">
-                <a href="#">Gofor@gmail.com</a>
+                <a href="contact.php">Écrivez-nous</a>
               </div>
             </div>
           </div>
@@ -32,9 +32,9 @@
           <div class="card py-4 h-100">
             <div class="card-body text-center">
               <i class="fas fa-mobile-alt text-primary mb-2"></i>
-              <h4 class="text-uppercase m-0">Phone</h4>
+              <h4 class="text-uppercase m-0">Téléphone</h4>
               <hr class="my-4">
-              <div class="small text-black-50">+1 (555) 902-8832</div>
+              <div class="small text-black-50">+1 (514) 555-8832</div>
             </div>
           </div>
         </div>

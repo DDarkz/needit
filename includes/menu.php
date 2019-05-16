@@ -10,22 +10,14 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="index.php">Accueil</a>
+            <a class="nav-link" href="index.php">Accueil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="propos.php">Propos</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="annonces.php">Annonces</a>
+            <a class="nav-link" href="propos.php">À propos</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="contact.php">Contact</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="description.php">Comment ça marche</a>
+            <a class="nav-link" href="annonces.php">Annonces</a>
           </li>
  
           <?php
