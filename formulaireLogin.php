@@ -5,13 +5,6 @@ session_start();
 if(isset($_POST["login"]))
 {
   try {
-  
-      if (empty($_POST["courriel"])  || empty($_POST["password"]))
-      {
-        $message = 'Veuillez remplir tous les champs.';
-      }
-      else
-      {
         $sql = "SELECT * FROM connexion WHERE courriel = :courriel AND mdp = :password";
 
         $statement = $connexion->prepare($sql);
@@ -33,12 +26,6 @@ if(isset($_POST["login"]))
           //$message = 'Vous êtes connecté.';
           //header("location:login_success.php");
         }
-        else
-        {
-          $message = 'Courriel OU Password n\'est pas bon.';
-        }
-      }
-        
       }
       catch(Exception $e) 
       {
@@ -74,12 +61,25 @@ if(isset($_POST["login"]))
        <h1>Connectez-vous</h1>
 
        <!-- debut formulaire -->
-        <form method="post">
+        <form method="post" class="needs-validation" novalidate>
           <div class="form-group">
-            <label for="courriel">Courriel</label> <input type="text" id="courriel" name="courriel" class="form-control">
+            <label for="courriel" class="col-sm-2 col-form-label">Courriel</label> 
+            <div class="col-sm-10">
+              <input type="text" id="courriel" name="courriel" class="form-control" required>
+              <div class="invalid-feedback">
+                  Veuillez inscrire votre courriel.
+              </div>
+            </div>
           </div>
+
           <div class="form-group">
-            <label for="password">Password</label> <input type="password" id="password" name="password" class="form-control">
+            <label for="password" class="col-sm-2 col-form-label">Password</label> 
+            <div class="col-sm-10">
+              <input type="password" id="password" name="password" class="form-control" required>
+              <div class="invalid-feedback">
+                  Veuillez inscrire votre mot de passe.
+              </div>
+            </div>
           </div>
           <input type="submit" name="login" class="btn btn-primary" value="Connexion" />
           <p><a href="#"><br>Mot de passe oublié? </a></p>
@@ -92,5 +92,26 @@ if(isset($_POST["login"]))
     
     <?php include("includes/footer.php"); ?>
     <?php include("includes/footer-script.php"); ?>
+
+    <script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>
   </body>
 </html>
