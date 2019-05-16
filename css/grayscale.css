@@ -8,7 +8,7 @@ body .navbar {
   background-color: #fff;
 }
 
-body .navbar a {
+body .navbar a, body.bgImage .navbar.navbar-shrink a {
   color:#161616 !important;
 }
 
@@ -18,6 +18,10 @@ body.bgImage .navbar {
 
 body.bgImage .navbar a {
   color:#fff !important;
+}
+
+h1 {
+  margin-bottom: 1em;
 }
 
 #mainNav {
