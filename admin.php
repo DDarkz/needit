@@ -18,7 +18,7 @@ if($_SESSION["courriel"] != "admin@gmail.com"){
     <?php include("includes/header-script.php"); ?>
   </head>
   <!-- onload="requetes('actionListerMAdmin'), requetes('actionListerA');" -->
-  <body id="page-top">
+  <body id="page-top" onload="requetes(null,'actionListerMAdmin')">
 
     <?php include("includes/menu.php"); ?>
     
@@ -33,15 +33,15 @@ if($_SESSION["courriel"] != "admin@gmail.com"){
        <h1>Administration des membres et annonces.</h1>
        <ul class="nav nav-pills">
         <li class="nav-item">
-          <a class="nav-link" id="lienMembres" href="#" onclick="requetes(null,'actionListerMAdmin')">Membres</a>
+          <a class="nav-link active btn-info mr-2" id="lienMembres" href="#" onclick="requetes(null,'actionListerMAdmin')">Membres</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="lienAnnonces" href="#" onclick="requetes(null,'actionListerA');">Annonces</a>
+          <a class="nav-link btn-info" id="lienAnnonces" href="#" onclick="requetes(null,'actionListerA');">Annonces</a>
         </li>
       </ul>
        <form>
         <div id="loading"></div>
-        <div id="contenu">
+        <div id="contenu" class="mt-4">
            <!--?php listerMembres(); ?-->
            <!--?php listerAnnonces(); ?-->
         </div>
