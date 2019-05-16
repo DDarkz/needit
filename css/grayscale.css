@@ -4,6 +4,22 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-grayscale/blob/master/LICENSE)
  */
 
+body .navbar {
+  background-color: #fff;
+}
+
+body .navbar a {
+  color:#161616 !important;
+}
+
+body.bgImage .navbar {
+  background-color: transparent;
+}
+
+body.bgImage .navbar a {
+  color:#fff !important;
+}
+
 #mainNav {
   min-height: 56px;
   /* background-color: #fff; */

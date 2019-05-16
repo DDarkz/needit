@@ -18,7 +18,7 @@ session_start();
 
 </head>
 
-<body id="page-top" onload="requetes(null,'actionListerIndex');">
+<body id="page-top" class="bgImage" onload="requetes(null,'actionListerIndex');">
 
 <?php include("includes/menu.php"); ?>
 
