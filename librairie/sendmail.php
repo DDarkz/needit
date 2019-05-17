@@ -2,7 +2,7 @@
 include("bd/connexion.php");
 session_start();
  require 'PHPMailerAutoload.php';
- require '../vendor/autoload.php';
+//  require '../vendor/autoload.php';
  function sendMail($emailClient,$sujet,$message){
     $mail = new PHPMailer;
  $mail->SMTPOptions = array(

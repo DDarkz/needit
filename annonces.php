@@ -15,6 +15,7 @@ session_start();
     <?php include("includes/header-script.php"); ?>
     <style>
     #map{
+      margin-top:1.5em;
       height:400px;
       width:100%;
     }
