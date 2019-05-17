@@ -137,7 +137,7 @@ function ajaxDeleteAnnonce(elem){
 function ajaxMontrerAnnonce(){
 	//var idf=$('#numM').val();
 	var idAnnonce=$('#idAnnonce').val();
-	alert(idAnnonce);
+	//alert(idAnnonce);
 	$.ajax({
 		url:'serveur/controleur.php',
 		type:'POST',
