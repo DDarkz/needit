@@ -137,7 +137,7 @@ function ajaxDeleteAnnonce(elem){
 function ajaxMontrerAnnonce(){
 	//var idf=$('#numM').val();
 	var idAnnonce=$('#idAnnonce').val();
-	alert(idAnnonce);
+	//alert(idAnnonce);
 	$.ajax({
 		url:'serveur/controleur.php',
 		type:'POST',
@@ -170,14 +170,32 @@ function modifier(){
 		success: function(data){
 			vue('modifierJSON',data);
 			messageAlert('alert-success',data.msg);
-			
 		},
 		fail:function(){
 			alert("Vous avez un GROS problème");
 		},
 		complete:function(){
-			// alert("c'est terminé");
-			location.reload();
+			setTimeout(function(){
+				location.reload();
+			}, 2000)    
+			
+		}
+	});
+}
+
+function ajaxRecherche(){
+	var codePostale=$('#codePostale').val();
+	$.ajax({
+		url:'serveur/controleur.php',
+		type:'POST',
+		data: {'action' : 'actCtlRecherche','codePostale':codePostale}, 
+		dataType: 'json',
+		success: function(Annonces){
+			vue('actVueLister',Annonces); 
+			$('spinner-border').hide();
+		},
+		fail:function(){
+			alert("Problème pour lister annonces.");
 		}
 	});
 }
@@ -215,7 +233,11 @@ var requetes = function(elem,action){
 		break;
 		case "actionListerAnnoncesMembres" :
 			ajaxListerAnnoncesMembres();
-			break;
+		break;
+		case "actRecherche" :
+			// alert("coucou");
+			ajaxRecherche();
+		break;
 		default:
 	}
 }

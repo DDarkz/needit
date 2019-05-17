@@ -1,5 +1,6 @@
 <!-- Bootstrap core CSS -->
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script type="text/javascript" src="js/general.js"></script>
 <script type="text/javascript" src="vues/vues.js"></script>
 <script type="text/javascript" src="requetes/requetes.js"></script>  
 

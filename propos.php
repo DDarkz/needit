@@ -17,7 +17,7 @@ session_start();
 
 </head>
 
-<body id="page-top">
+<body id="page-top" class="bgImage">
 
 <?php include("includes/menu.php"); ?>
 

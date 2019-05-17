@@ -67,73 +67,121 @@ if(isset($_POST["submit"]))
     <?php include("includes/header-script.php"); ?>
 
   </head>
-  <body>
+  <body id="page-top">
 
     <?php include("includes/menu.php"); ?>
    
    <!-- debut section -->
     <section id="projects" class="projects-section bg-light">
-        <div class="container pt-5">
+      <!-- debut container -->
+      <div class="container pt-5">
+        <!-- debut row -->
+        <div class="row">
+            <!-- debut col-lg-8 -->
+            <div class="col-lg-8 mx-auto">
     
-       <div class="alert alert-danger" id="message" role="alert" style="display: none;">
-          <label>Le code postal n'est pas valide</label>
-       </div>
-       <h1>Créer votre annonce</h1>
+              <div class="alert alert-danger" id="message" role="alert" style="display: none;">
+                  <label>Le code postal n'est pas valide</label>
+              </div>
 
-       <!-- debut formulaire -->
-        <form method="post" enctype= "multipart/form-data" onsbmit=" return CodePostalValide();">
-          <div class="form-group row">
-            <label for="titre" class="col-sm-2 col-form-label">Titre</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="titre" name="titre" placeholder="Titre">
-            </div>
-          </div>
+              <h1>Créer votre annonce</h1>
 
-          <div class="form-group row">
-            <label for="liste" class="col-sm-2 col-form-label">Liste d'achats</label>
-            <div class="col-sm-10">
-              <textarea class="form-control" id="liste" name="liste" placeholder="Liste d'achats"></textarea>
-            </div>
-          </div>
+              <!-- debut formulaire -->
+              <form method="post" enctype= "multipart/form-data" onsbmit=" return CodePostalValide();" class="needs-validation" novalidate>
+                <div class="form-group row">
+                  <label for="titre" class="col-sm-2 col-form-label">Titre</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="titre" name="titre" placeholder="Titre" required>
+                    <div class="invalid-feedback">
+                      Veuillez inscrire votre titre.
+                    </div>
+                  </div>
+                </div>
 
-          <div class="form-group row">
-            <label for="codepostal" class="col-sm-2 col-form-label">Code postal</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="codepostal" name="codepostal" placeholder="Code postal" onChange="validation()">
-            </div>
-          </div>
-          <div class="form-group row">
-            <label for="service" class="col-sm-2 col-form-label">Service</label>
-            <div class="col-sm-10">
-              <select class="form-select" name="service">
-                <option value="epicerie">Épicerie</option>
-                <option value="pharmacie">Pharmacie</option>
-                <option value="autres">Autres</option>
-              </select>
-            </div>
-          </div>
+                <div class="form-group row">
+                  <label for="liste" class="col-sm-2 col-form-label">Liste d'achats</label>
+                  <div class="col-sm-10">
+                    <textarea rows="4" cols="50" class="form-control" id="liste" name="liste" placeholder="Liste d'achats" required></textarea>
+                    <div class="invalid-feedback">
+                      Veuillez inscrire votre liste d'achats.
+                    </div>
+                  </div>
+                </div>
 
-          <div class="form-group row">
-            <label for="photo" class="col-sm-2 col-form-label">Photo</label>
-            <div class="col-sm-10">
-              <input type="file" class="form-file-input" id="photo" name="photo">
-            </div>
+                <div class="form-group row">
+                  <label for="codepostal" class="col-sm-2 col-form-label">Code Postal</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="codepostal" name="codepostal" placeholder="Code postal" onChange="validation()"  required>
+                    <div class="invalid-feedback">
+                      Veuillez inscrire votre code postal.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                <label for="service" class="col-sm-2 col-form-label">Service</label>
+                  <div class="col-sm-10">
+                    <select class="form-control" id="service" name="service" required>
+                        <option value="">Choisir votre service</option>
+                        <option value="epicerie">Épicerie</option>
+                        <option value="pharmacie">Pharmacie</option>
+                        <option value="autres">Autres</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        Veuillez remplir votre service.
+                    </div>
+                   </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="photo" class="col-sm-2 col-form-label">Photo</label>
+                  <div class="col-sm-10">
+                    <input type="file" class="form-file-input" id="photo" name="photo">
+                  </div>
+                </div>
+                    
+
+                <div class="form-group row">
+                  <div class="col-sm-10 offset-md-2">
+                    <input type="submit" name="submit" class="btn btn-primary" value="Créer" />
+                    <button type="rest" name="rest" class="btn btn-danger">Effacer</button>
+                  </div>
+                </div>
+
+              </form>
+              <!-- fin formulaire -->
           </div>
-            
-          <div class="form-group row">
-            <div class="col-sm-10">
-              <input type="submit" name="submit" class="btn btn-primary" value="Créer" />
-              <button type="rest" name="rest" class="btn btn-danger">Effacer</button>
-            </div>
-          </div>
-        </form>
-        <!-- fin formulaire -->
-    </div>
-    <!-- fin container -->
+          <!-- fin col-lg-8 -->
+        </div>
+        <!-- fin row -->
+      </div>
+      <!-- fin container -->
     </section>
     <!-- fin section -->
 
     <?php include("includes/footer.php"); ?>
     <?php include("includes/footer-script.php"); ?>
+
+<script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>
+
   </body>
 </html>

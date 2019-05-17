@@ -8,7 +8,9 @@ body .navbar {
   background-color: #fff;
 }
 
-body .navbar a {
+body .navbar a, 
+body.bgImage .navbar.navbar-shrink a, 
+body.bgImage .navbar.navbar-shrink a.dropdown-item {
   color:#161616 !important;
 }
 
@@ -16,8 +18,12 @@ body.bgImage .navbar {
   background-color: transparent;
 }
 
-body.bgImage .navbar a {
+body.bgImage .navbar a.nav-link {
   color:#fff !important;
+}
+
+h1 {
+  margin-bottom: 1em;
 }
 
 #mainNav {
@@ -198,7 +204,8 @@ body.bgImage .navbar a {
 .btn {
   -webkit-box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
   box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
-  padding: 1.25rem 2rem;
+  /* padding: 1.25rem 2rem; */
+  padding: 1rem 1.5rem;
   font-family: 'Varela Round';
   font-size: 80%;
   text-transform: uppercase;
@@ -392,12 +399,20 @@ footer {
   display:inline-block;
   min-height:25px;
   /* border:1px solid yellow; */
+  /* display: block; */
 }
 
 .message.message-Livreur{
   background-color:#3498db;
   float:right;
+  clear: right;
 }
 .message.message-demandeur{
   background-color:#bdc3c7;
 }
+
+.message span.txt-message {
+  clear:both; 
+  overflow:hidden;
+  margin:0; 
+  padding:0;

@@ -83,11 +83,13 @@ $headers = 'From: '.$courriel."\r\n".
 'Reply-To: '.$courriel."\r\n" .
 'X-Mailer: PHP/' . phpversion();
 @mail($email_to, $email_subject, $email_message, $headers);  
+
 ?>
  
 <!-- include your own success html here -->
- 
-Thank you for contacting us. We will be in touch with you very soon.
+$message = "Thank you for contacting us. We will be in touch with you very soon.";
+
+
  
 
 <?php
@@ -116,68 +118,104 @@ Thank you for contacting us. We will be in touch with you very soon.
 
   <?php include("includes/menu.php"); ?>
 
-  
-
    <!-- debut section -->
    <section id="projects" class="projects-section bg-light">
-    <div class="container">
+    <div class="container pt-5">
+    <?php
+        if (isset($message)) {
+          echo '<div class="alert alert-danger" role="alert">'.$message.'</div>';
+           }
+       ?>
+
       <div class="row">
         <div class="col-lg-8 mx-auto">
         <h1>Contactez-nous</h1>
-          <h2 class="mb-4">GoFor !</h2>
 
-          <form name="contactform" method="post" action="contact.php"> 
+          <form name="contactform" method="post" action="contact.php" class="needs-validation" novalidate> 
           <div class="form-group row">
             <label for="nom" class="col-sm-2 col-form-label">Nom</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="nom" name="nom" Required>
+              <input type="text" class="form-control" id="nom" name="nom" required>
+              <div class="invalid-feedback">
+                  Veuillez inscrire votre nom.
+              </div>
             </div>
            
           </div>
           <div class="form-group row">
             <label for="prenom" class="col-sm-2 col-form-label">Prénom</label>
             <div class="col-sm-10">
-              <input type="text"  class="form-control" id="prenom" name="prenom"  Required >
+              <input type="text"  class="form-control" id="prenom" name="prenom"  required>
+              <div class="invalid-feedback">
+                  Veuillez inscrire votre prénom.
+              </div>
             </div>
           </div>
           <div class="form-group row">
             <label for="courriel" class="col-sm-2 col-form-label">Courriel</label>
             <div class="col-sm-10">
-              <input type="email" class="form-control" id="courriel" name="courriel" aria-describedby="emailHelp"  Required>
+              <input type="email" class="form-control" id="courriel" name="courriel" aria-describedby="emailHelp" required>
+              <div class="invalid-feedback">
+                  Veuillez inscrire votre courriel.
+              </div>
             </div> 
             
           </div>
           <div class="form-group row">
             <label for="objet" class="col-sm-2 col-form-label">Objet</label>
             <div class="col-sm-10">
-              <input type="text"  class="form-control" id="objet" name="objet"  Required >
+              <input type="text"  class="form-control" id="objet" name="objet"  required>
+              <div class="invalid-feedback">
+                  Veuillez inscrire votre objet.
+              </div>
             </div>
           </div>
           <div class="form-group row">
             <label for="sujet" class="col-sm-2 col-form-label">Sujet</label>
             <div class="col-sm-10">
-              <textarea rows="4" cols="50" id="sujet" name="sujet" class="form-control" ></textarea>
+              <textarea rows="4" cols="50" id="sujet" name="sujet" class="form-control" required></textarea>
+              <div class="invalid-feedback">
+                  Veuillez inscrire votre sujet.
+              </div>
             </div>
           </div>
+
           <div class="form-group row">
             <div class="col-sm-10 offset-md-2">
               <input type="submit" name="submit" class="btn btn-info" value="contacter" />  
-              
+              <input type="reset" name="reset" class="btn btn-danger" value="Effacer" /> 
             </div>
           </div>
           </form><br>
-           <!-- <p> <a href="formulaireLogin.php" class="btn btn-primary js-scroll-trigger">Se connecter</a>
-           <a href="formulaireInscription.php"><br>Pas encore inscrit? </a></p> -->
         </div>
       </div>
-      <!-- <img src="images/Gofor.jpg" class="img-fluid" alt=""> -->
     </div>
   </section>
 
-
-  
     <?php include("includes/footer.php"); ?>
     <?php include("includes/footer-script.php"); ?>
+
+<script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>
+
 </body>
 
 </html>

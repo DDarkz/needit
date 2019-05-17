@@ -53,7 +53,7 @@ function ctlListerAnnoncesMembres() {
 				$rep[]=$ligne;
 			 }
 		 } else {
-			$rep['msg'] = "Vous n'avez aucune annonnce.";
+			$rep['msg'] = "Vous n'avez aucune annonce.";
 		 }
 	 } catch (Exception $e){
 		echo "Problème controleur pour lister annonces de ce membre.";
@@ -211,6 +211,7 @@ function modifier(){
 	$idAnnonce=$_POST['idAnnonce1'];
 	$titre=$_POST['titre'];
 	$listeAchat=$_POST['liste'];
+	// $service=$_POST['service'];
 	$tmp=$_FILES['photo']['tmp_name'];
 	$requete="SELECT pochette FROM annonce WHERE idAnnonce=?";
 	$stmt=$connexion->prepare($requete);
@@ -234,6 +235,30 @@ function modifier(){
 	unset($stmt);
 	echo json_encode($rep);
 }
+
+function ctlRecherche() {
+	global $connexion, $rep;
+	$codePostale=$_POST['codePostale'];
+	$sql = "select * from annonce where codePostale='$codePostale'";
+	try{
+		 $stmt = $connexion->prepare($sql);
+		 $stmt->execute(array($codePostale));
+		 if ($stmt->rowCount() > 0){
+			while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
+				$rep[]=$ligne;
+			 }
+		 } else {
+			$rep['msg'] = "Il n'y a aucune annonce associée à ce code postal.";
+		 }
+	 } catch (Exception $e){
+		echo "Problème controleur pour lister annonces.";
+	 }finally {
+		unset($connexion);
+		unset($stmt);
+		echo json_encode($rep);
+	 }
+}
+
 
 // controleur
 $action=$_POST["action"];
@@ -268,7 +293,10 @@ switch ($action) {
 	case 'actCtlListerAnnoncesMembres':
 		ctlListerAnnoncesMembres();
 		break;
-
+	case 'actCtlRecherche':
+		ctlRecherche();
+		break;
+		
 		
 }
 
