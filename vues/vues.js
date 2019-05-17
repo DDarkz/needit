@@ -212,6 +212,7 @@ var vue=function(action,donnees){
 		break;
 		case "actVueLister":
 			vueListerAnnonces(donnees);
+			messageAlert('alert-danger',donnees.msg);
 		break;
 		case "actVueListerDetail":
 			vueListerAnnoncesDetail(donnees);

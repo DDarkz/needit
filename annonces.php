@@ -22,6 +22,8 @@ session_start();
     <section id="projects" class="projects-section bg-light">
     <!-- debut container -->
     <div class="container pt-5">
+      
+        
       <h1 class="ml-3">Annonces</h1>
 
         <!-- debut card-columns -->
@@ -44,6 +46,9 @@ session_start();
         </form>
         </div>
       
+        <div id="alert">
+          <div class="alert" role="alert"></div>
+        </div>
 
       <div class="card-columns" id="annoncesAccueil">
           <!-- ici load contenu des annonces -->

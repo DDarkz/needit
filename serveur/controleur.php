@@ -243,8 +243,12 @@ function ctlRecherche() {
 	try{
 		 $stmt = $connexion->prepare($sql);
 		 $stmt->execute(array($codePostale));
-		 while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
-			$rep[]=$ligne;
+		 if ($stmt->rowCount() > 0){
+			while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
+				$rep[]=$ligne;
+			 }
+		 } else {
+			$rep['msg'] = "Il n'y a aucune annonce associée à ce code postal.";
 		 }
 	 } catch (Exception $e){
 		echo "Problème controleur pour lister annonces.";
