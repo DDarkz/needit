@@ -170,14 +170,15 @@ function modifier(){
 		success: function(data){
 			vue('modifierJSON',data);
 			messageAlert('alert-success',data.msg);
-			
 		},
 		fail:function(){
 			alert("Vous avez un GROS problème");
 		},
 		complete:function(){
-			// alert("c'est terminé");
-			location.reload();
+			setTimeout(function(){
+				location.reload();
+			}, 2000)    
+			
 		}
 	});
 }

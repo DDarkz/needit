@@ -137,19 +137,41 @@ function vueListerAnnoncesDetail(Annonces) {
 }
 
 function formEnregistrer(){
-	rep='<div id="divEnreg">';
+	rep='<div class="col-lg-8 mx-auto">';
+	rep+='<div id="divEnreg">';
 	rep+='<h2>Modifier cette annonce</h2>';
 	rep+='<form id="enregForm">';
-	rep+='<label for="idAnnonce1" class="col-md-2 col-form-label">Annonce</label>';
-	rep+='<div class="col-md-10 disable"><input class="form-control" type="text" id="idAnnonce1" name="idAnnonce1" readonly value=""></div>';
-	rep+='<label for="titre" class="col-md-2 col-form-label">Titre</label>';
-	rep+='<div class="col-md-10"><input type="text" class="form-control" id="titre" name="titre"></div>';
-	rep+='<label for="liste" class="col-md-2 col-form-label">Liste</label>';
-	rep+='<div class="col-md-10"><textarea col="20" row="10" class="form-control" id="liste" name="liste"></textarea></div>';
-	rep+='<label for="liste" class="col-md-2 col-form-label">Photo</label>';
-	rep+='<input type="file" name="photo"><br><br>';
-	rep+='<div class="col-md-10"><input type="button" class="btn btn-primary" value="Modifier" onClick="requetes(null,\'modifier\');"></div>';
-	rep+='</form></div>';
+	rep+='<div class="form-group row">';
+		rep+='<label for="idAnnonce1" class="col-md-2 col-form-label">Annonce</label>';
+		rep+='<div class="col-md-10 disable"><input class="form-control" type="text" id="idAnnonce1" name="idAnnonce1" readonly value=""></div>';
+	rep+='</div>';
+	rep+='<div class="form-group row">';
+		rep+='<label for="titre" class="col-sm-2 col-form-label">Titre</label>';
+		rep+='<div class="col-sm-10"><input type="text" class="form-control" id="titre" name="titre"></div>';
+	rep+='</div>';
+	rep+='<div class="form-group row">';
+	// rep+='<label for="service" class="col-sm-2 col-form-label">Service</label>';
+	// rep+='<div class="col-sm-10">';
+	// rep+='<select class="form-control" id="service" name="service" required>';
+	// rep+='<option value="">Choisir votre service</option>';
+	// rep+='<option value="">Épicerie</option>';
+	// rep+='<option value="">Pharmacie</option>';
+	// rep+='<option value="">Autres</option>';
+	// rep+='</select>';
+	rep+='</div>';
+	rep+='<div class="form-group row">';
+		rep+='<label for="liste" class="col-sm-2 col-form-label">Liste</label>';
+		rep+='<div class="col-sm-10"><textarea col="20" row="10" class="form-control" id="liste" name="liste"></textarea></div>';
+	rep+='</div>';
+	rep+='<div class="form-group row">';
+		rep+='<label for="liste" class="col-sm-2 col-form-label">Photo</label>';
+		rep+='<input type="file" class="ml-3" name="photo">';
+	rep+='</div>';
+	rep+='<div class="form-group row">';
+	rep+='<div class="col-sm-10"><input type="button" class="btn btn-primary" value="Modifier" onClick="requetes(null,\'modifier\');"></div>';
+	rep+='</div>';
+	rep+='</form>';
+	rep+='</div>';
 return rep;
 }
 
@@ -161,6 +183,7 @@ function vueMontrerAnnonce(data){
 	$('#idAnnonce1').val(data[0].idAnnonce);
 	$('#titre').val(data[0].Titre);
 	$('#liste').html(data[0].listeAchat);
+	// $('#service').html(data[0].idService);
 
 	// $("#test").html('<p>idAnnonce '+(data[0].idAnnonce)+'</p>')
 	// Créer le formulaire divEnreg.

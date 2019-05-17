@@ -211,6 +211,7 @@ function modifier(){
 	$idAnnonce=$_POST['idAnnonce1'];
 	$titre=$_POST['titre'];
 	$listeAchat=$_POST['liste'];
+	// $service=$_POST['service'];
 	$tmp=$_FILES['photo']['tmp_name'];
 	$requete="SELECT pochette FROM annonce WHERE idAnnonce=?";
 	$stmt=$connexion->prepare($requete);
