@@ -39,8 +39,8 @@ session_start();
       
       <div class="form-group row ml-3">
         <form method='post'>
-          <input type='text'id='codePostale'name='codePostale' class="col-sm-12 col-md-2 col-form-label" placeholder="Code postal" aria-label="Recherche">
-          <div class="col-sm-10">
+          <input type='text'id='codePostale'name='codePostale' class="sm-2 col-form-label" placeholder="Code postal" aria-label="Recherche">
+          <div class="ml-1 sm-5">
             <input type="button" class="btn btn-primary" value="Rechercher" onClick="requetes(null,'actRecherche');">
           </div>
         </form>
