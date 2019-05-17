@@ -133,20 +133,6 @@ if(isset($_POST["submit"]))
                    </div>
                 </div>
 
-                <!-- <div class="form-group row">
-                  <label for="service" class="col-sm-2 col-form-label">Service</label>
-                    <div class="col-sm-10">
-                      <select class="form-select" id="service" name="service" required>
-                        <option value="epicerie">Épicerie</option>
-                        <option value="pharmacie">Pharmacie</option>
-                        <option value="autres">Autres</option>
-                      </select>
-                      <div class="invalid-feedback">
-                        Veuillez inscrire votre service.
-                      </div>
-                    </div>
-                </div> -->
-
                 <div class="form-group row">
                   <label for="photo" class="col-sm-2 col-form-label">Photo</label>
                   <div class="col-sm-10">
