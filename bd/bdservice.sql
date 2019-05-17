@@ -72,10 +72,10 @@ CREATE TABLE `connexion` (
 --
 
 INSERT INTO `connexion` (`courriel`, `mdp`, `idUser`) VALUES
-('emna.kh@gmail.com', 'leyane', 1),
-('britanicus@hotmail.com', '123456', 2),
-('admin@gmail.com', '123456', 4),
-('live@hotmail.com', '123', 5);
+('emna.kh@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 1),
+('britanicus@hotmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 2),
+('admin@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 4),
+('live@hotmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 5);
 
 -- --------------------------------------------------------
 
