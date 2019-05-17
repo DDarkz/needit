@@ -1,5 +1,6 @@
 <?php
 include("bd/connexion.php");
+include("librairie/sendmail.php");
 session_start();
 $_SESSION['idAnnonce'] = $_GET['idAnnonce']
 ?>

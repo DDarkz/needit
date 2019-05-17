@@ -49,13 +49,12 @@ if(isset($_POST["submit"]))
         
         mail($destinataire, $sujet, $message, $entete) ; // Envoi du mail*/
 
-        
         header("location: BienvenueMembre.php");
         unset($connexion);
         unset($stmt2);
+
         //exit('fin');
       //}
-        
       }
       catch(Exception $e) 
       {
