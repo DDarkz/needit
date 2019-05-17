@@ -236,6 +236,26 @@ function modifier(){
 	echo json_encode($rep);
 }
 
+function ctlRecherche() {
+	global $connexion, $rep;
+	$codePostale=$_POST['codePostale'];
+	$sql = "select * from annonce where codePostale='$codePostale'";
+	try{
+		 $stmt = $connexion->prepare($sql);
+		 $stmt->execute(array($codePostale));
+		 while($ligne=$stmt->fetch(PDO::FETCH_OBJ)){
+			$rep[]=$ligne;
+		 }
+	 } catch (Exception $e){
+		echo "Problème controleur pour lister annonces.";
+	 }finally {
+		unset($connexion);
+		unset($stmt);
+		echo json_encode($rep);
+	 }
+}
+
+
 // controleur
 $action=$_POST["action"];
 switch ($action) {
@@ -269,7 +289,10 @@ switch ($action) {
 	case 'actCtlListerAnnoncesMembres':
 		ctlListerAnnoncesMembres();
 		break;
-
+	case 'actCtlRecherche':
+		ctlRecherche();
+		break;
+		
 		
 }
 

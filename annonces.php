@@ -22,7 +22,7 @@ session_start();
     <section id="projects" class="projects-section bg-light">
     <!-- debut container -->
     <div class="container pt-5">
-      <h1>Annonces</h1>
+      <h1 class="ml-3">Annonces</h1>
 
         <!-- debut card-columns -->
       <form>
@@ -32,6 +32,18 @@ session_start();
           <span class="sr-only">Loading...</span>
         </div>
       </div>
+
+      <!-- ici test recherche -->
+      
+      <div class="form-group row ml-3">
+        <form method='post'>
+          <input type='text'id='codePostale'name='codePostale' class="col-sm-12 col-md-2 col-form-label" placeholder="Code postal" aria-label="Recherche">
+          <div class="col-sm-10">
+            <input type="button" class="btn btn-primary" value="Rechercher" onClick="requetes(null,'actRecherche');">
+          </div>
+        </form>
+        </div>
+      
 
       <div class="card-columns" id="annoncesAccueil">
           <!-- ici load contenu des annonces -->

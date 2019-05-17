@@ -183,6 +183,23 @@ function modifier(){
 	});
 }
 
+function ajaxRecherche(){
+	var codePostale=$('#codePostale').val();
+	$.ajax({
+		url:'serveur/controleur.php',
+		type:'POST',
+		data: {'action' : 'actCtlRecherche','codePostale':codePostale}, 
+		dataType: 'json',
+		success: function(Annonces){
+			vue('actVueLister',Annonces); 
+			$('spinner-border').hide();
+		},
+		fail:function(){
+			alert("Problème pour lister annonces.");
+		}
+	});
+}
+
 var requetes = function(elem,action){
 	// alert(action);
 	switch(action) {
@@ -216,7 +233,11 @@ var requetes = function(elem,action){
 		break;
 		case "actionListerAnnoncesMembres" :
 			ajaxListerAnnoncesMembres();
-			break;
+		break;
+		case "actRecherche" :
+			// alert("coucou");
+			ajaxRecherche();
+		break;
 		default:
 	}
 }
