@@ -13,6 +13,12 @@ session_start();
     <title>Les annonces</title>
 
     <?php include("includes/header-script.php"); ?>
+    <style>
+    #map{
+      height:400px;
+      width:100%;
+    }
+  </style>
   </head>
   <body id="page-top" onload="requetes(null,'actionLister');">
 
@@ -56,6 +62,9 @@ session_start();
       <div id="annoncesDetail">
         <!-- ici load contenu détail -->
       </div>
+
+      <div id="map">aaaa</div>
+
       <input type="hidden" id="idAnnonce" name="idAnnonce" value="">
       <!-- Récuperer l'email -->
       <input type="hidden" id="email" name="email" value='<?= isset($_SESSION["courriel"])?>'>
@@ -91,6 +100,88 @@ session_start();
           }).bind("ajaxComplete", function(){
           $(".spinner-border").hide();
         });
+    </script>
+
+<script>
+    function initMap(){
+      // Map options
+      var options = {
+        zoom:10,
+        center:{lat:45.48934115,lng:-73.10794069}
+      }
+
+      // New map
+      var map = new google.maps.Map(document.getElementById('map'), options);
+
+      // Array of markers
+      var markers = [
+        {
+          // je veux code_postal:'H4E4B2'
+          coords:{lat:45.48934115,lng:-73.90794069},
+          iconImage:'http://www.joly-design.com/projets-ecole/gofor/images/map-icone.png',
+          content:"<h1>Au secours ! Besoin de couche rapidement !</h1><p>(personne handicapé)besoin de lingettes pour bébé dans maximum une heure ! marque et type comme la photo Merci de me contacter!</p>"
+        },
+        {
+         coords:{lat:45.48934115,lng:-73.10794069},
+          iconImage:'http://www.joly-design.com/projets-ecole/gofor/images/map-icone.png',
+          content:"<h1>Épicerie pour personne âgé!</h1><p>Ma liste d'achat figure sur la photo de l'Annonce merci de me contacter pour plus d'informations supplémentaires !</p>"
+        },
+        {
+          coords:{lat:45.48934115,lng:-72.50794069},
+          iconImage:'http://www.joly-design.com/projets-ecole/gofor/images/map-icone.png',
+          content:"<h1>Achat pain</h1><p>pain toast comme figure sur la photo marque et type. Merci !!</p>"
+        },
+        {
+          coords:{lat:45.38934115,lng:-73.10794069},
+          iconImage:'http://www.joly-design.com/projets-ecole/gofor/images/map-icone.png',
+          content:"<h1>achat bébé</h1><p>4 sacs prêt à manger pour bébé comme figure sur la photo de l'annonce je veux deux de chaque (marque et type pareil) magasin préféré :walmart merci!</p>"
+        },
+        {
+          coords:{lat:45.48934115,lng:-72.50794069},
+          iconImage:'http://www.joly-design.com/projets-ecole/gofor/images/map-icone.png',
+          content:"<h1>Achat Walmart</h1><p>pizza congelé au chocolat / nutella/oeufs un paquet de 12 / 2 tablette chocolats de marque value de walmart (noisette et noire) Merci!</p>"
+        }
+      ];
+
+      // Loop through markers
+      for(var i = 0;i < markers.length;i++){
+        // Add marker
+        addMarker(markers[i]);
+      }
+
+      //google.maps.GeocoderComponentRestrictions
+
+      // Add Marker Function
+      function addMarker(props){
+        var marker = new google.maps.Marker({
+          position:props.coords,
+          map:map,
+          //icon:props.iconImage
+        });
+
+        // Check for customicon
+        if(props.iconImage){
+          // Set icon image
+          marker.setIcon(props.iconImage);
+        }
+
+        // Check content
+        if(props.content){
+          var infoWindow = new google.maps.InfoWindow({
+            content:props.content
+          });
+
+
+          marker.addListener('click', function(){
+            infoWindow.open(map, marker);
+            //geocode.
+          });
+        }
+      }
+    }
+  </script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsguDEnEIm2jqKL7RmZVpPa70eZXfkRN0&callback=initMap">
     </script>
   </body>
 </html>
